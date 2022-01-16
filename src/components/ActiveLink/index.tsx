@@ -7,7 +7,11 @@ interface ActiveLinkProps extends LinkProps {
   shouldMatchExactHref?: boolean;
 }
 
-export const ActiveLink = ({ children, shouldMatchExactHref = false, ...rest }: ActiveLinkProps) => {
+export const ActiveLink = ({
+  children,
+  shouldMatchExactHref = false,
+  ...rest
+}: ActiveLinkProps) => {
   let isActive = false;
   const { asPath } = useRouter();
 
@@ -15,14 +19,17 @@ export const ActiveLink = ({ children, shouldMatchExactHref = false, ...rest }: 
     isActive = true;
   }
 
-  if (!shouldMatchExactHref && (asPath.startsWith(String(rest.href)) || asPath.startsWith(String(rest.as)))) {
+  if (
+    !shouldMatchExactHref &&
+    (asPath.startsWith(String(rest.href)) || asPath.startsWith(String(rest.as)))
+  ) {
     isActive = true;
   }
 
   return (
     <Link {...rest}>
       {cloneElement(children, {
-        color: isActive ? "pink.400" : "gray.50",
+        color: isActive ? "blue.600" : "gray.200",
       })}
     </Link>
   );

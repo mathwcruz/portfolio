@@ -15,6 +15,7 @@ interface NavLinkProps extends ChakraLinkProps {
 }
 
 export const NavLink = ({ icon, children, href, ...rest }: NavLinkProps) => {
+  // Caso o usuário esteja na nota do item do menu, tirar o texto e deixar apenas o ícone
   return (
     <ActiveLink href={href} passHref>
       <ChakraLink display="flex" align="center" {...rest}>

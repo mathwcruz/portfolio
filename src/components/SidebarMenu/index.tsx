@@ -21,7 +21,7 @@ export const SidebarMenu = () => {
   }
 
   return (
-    <Box bg="yellow.100" as="aside" w="64" mr="4">
+    <Box as="aside" w="64" mr="4">
       <SidebarMenuNav />
     </Box>
   );
