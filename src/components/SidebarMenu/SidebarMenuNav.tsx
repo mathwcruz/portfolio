@@ -39,6 +39,8 @@ export const SidebarMenuNav = () => {
       });
   }, [hasCopied]);
 
+  //TODO: add animation
+
   return (
     <Flex
       bg="#0D0D0D"
@@ -62,8 +64,11 @@ export const SidebarMenuNav = () => {
       <NavLink href="/skills" icon={GiHypersonicBolt}>
         Skills
       </NavLink>
-      <NavLink href="/projects" shouldMatchExactHref={false} icon={IoMdDesktop}>
-        {/* TODO: Switch to a menu, which will have the options: Learning, Personal and Professional */}
+      <NavLink
+        href="/personal-projects"
+        shouldMatchExactHref={false}
+        icon={IoMdDesktop}
+      >
         Projects
       </NavLink>
       <NavLink href="/companies" icon={FaHandshake}>

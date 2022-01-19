@@ -13,7 +13,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 // import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
-const Projects: NextPage = () => {
+const PersonalProjects: NextPage = () => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
@@ -46,12 +46,11 @@ const Projects: NextPage = () => {
             onClick={onOpen}
           />
         )}
-        <Heading>Projects</Heading>
-        {/* TODO: Transform projects.tsx into a page containing the files: personal.tsx, professional.tsx and learning.tsx */}
+        <Heading>Personal Projects</Heading>
         {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
   );
 };
 
-export default Projects;
+export default PersonalProjects;
