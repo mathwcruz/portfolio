@@ -1,11 +1,24 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { Text, Heading, Flex } from "@chakra-ui/react";
+import {
+  Text,
+  Heading,
+  Flex,
+  IconButton,
+  Icon,
+  useMediaQuery,
+} from "@chakra-ui/react";
+import { BiMenuAltLeft } from "react-icons/bi";
 
-import { ThemeSwitcher } from "components/ThemeSwitcher";
+// import { ThemeSwitcher } from "components/ThemeSwitcher";
+import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
 const Home: NextPage = () => {
+  const { onOpen } = useSidebarMenuDrawer();
+
+  const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
+
   return (
     <>
       <Head>
@@ -20,9 +33,23 @@ const Home: NextPage = () => {
         flexDirection="column"
         position="relative"
       >
+        {isToShowOpenMenuButton && (
+          <IconButton
+            aria-label="Open menu"
+            icon={<Icon as={BiMenuAltLeft} />}
+            fontSize="30"
+            mr="2"
+            color="white"
+            variant="unstyled"
+            top="3"
+            left="3"
+            position="absolute"
+            onClick={onOpen}
+          />
+        )}
         <Heading>Título</Heading>
         <Text fontSize="xl">Apaixonado por economia</Text>
-        <ThemeSwitcher position="absolute" top="1.5" right="6" />
+        {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
   );
