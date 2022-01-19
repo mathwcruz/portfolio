@@ -2,6 +2,8 @@ import { cloneElement, ReactElement } from "react";
 import { useRouter } from "next/dist/client/router";
 import Link, { LinkProps } from "next/link";
 
+import { verifyRouteHref } from "utils/verifyRouteHref";
+
 interface ActiveLinkProps extends LinkProps {
   children: ReactElement;
   shouldMatchExactHref?: boolean;
@@ -9,22 +11,17 @@ interface ActiveLinkProps extends LinkProps {
 
 export const ActiveLink = ({
   children,
-  shouldMatchExactHref = false,
+  shouldMatchExactHref = true,
   ...rest
 }: ActiveLinkProps) => {
-  let isActive = false;
   const { asPath } = useRouter();
 
-  if (shouldMatchExactHref && (asPath === rest.href || asPath === rest.as)) {
-    isActive = true;
-  }
-
-  if (
-    !shouldMatchExactHref &&
-    (asPath.startsWith(String(rest.href)) || asPath.startsWith(String(rest.as)))
-  ) {
-    isActive = true;
-  }
+  const isActive = verifyRouteHref(
+    asPath,
+    shouldMatchExactHref,
+    rest.href,
+    rest
+  );
 
   return (
     <Link {...rest}>
