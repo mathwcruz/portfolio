@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { Flex, Box, Icon, ChakraProvider } from "@chakra-ui/react";
+import { Flex, Icon, ChakraProvider } from "@chakra-ui/react";
 
 import { SidebarMenuDrawerProvider } from "contexts/SidebarMenuDrawerContext";
 import { SidebarMenu } from "components/SidebarMenu";
@@ -14,16 +14,16 @@ function App({ Component, pageProps }: AppProps) {
       <SidebarMenuDrawerProvider>
         <Flex w="100vw">
           <SidebarMenu />
-          <Box
+          <Flex
             as="main"
-            display="flex"
             alignItems="center"
             justifyContent="center"
             flex={1}
             w="100%"
+            h="100vh"
           >
             <Component {...pageProps} />
-          </Box>
+          </Flex>
         </Flex>
       </SidebarMenuDrawerProvider>
     </ChakraProvider>
