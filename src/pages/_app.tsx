@@ -1,11 +1,5 @@
 import type { AppProps } from "next/app";
-import {
-  Flex,
-  Box,
-  useColorModeValue,
-  ChakraProvider,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Flex, Box, Icon, ChakraProvider } from "@chakra-ui/react";
 
 import { SidebarMenuDrawerProvider } from "contexts/SidebarMenuDrawerContext";
 import { SidebarMenu } from "components/SidebarMenu";
@@ -13,12 +7,12 @@ import { SidebarMenu } from "components/SidebarMenu";
 import { theme } from "styles/theme";
 
 function App({ Component, pageProps }: AppProps) {
-  // Tentar entender pq não funciona modificar a cor de fundo da página ao mudar o tema para light ou dark
+  // TODO: Try to understand why it does not work to modify the background color of the page when changing the theme to light or dark
 
   return (
     <ChakraProvider theme={theme}>
       <SidebarMenuDrawerProvider>
-        <Flex w="100vw" h="100vh">
+        <Flex w="100vw">
           <SidebarMenu />
           <Box
             as="main"

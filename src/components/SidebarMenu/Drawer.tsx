@@ -24,8 +24,8 @@ export const Drawer = ({
   return (
     <ChakraDrawer isOpen={isOpen} placement="left" onClose={onClose}>
       <DrawerOverlay>
-        <DrawerContent bg="gray.800" p="4">
-          <DrawerCloseButton mt="6" />
+        <DrawerContent bg="#0D0D0D" p="1.5">
+          <DrawerCloseButton mt="3" color="white" />
           <DrawerHeader>{description}</DrawerHeader>
           <DrawerBody>{children}</DrawerBody>
         </DrawerContent>
