@@ -1,18 +1,41 @@
+import { useEffect } from "react";
 import Image from "next/image";
-import { Flex, Box, Icon, IconButton } from "@chakra-ui/react";
 import {
-  RiContactsLine,
-  RiDashboardLine,
-  RiGitMergeLine,
-  RiInputMethodLine,
-} from "react-icons/ri";
+  Flex,
+  Box,
+  Icon,
+  IconButton,
+  useClipboard,
+  useToast,
+} from "@chakra-ui/react";
+import { BsLinkedin, BsPersonBoundingBox } from "react-icons/bs";
+import { FaHandshake } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
-import { BsLinkedin } from "react-icons/bs";
+import { GiHypersonicBolt } from "react-icons/gi";
 import { HiOutlineMail } from "react-icons/hi";
+import { IoMdHome, IoMdDesktop } from "react-icons/io";
 
 import { NavLink } from "components/SidebarMenu/NavLink";
 
 export const SidebarMenuNav = () => {
+  const { hasCopied, onCopy } = useClipboard(
+    process.env.NEXT_PUBLIC_PERSONAL_EMAIL
+  );
+
+  const toast = useToast();
+
+  useEffect(() => {
+    hasCopied &&
+      toast({
+        title: "E-mail copied to clipboard successfully!",
+        description: "Now you can send me a message",
+        status: "success",
+        duration: 2000,
+        position: "top",
+        isClosable: true,
+      });
+  }, [hasCopied]);
+
   return (
     <Flex
       bg="#0D0D0D"
@@ -27,24 +50,20 @@ export const SidebarMenuNav = () => {
         width={150}
         height={150}
       />
-      <NavLink href="/" icon={RiDashboardLine}>
+      <NavLink href="/" icon={IoMdHome}>
         Home
       </NavLink>
-      <NavLink href="/about" icon={RiContactsLine}>
+      <NavLink href="/about" icon={BsPersonBoundingBox}>
         About
       </NavLink>
-      <NavLink href="/skills" icon={RiInputMethodLine}>
+      <NavLink href="/skills" icon={GiHypersonicBolt}>
         Skills
       </NavLink>
-      <NavLink
-        href="/projects"
-        shouldMatchExactHref={false}
-        icon={RiGitMergeLine}
-      >
+      <NavLink href="/projects" shouldMatchExactHref={false} icon={IoMdDesktop}>
         {/* TODO: Switch to a menu, which will have the options: Learning, Personal and Professional */}
         Projects
       </NavLink>
-      <NavLink href="/companies" icon={RiGitMergeLine}>
+      <NavLink href="/companies" icon={FaHandshake}>
         Companies
       </NavLink>
       <Flex flexDirection="row" gap="4px">
@@ -75,6 +94,7 @@ export const SidebarMenuNav = () => {
           color="white"
           variant="unstyled"
           title="E-mail"
+          onClick={onCopy}
           //TODO: create a function to copy to clipboard tmy e-mail address then show a message to the user, for UX
         />
       </Flex>
