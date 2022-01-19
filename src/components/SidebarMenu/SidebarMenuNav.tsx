@@ -98,7 +98,6 @@ export const SidebarMenuNav = () => {
           variant="unstyled"
           title="E-mail"
           onClick={onCopy}
-          //TODO: create a function to copy to clipboard tmy e-mail address then show a message to the user, for UX
         />
       </Flex>
     </Flex>

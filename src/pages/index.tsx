@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import {
   Text,
   Heading,
@@ -47,8 +46,7 @@ const Home: NextPage = () => {
             onClick={onOpen}
           />
         )}
-        <Heading>Título</Heading>
-        <Text fontSize="xl">Apaixonado por economia</Text>
+        <Heading>Home</Heading>
         {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
