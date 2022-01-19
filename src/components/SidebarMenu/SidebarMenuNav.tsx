@@ -16,8 +16,11 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoMdHome, IoMdDesktop } from "react-icons/io";
 
 import { NavLink } from "components/SidebarMenu/NavLink";
+import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
 export const SidebarMenuNav = () => {
+  const { isOpen } = useSidebarMenuDrawer();
+
   const { hasCopied, onCopy } = useClipboard(
     process.env.NEXT_PUBLIC_PERSONAL_EMAIL
   );
@@ -42,7 +45,7 @@ export const SidebarMenuNav = () => {
       flexDirection="column"
       alignItems="center"
       justifyContent="space-evenly"
-      h="100vh"
+      h={isOpen ? "100%" : "100vh"}
     >
       <Image
         alt="Avatar do Matheus da Cruz"
