@@ -6,7 +6,7 @@ export const theme = extendTheme({
     useSystemColorMode: false,
   },
   colors: {
-    black: "#0D0D0D",
+    black: "#121212",
     blue: {
       "600": "#2C4FDB",
     },
@@ -14,5 +14,13 @@ export const theme = extendTheme({
   fonts: {
     heading: "Overpass",
     body: "Raleway",
+  },
+  styles: {
+    global: {
+      body: {
+        bg: "black",
+        color: "blue.600",
+      },
+    },
   },
 });
