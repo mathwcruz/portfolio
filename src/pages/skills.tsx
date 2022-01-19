@@ -7,6 +7,7 @@ import { supabase } from "services/supabase";
 const Skills: NextPage = () => {
   const [programmingSkills, setProgrammingSkills] = useState([]);
 
+  // TODO: Make request via server side rendering
   useEffect(() => {
     const fetchProgrammingSkills = async () => {
       const { data: programmingSkills, error } = await supabase
