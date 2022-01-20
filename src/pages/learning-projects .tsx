@@ -1,5 +1,6 @@
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
+import { ApiError } from "@supabase/supabase-js";
 import {
   Text,
   Heading,
@@ -13,10 +14,31 @@ import { BiMenuAltLeft } from "react-icons/bi";
 // import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
-const LearningProjects: NextPage = () => {
+type LearningProject = {
+  id: string;
+  name: string;
+  type: string;
+  banner: string;
+  technologies: string[];
+  description?: string;
+  websiteUrl?: string;
+  githubRepository?: string;
+};
+
+interface LearningProjectsProps {
+  learningProjects: LearningProject[];
+  error: ApiError;
+}
+
+const LearningProjects: NextPage = ({
+  learningProjects,
+  error,
+}: LearningProjectsProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
+
+  console.log({ learningProjects });
 
   return (
     <>
@@ -55,3 +77,31 @@ const LearningProjects: NextPage = () => {
 };
 
 export default LearningProjects;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data, error } = await supabase
+    .from("projects")
+    .select("*")
+    .eq("type", "learning");
+
+  const learningProjects = data?.map((project) => {
+    return {
+      id: project?.id,
+      name: project?.name,
+      type: project?.type,
+      banner: project?.banner,
+      technologies: project?.technologies,
+      description: project?.description,
+      websiteUrl: project?.website_url,
+      githubRepository: project?.github_repository,
+    };
+  });
+
+  return {
+    props: {
+      learningProjects,
+      error,
+    },
+    revalidate: 60 * 60 * 3, // = 3 horas
+  };
+};

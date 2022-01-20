@@ -1,6 +1,7 @@
 import type { NextPage, GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import { ApiError } from "@supabase/supabase-js";
 import {
   Text,
   Heading,
@@ -16,7 +17,19 @@ import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
 import { supabase } from "services/supabase";
 
-const Skills: NextPage = ({ programmingSkills, error }) => {
+type ProgrammingSkill = {
+  id: number;
+  name: string;
+  proficiency: number;
+  icon: string;
+};
+
+interface SkillsProps {
+  programmingSkills: ProgrammingSkill[];
+  error: ApiError;
+}
+
+const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
@@ -61,11 +74,16 @@ const Skills: NextPage = ({ programmingSkills, error }) => {
 export default Skills;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data: programmingSkills, error } = await supabase
-    .from("programming_skills")
-    .select("*");
+  const { data, error } = await supabase.from("programming_skills").select("*");
 
-  console.log({ programmingSkills });
+  const programmingSkills = data?.map((skill) => {
+    return {
+      id: skill?.id,
+      name: skill?.name,
+      proficiency: skill?.proficiency,
+      icon: skill?.icon,
+    };
+  });
 
   return {
     props: {

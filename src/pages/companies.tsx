@@ -1,5 +1,6 @@
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
+import { ApiError } from "@supabase/supabase-js";
 import {
   Text,
   Heading,
@@ -13,10 +14,23 @@ import { BiMenuAltLeft } from "react-icons/bi";
 // import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
-const Companies: NextPage = () => {
+type Company = {
+  id: string;
+  name: string;
+  logo: string;
+};
+
+interface CompaniesProps {
+  companies: Company[];
+  error: ApiError;
+}
+
+const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
+
+  console.log({ companies });
 
   return (
     <>
@@ -54,3 +68,23 @@ const Companies: NextPage = () => {
 };
 
 export default Companies;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data, error } = await supabase.from("companies").select("*");
+
+  const companies = data?.map((company) => {
+    return {
+      id: company?.id,
+      name: company?.name,
+      logo: company?.logo,
+    };
+  });
+
+  return {
+    props: {
+      companies,
+      error,
+    },
+    revalidate: 60 * 60 * 3, // = 3 horas
+  };
+};
