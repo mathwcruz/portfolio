@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import {
   Text,
@@ -12,9 +12,21 @@ import { BiMenuAltLeft } from "react-icons/bi";
 
 // import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+import { api } from "services/api";
 
-const About: NextPage = () => {
+type Profile = {
+  avatar_url: string;
+  company: string;
+};
+
+interface AboutProps {
+  profile: Profile;
+}
+
+const About: NextPage = ({ profile }: AboutProps) => {
   const { onOpen } = useSidebarMenuDrawer();
+
+  console.log({ profile });
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
@@ -54,3 +66,14 @@ const About: NextPage = () => {
 };
 
 export default About;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data: profile } = await api.get(process.env.API_URL);
+
+  return {
+    props: {
+      profile,
+    },
+    revalidate: 60 * 60 * 2, // = 2 horas
+  };
+};
