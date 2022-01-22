@@ -13,6 +13,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 
 // import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+import { supabase } from "services/supabase";
 
 type ProfessionalProject = {
   id: string;

@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticProps } from "next";
+import type { NextPage, getServerSideProps } from "next";
 import Head from "next/head";
 import {
   Text,
@@ -67,13 +67,12 @@ const About: NextPage = ({ profile }: AboutProps) => {
 
 export default About;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: getServerSideProps = async () => {
   const { data: profile } = await api.get(process.env.API_URL);
 
   return {
     props: {
       profile,
     },
-    revalidate: 60 * 60 * 2, // = 2 horas
   };
 };

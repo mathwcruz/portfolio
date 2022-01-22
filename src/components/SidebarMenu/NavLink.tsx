@@ -5,6 +5,7 @@ import {
   Link as ChakraLink,
   Icon,
   LinkProps as ChakraLinkProps,
+  Flex,
 } from "@chakra-ui/react";
 
 import { ActiveLink } from "components/ActiveLink";
@@ -35,7 +36,15 @@ export const NavLink = ({
       shouldMatchExactHref={shouldMatchExactHref}
     >
       {/* TODO: add animation when change just icon to icon and text */}
-      <ChakraLink display="flex" align="center" {...rest}>
+      <ChakraLink
+        borderBottom="1px"
+        borderColor="gray.300"
+        display="flex"
+        align="center"
+        pb="2"
+        _hover={{ color: "blue.600" }}
+        {...rest}
+      >
         {isActive ? (
           <Icon as={icon} fontSize="26" />
         ) : (

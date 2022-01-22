@@ -1,19 +1,19 @@
-import type { NextPage } from "next";
+import type { NextPage, getServerSideProps } from "next";
 import Head from "next/head";
-import {
-  Text,
-  Heading,
-  Flex,
-  IconButton,
-  Icon,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Flex, IconButton, Icon, Image, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 // import { ThemeSwitcher } from "components/ThemeSwitcher";
+import { SummaryAboutMe } from "components/Texts/SummaryAboutMe";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+import { api } from "services/api";
 
-const Home: NextPage = () => {
+interface HomeProps {
+  personalPicture: string;
+  currentCompany?: string;
+}
+
+const Home: NextPage = ({ personalPicture, currentCompany }: HomeProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
@@ -46,7 +46,10 @@ const Home: NextPage = () => {
             onClick={onOpen}
           />
         )}
-        <Heading>Home</Heading>
+        <SummaryAboutMe
+          personalPicture={personalPicture}
+          currentCompany={currentCompany}
+        />
         {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
@@ -54,3 +57,14 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: getServerSideProps = async () => {
+  const { data } = await api.get(process.env.API_URL);
+
+  return {
+    props: {
+      personalPicture: data?.avatar_url,
+      currentCompany: data?.company,
+    },
+  };
+};

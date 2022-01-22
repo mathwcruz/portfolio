@@ -50,10 +50,10 @@ export const SidebarMenuNav = () => {
       h={isOpen ? "100%" : "100vh"}
     >
       <Image
-        alt="Avatar do Matheus da Cruz"
+        alt="Matheus da Cruz avatar"
         src="/images/logo.png"
-        width={150}
-        height={150}
+        width={180}
+        height={180}
       />
       <NavLink href="/" icon={IoMdHome}>
         Home
@@ -75,11 +75,13 @@ export const SidebarMenuNav = () => {
         Companies
       </NavLink>
       <Flex flexDirection="row" gap="4px">
+        {/* TODO: componentize social media icons */}
         <IconButton
           aria-label="Github"
           icon={<Icon as={FiGithub} />}
           fontSize="22"
           color="white"
+          _hover={{ color: "blue.600" }}
           variant="unstyled"
           title="Github"
           onClick={() => window.open("https://github.com/mathwcruz")}
@@ -89,6 +91,7 @@ export const SidebarMenuNav = () => {
           icon={<Icon as={BsLinkedin} />}
           fontSize="22"
           color="white"
+          _hover={{ color: "blue.600" }}
           variant="unstyled"
           title="Linkedin"
           onClick={() =>
@@ -100,6 +103,7 @@ export const SidebarMenuNav = () => {
           icon={<Icon as={HiOutlineMail} />}
           fontSize="30"
           color="white"
+          _hover={{ color: "blue.600" }}
           variant="unstyled"
           title="E-mail"
           onClick={onCopy}
