@@ -46,7 +46,7 @@ export const NavLink = ({
         {...rest}
       >
         {isActive ? (
-          <Icon as={icon} fontSize="26" />
+          <Icon as={icon} fontSize="26" title={children} />
         ) : (
           <>
             {" "}
