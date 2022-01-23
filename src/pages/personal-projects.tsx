@@ -8,8 +8,13 @@ import {
   IconButton,
   Icon,
   useMediaQuery,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  Box,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
+import { CgFormatSlash } from "react-icons/cg";
 
 // import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
@@ -69,6 +74,26 @@ const PersonalProjects: NextPage = ({
             onClick={onOpen}
           />
         )}
+        <Box position="absolute" top="16" left="3">
+          {/* TODO: componentize <Breadcrumb /> */}
+          <Breadcrumb
+            fontSize={["md", "md", "lg"]}
+            fontWeight="medium"
+            color="gray.200"
+            spacing="2px"
+            separator={<CgFormatSlash size={24} />}
+          >
+            <BreadcrumbItem>
+              <BreadcrumbLink isCurrentPage>Projects</BreadcrumbLink>
+            </BreadcrumbItem>
+
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/personal-projects">
+                Personal
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          </Breadcrumb>
+        </Box>
         <Heading>Personal Projects</Heading>
         {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
