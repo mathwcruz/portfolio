@@ -43,6 +43,7 @@ export const NavLink = ({
         align="center"
         pb="2"
         _hover={{ color: "blue.600" }}
+        _focus={{ outline: "none" }}
         {...rest}
       >
         {isActive ? (
