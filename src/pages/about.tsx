@@ -2,15 +2,16 @@ import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import {
   Text,
-  Heading,
   Flex,
   IconButton,
   Icon,
   useMediaQuery,
+  Image,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 // import { ThemeSwitcher } from "components/ThemeSwitcher";
+import { AboutMe } from "components/Texts/AboutMe";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { api } from "services/api";
 import { supabase } from "services/supabase";
@@ -46,6 +47,7 @@ interface AboutProps {
   experience: Experience[];
   graduations: Graduation[];
   education: Education[];
+  totalProjectsCount: number;
 }
 
 const About: NextPage = ({
@@ -54,6 +56,7 @@ const About: NextPage = ({
   experience,
   graduations,
   education,
+  totalProjectsCount,
 }: AboutProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
@@ -63,19 +66,24 @@ const About: NextPage = ({
     experience,
     graduations,
     education,
+    totalProjectsCount,
   });
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
+  const [isToShowTabsInformation] = useMediaQuery("(max-width: 950px)");
+  const [isToGroupImageAndText] = useMediaQuery("(min-width: 1000px)");
 
   return (
     <>
       <Head>
         <title>Matheus da Cruz</title>
       </Head>
+      {/* TODO: resolve height fixed problem */}
 
       <Flex
         w="100%"
         h="100%"
+        p="5"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
@@ -95,7 +103,15 @@ const About: NextPage = ({
             onClick={onOpen}
           />
         )}
-        <Heading>About</Heading>
+        <Image
+          borderRadius={!isToGroupImageAndText && "md"}
+          borderLeftRadius={isToGroupImageAndText && "md"}
+          boxSize={["180px", "250px", "300px", "340px"]}
+          src={avatarUrl}
+          alt="Matheus da Cruz"
+        />
+        <AboutMe totalProjectsCount={totalProjectsCount} />
+        {/* TODO: in mobile version, create tabs that will change the content between experience, education and graduations */}
         {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
@@ -109,7 +125,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const { data: profile } = await api.get(process.env.API_URL);
 
   // experience data
-  const { data: experience_data, error: experience_error } = await supabase
+  const { data: experience_data, error: experienceError } = await supabase
     .from("experience")
     .select("*");
 
@@ -125,7 +141,7 @@ export const getStaticProps: GetStaticProps = async () => {
   });
 
   // graduations data
-  const { data: graduations_data, error: graduations_error } = await supabase
+  const { data: graduations_data, error: graduationsError } = await supabase
     .from("graduations")
     .select("*");
 
@@ -140,7 +156,7 @@ export const getStaticProps: GetStaticProps = async () => {
   });
 
   // education data
-  const { data: education_data, error: education_error } = await supabase
+  const { data: education_data, error: educationError } = await supabase
     .from("education")
     .select("*");
 
@@ -154,6 +170,11 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   });
 
+  // total projects developed
+  const { data: allProjects, error: totalProjectsCountError } = await supabase
+    .from("projects")
+    .select("*");
+
   return {
     props: {
       avatarUrl: profile?.avatar_url,
@@ -161,6 +182,7 @@ export const getStaticProps: GetStaticProps = async () => {
       experience,
       graduations,
       education,
+      totalProjectsCount: allProjects?.length,
     },
     revalidate: 60 * 60 * 3, // = 3 hour
   };
