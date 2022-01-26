@@ -1,22 +1,17 @@
+import { useState } from "react";
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
-import {
-  Text,
-  Flex,
-  IconButton,
-  Icon,
-  useMediaQuery,
-  Image,
-} from "@chakra-ui/react";
+import { Flex, IconButton, Icon, Image, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 // import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { AboutMe } from "components/Texts/AboutMe";
+import { AboutMe as AboutMeTabs } from "components/Tabs/AboutMe";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { api } from "services/api";
 import { supabase } from "services/supabase";
 
-type Experience = {
+export type Experience = {
   id: string;
   companyName: string;
   companyWebsiteUrl: string;
@@ -25,7 +20,7 @@ type Experience = {
   experiencePeriod: string;
 };
 
-type Graduation = {
+export type Graduation = {
   id: string;
   institution: string;
   institutionWebsiteUrl: string;
@@ -33,7 +28,7 @@ type Graduation = {
   graduationPeriod: string;
 };
 
-type Education = {
+export type Education = {
   id: string;
   institution: string;
   institutionWebsiteUrl: string;
@@ -60,18 +55,23 @@ const About: NextPage = ({
 }: AboutProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
-  console.log({
-    avatarUrl,
-    currentCompany,
-    experience,
-    graduations,
-    education,
-    totalProjectsCount,
-  });
+  // console.log({
+  //   avatarUrl,
+  //   currentCompany,
+  //   experience,
+  //   graduations,
+  //   education,
+  //   totalProjectsCount,
+  // });
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
-  const [isToShowTabsInformation] = useMediaQuery("(max-width: 950px)");
-  const [isToGroupImageAndText] = useMediaQuery("(min-width: 1000px)");
+
+  // Slider controll
+  const [tabIndex, setTabIndex] = useState<number>(0);
+
+  const handleTabsChange = (index: number) => {
+    setTabIndex(index);
+  };
 
   return (
     <>
@@ -103,15 +103,25 @@ const About: NextPage = ({
             onClick={onOpen}
           />
         )}
-        <Image
-          borderRadius={!isToGroupImageAndText && "md"}
-          borderLeftRadius={isToGroupImageAndText && "md"}
-          boxSize={["180px", "250px", "300px", "340px"]}
-          src={avatarUrl}
-          alt="Matheus da Cruz"
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          flexDirection="column"
+          mb="12"
+        >
+          <Image
+            borderRadius="md"
+            boxSize={["180px", "250px", "300px", "320px"]}
+            src={avatarUrl}
+            alt="Matheus da Cruz"
+          />
+          <AboutMe totalProjectsCount={totalProjectsCount} />
+        </Flex>
+        <AboutMeTabs
+          tabIndex={tabIndex}
+          handleTabsChange={handleTabsChange}
+          data={{ experience, graduations, education }}
         />
-        <AboutMe totalProjectsCount={totalProjectsCount} />
-        {/* TODO: in mobile version, create tabs that will change the content between experience, education and graduations */}
         {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
