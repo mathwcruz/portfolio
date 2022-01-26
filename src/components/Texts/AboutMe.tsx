@@ -24,14 +24,14 @@ export const AboutMe = ({ totalProjectsCount }) => {
       gap="10px"
       w="full"
       maxW={["270px", "380px", "480px", "600px"]}
-      mt="12"
+      mt="10"
     >
-      <Text fontSize={["md", "md", "lg"]} fontWeight="medium" color="gray.100">
+      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
         Nice to meet you, I&apos;m Matheus da Cruz, a brazilian born in Rio
         Grande do Sul, <TextHighlight text="Software Developer" /> specialized
         in <TextHighlight text="Front End" />.
       </Text>
-      <Text fontSize={["md", "md", "lg"]} fontWeight="medium" color="gray.100">
+      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
         Passionate about <TextHighlight text="technology" />,{" "}
         <TextHighlight text="blockchain" />, <TextHighlight text="astronomy" />{" "}
         and <TextHighlight text="economics" />, I also love to travel, meet new
@@ -40,7 +40,7 @@ export const AboutMe = ({ totalProjectsCount }) => {
         self-critical, I like talk a lot, but I&apos;m also very anxious and
         sometimes I talk even more.
       </Text>
-      <Text fontSize={["md", "md", "lg"]} fontWeight="medium" color="gray.100">
+      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
         I started in the world of programming in the second half of 2020, where
         I began to learn and develop my first projects with{" "}
         <TextHighlight text="HTML" />, <TextHighlight text="CSS" /> and{" "}
@@ -57,14 +57,14 @@ export const AboutMe = ({ totalProjectsCount }) => {
         </ChakraLink>{" "}
         that I&apos;ve perfected over time.
       </Text>
-      <Text fontSize={["md", "md", "lg"]} fontWeight="medium" color="gray.100">
+      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
         After much study, dedication and headache, my first career opportunity
         knocked into my door, the same company I currently work for,{" "}
         <TextHighlight text="Combate à Fraude (CAF)" />, helping in the
         development of applications that has as main goal to make the web a
         safer and more ethical place.
       </Text>
-      <Text fontSize={["md", "md", "lg"]} fontWeight="medium" color="gray.100">
+      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
         In addition to the projects developed for companies, I have already
         developed {totalProjectsCount} personal projects, you can check they by{" "}
         <ChakraLink
@@ -77,7 +77,7 @@ export const AboutMe = ({ totalProjectsCount }) => {
         </ChakraLink>
         .
       </Text>
-      <Text fontSize={["md", "md", "lg"]} fontWeight="medium" color="gray.100">
+      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
         My main goal in the area of technology is to solve a major global
         problem through technology.
       </Text>
