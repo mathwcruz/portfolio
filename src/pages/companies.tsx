@@ -42,6 +42,7 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
       <Flex
         w="100%"
         h="100%"
+        p="5"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
