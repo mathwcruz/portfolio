@@ -26,7 +26,8 @@ const Home: NextPage = ({ personalPicture, currentCompany }: HomeProps) => {
 
       <Flex
         w="100%"
-        h="100%"
+        h="100vh"
+        p="5"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"

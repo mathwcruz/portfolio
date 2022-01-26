@@ -13,16 +13,9 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <SidebarMenuDrawerProvider>
-        <Flex w="100vw">
+        <Flex>
           <SidebarMenu />
-          <Flex
-            as="main"
-            alignItems="center"
-            justifyContent="center"
-            flex={1}
-            w="100%"
-            h="100vh"
-          >
+          <Flex as="main" alignItems="center" justifyContent="center" flex={1}>
             <Component {...pageProps} />
           </Flex>
         </Flex>

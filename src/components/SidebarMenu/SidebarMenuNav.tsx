@@ -42,7 +42,7 @@ export const SidebarMenuNav = () => {
       flexDirection="column"
       alignItems="center"
       justifyContent="space-evenly"
-      h={isOpen ? "100%" : "100vh"}
+      h="100%"
     >
       <Image
         alt="Matheus da Cruz avatar"
