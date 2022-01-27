@@ -44,7 +44,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
 
       <Flex
         w="100%"
-        h="100%"
+        h="100vh"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"

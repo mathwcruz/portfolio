@@ -49,7 +49,7 @@ const LearningProjects: NextPage = ({
 
       <Flex
         w="100%"
-        h="100%"
+        h="100vh"
         p="5"
         alignItems="center"
         justifyContent="center"

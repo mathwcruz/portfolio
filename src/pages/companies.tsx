@@ -7,6 +7,8 @@ import {
   Flex,
   IconButton,
   Icon,
+  Image,
+  Link as ChakraLink,
   useMediaQuery,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -19,6 +21,7 @@ type Company = {
   id: string;
   name: string;
   logo: string;
+  websiteUrl: string;
 };
 
 interface CompaniesProps {
@@ -41,11 +44,11 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
 
       <Flex
         w="100%"
-        h="100%"
+        h="100vh"
         p="5"
+        flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        flexDirection="column"
         position="relative"
       >
         {isToShowOpenMenuButton && (
@@ -62,7 +65,46 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
             onClick={onOpen}
           />
         )}
-        <Heading>Companies</Heading>
+        <Flex position="absolute" top="20" left="20" flexDirection="column">
+          <Heading fontSize="6xl" color="blue.600" fontWeight="bold">
+            Companies
+          </Heading>
+          <Text
+            pl="2"
+            mt="-10px"
+            fontSize="lg"
+            fontWeight="normal"
+            color="gray.300"
+          >
+            in which I had an active participation in the development of their
+            products and services
+          </Text>
+        </Flex>
+        <Flex>
+          {companies?.map((company) => (
+            <ChakraLink
+              key={company.id}
+              textDecoration="none"
+              borderRadius="md"
+              border="solid"
+              borderColor="gray.300"
+              borderWidth="2px"
+              cursor="pointer"
+              _hover={{ borderColor: "gray.100" }}
+              href={company?.websiteUrl}
+            >
+              <Image
+                alt={company?.name}
+                src={company?.logo}
+                title={company?.name}
+                height="100px"
+                width="300px"
+                px="1"
+                py="2"
+              />
+            </ChakraLink>
+          ))}
+        </Flex>
         {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
@@ -72,20 +114,23 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
 export default Companies;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data, error } = await supabase.from("companies").select("*");
+  const { data, error: companiesError } = await supabase
+    .from("companies")
+    .select("*");
 
   const companies = data?.map((company) => {
     return {
       id: company?.id,
       name: company?.name,
       logo: company?.logo,
+      websiteUrl: company?.website_url,
     };
   });
 
   return {
     props: {
       companies,
-      error,
+      error: companiesError,
     },
     revalidate: 60 * 60 * 3, // = 3 horas
   };
