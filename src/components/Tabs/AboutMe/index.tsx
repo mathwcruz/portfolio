@@ -1,6 +1,7 @@
 import {
   Box,
   Flex,
+  Grid,
   Heading,
   Text,
   Image,
@@ -25,8 +26,6 @@ interface AboutMeProps {
 
 export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
   const { experience, graduations, education } = data;
-
-  console.log({ experience, graduations, education });
 
   return (
     <Box w="75%">
@@ -68,7 +67,7 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                 <ChakraLink
                   color="white"
                   fontWeight="medium"
-                  fontSize="sm"
+                  fontSize="md"
                   _hover={{ opacity: "0.9", textDecoration: "underline" }}
                   _focus={{ outline: "none" }}
                   isExternal
@@ -76,21 +75,16 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                 >
                   {xp?.companyName}
                 </ChakraLink>
-                <Heading mt="1.5" fontSize="md" fontWeight="semibold">
+                <Heading mt="1.5" fontSize="lg" fontWeight="semibold">
                   {xp?.position}
                 </Heading>
-                <Text
-                  mt="1.5"
-                  fontSize="small"
-                  fontWeight="normal"
-                  color="white"
-                >
+                <Text mt="1.5" fontSize="sm" fontWeight="normal" color="white">
                   {xp?.experiencePeriod}
                 </Text>
                 <Flex gap="5px" alignItems="center" justifyContent="center">
                   {xp?.technologies?.map((technology) => (
                     <Image
-                      boxSize="25px"
+                      boxSize="30px"
                       alt="tech"
                       mt="1.5"
                       src={technology}
@@ -102,7 +96,38 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
             ))}
           </TabPanel>
           <TabPanel>
-            <Box p="6">Education</Box>
+            <Grid
+              justifyContent="center"
+              templateColumns={["1fr", "1fr", "1fr", "repeat(2, 1fr)"]}
+              w={["85%", "80%", "80%", "80%", "65%"]}
+            >
+              {education?.map((ed) => (
+                <Box p="4" key={ed?.id}>
+                  <ChakraLink
+                    color="white"
+                    fontWeight="medium"
+                    fontSize="md"
+                    _hover={{ opacity: "0.9", textDecoration: "underline" }}
+                    _focus={{ outline: "none" }}
+                    isExternal
+                    href={ed?.institutionWebsiteUrl}
+                  >
+                    {ed?.institution}
+                  </ChakraLink>
+                  <Heading mt="1.5" fontSize="lg" fontWeight="semibold">
+                    {ed?.name}
+                  </Heading>
+                  <Text
+                    mt="1.5"
+                    fontSize="sm"
+                    fontWeight="normal"
+                    color="white"
+                  >
+                    {ed?.educationPeriod}
+                  </Text>
+                </Box>
+              ))}
+            </Grid>
           </TabPanel>
           <TabPanel>
             {graduations?.map((graduation) => (
@@ -110,7 +135,7 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                 <ChakraLink
                   color="white"
                   fontWeight="medium"
-                  fontSize="sm"
+                  fontSize="md"
                   _hover={{ opacity: "0.9", textDecoration: "underline" }}
                   _focus={{ outline: "none" }}
                   isExternal
@@ -118,15 +143,10 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                 >
                   {graduation?.institution}
                 </ChakraLink>
-                <Heading mt="1.5" fontSize="md" fontWeight="semibold">
+                <Heading mt="1.5" fontSize="lg" fontWeight="semibold">
                   {graduation?.course}
                 </Heading>
-                <Text
-                  mt="1.5"
-                  fontSize="small"
-                  fontWeight="normal"
-                  color="white"
-                >
+                <Text mt="1.5" fontSize="sm" fontWeight="normal" color="white">
                   {graduation?.graduationPeriod}
                 </Text>
               </Box>

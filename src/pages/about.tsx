@@ -55,15 +55,6 @@ const About: NextPage = ({
 }: AboutProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
-  // console.log({
-  //   avatarUrl,
-  //   currentCompany,
-  //   experience,
-  //   graduations,
-  //   education,
-  //   totalProjectsCount,
-  // });
-
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
   // Slider controll
@@ -78,7 +69,6 @@ const About: NextPage = ({
       <Head>
         <title>Matheus da Cruz</title>
       </Head>
-      {/* TODO: resolve height fixed problem */}
 
       <Flex
         w="100%"
