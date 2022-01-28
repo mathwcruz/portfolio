@@ -65,14 +65,23 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
             onClick={onOpen}
           />
         )}
-        <Flex position="absolute" top="20" left="20" flexDirection="column">
-          <Heading fontSize="6xl" color="blue.600" fontWeight="bold">
+        <Flex
+          position="absolute"
+          top={["70", "20"]}
+          left={["5", "5", "10"]}
+          flexDirection="column"
+        >
+          <Heading
+            fontSize={["2xl", "2xl", "4xl", "6xl"]}
+            color="blue.600"
+            fontWeight="bold"
+          >
             Companies
           </Heading>
           <Text
-            pl="2"
-            mt="-10px"
-            fontSize="lg"
+            pl={["0", "0", "2"]}
+            mt={["0", "0", "-10px"]}
+            fontSize={["md", "lg"]}
             fontWeight="normal"
             color="gray.300"
           >
@@ -90,15 +99,15 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
               borderColor="gray.300"
               borderWidth="2px"
               cursor="pointer"
-              _hover={{ borderColor: "gray.100" }}
+              _hover={{ borderColor: "white" }}
               href={company?.websiteUrl}
             >
               <Image
                 alt={company?.name}
                 src={company?.logo}
                 title={company?.name}
-                height="100px"
-                width="300px"
+                height={["83px", "93px", "100px"]}
+                width={["250px", "280px", "300px"]}
                 px="1"
                 py="2"
               />
