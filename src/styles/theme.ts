@@ -10,6 +10,9 @@ export const theme = extendTheme({
     blue: {
       "600": "#2C4FDB",
     },
+    custom: {
+      "500": "#2C4FDB",
+    },
   },
   fonts: {
     heading: "Overpass",

@@ -31,8 +31,8 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
     <Box w="75%">
       <Tabs
         align="center"
-        variant="soft-rounded"
-        colorScheme="cyan"
+        variant="solid-rounded"
+        colorScheme="blue"
         index={tabIndex}
         onChange={handleTabsChange}
       >
