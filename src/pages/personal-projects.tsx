@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import type { NextPage, GetStaticProps } from "next";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import { ApiError } from "@supabase/supabase-js";
 import {
@@ -36,11 +38,16 @@ const PersonalProjects: NextPage = ({
   personalProjects,
   error,
 }: PersonalProjectsProps) => {
+  const { query } = useRouter();
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
   console.log({ personalProjects });
+
+  useEffect(() => {
+    console.log({ query });
+  }, [query]);
 
   // TODO: Add transitions and effects;
 
