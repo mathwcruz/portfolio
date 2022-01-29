@@ -34,7 +34,7 @@ export const SidebarMenuNav = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasCopied]);
 
-  //TODO: add animation
+  //TODO: add animation and effects
 
   return (
     <Flex
@@ -60,11 +60,11 @@ export const SidebarMenuNav = () => {
         Skills
       </NavLink>
       <NavLink
-        href="/personal-projects"
+        href="/portfolio"
         shouldMatchExactHref={false}
         icon={IoMdDesktop}
       >
-        Projects
+        Portfolio
       </NavLink>
       <NavLink href="/companies" icon={FaHandshake}>
         Companies
