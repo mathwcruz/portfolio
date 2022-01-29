@@ -4,7 +4,6 @@ import Head from "next/head";
 import { Flex, IconButton, Icon, Image, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
-// import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { AboutMe } from "components/Texts/AboutMe";
 import { AboutMe as AboutMeTabs } from "components/Tabs/AboutMe";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
@@ -64,6 +63,8 @@ const About: NextPage = ({
     setTabIndex(index);
   };
 
+  // TODO: Add transitions and effects;
+
   return (
     <>
       <Head>
@@ -112,7 +113,6 @@ const About: NextPage = ({
           handleTabsChange={handleTabsChange}
           data={{ experience, graduations, education }}
         />
-        {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
   );
@@ -158,7 +158,8 @@ export const getStaticProps: GetStaticProps = async () => {
   // education data
   const { data: education_data, error: educationError } = await supabase
     .from("education")
-    .select("*");
+    .select("*")
+    .order("id", { ascending: true });
 
   const education = education_data?.map((ed) => {
     return {

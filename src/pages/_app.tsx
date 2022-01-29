@@ -8,8 +8,6 @@ import { theme } from "styles/theme";
 import "styles/main.css";
 
 function App({ Component, pageProps }: AppProps) {
-  // TODO: Try to understand why it does not work to modify the background color of the page when changing the theme to light or dark
-
   return (
     <ChakraProvider theme={theme}>
       <SidebarMenuDrawerProvider>

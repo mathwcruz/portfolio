@@ -16,7 +16,6 @@ import {
 import { BiMenuAltLeft } from "react-icons/bi";
 import { CgFormatSlash } from "react-icons/cg";
 
-// import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { supabase } from "services/supabase";
 
@@ -45,6 +44,8 @@ const PersonalProjects: NextPage = ({
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
   console.log({ personalProjects });
+
+  // TODO: Add transitions and effects;
 
   return (
     <>
@@ -96,7 +97,6 @@ const PersonalProjects: NextPage = ({
           </Breadcrumb>
         </Box>
         <Heading>Personal Projects</Heading>
-        {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
   );

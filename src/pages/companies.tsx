@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
-// import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { supabase } from "services/supabase";
 
@@ -34,7 +33,7 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
-  console.log({ companies });
+  // TODO: Add transitions and effects;
 
   return (
     <>
@@ -112,7 +111,6 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
             </ChakraLink>
           ))}
         </Flex>
-        {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
   );

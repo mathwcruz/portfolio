@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
-// import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { supabase } from "services/supabase";
 
@@ -40,6 +39,8 @@ const LearningProjects: NextPage = ({
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
   console.log({ learningProjects });
+
+  // TODO: Add transitions and effects;
 
   return (
     <>
@@ -71,8 +72,6 @@ const LearningProjects: NextPage = ({
           />
         )}
         <Heading>Learning Projects</Heading>
-        {/* TODO: Transform projects.tsx into a page containing the files: personal.tsx, professional.tsx and learning.tsx */}
-        {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
   );

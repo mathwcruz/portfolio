@@ -3,7 +3,6 @@ import Head from "next/head";
 import { Flex, IconButton, Icon, Image, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
-// import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { SummaryAboutMe } from "components/Texts/SummaryAboutMe";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { api } from "services/api";
@@ -17,6 +16,8 @@ const Home: NextPage = ({ personalPicture, currentCompany }: HomeProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
+
+  // TODO: Add transitions and effects;
 
   return (
     <>
@@ -51,7 +52,6 @@ const Home: NextPage = ({ personalPicture, currentCompany }: HomeProps) => {
           personalPicture={personalPicture}
           currentCompany={currentCompany}
         />
-        {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
   );
