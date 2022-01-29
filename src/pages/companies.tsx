@@ -106,10 +106,8 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
                 alt={company?.name}
                 src={company?.logo}
                 title={company?.name}
-                height={["83px", "93px", "100px"]}
-                width={["250px", "280px", "300px"]}
-                px="1"
-                py="2"
+                width={["200px", "230px", "250px"]}
+                p="3"
               />
             </ChakraLink>
           ))}

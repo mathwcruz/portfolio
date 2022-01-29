@@ -32,7 +32,7 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
       <Tabs
         align="center"
         variant="soft-rounded"
-        colorScheme="blue"
+        colorScheme="cyan"
         index={tabIndex}
         onChange={handleTabsChange}
       >

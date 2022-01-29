@@ -97,7 +97,7 @@ const About: NextPage = ({
           alignItems="center"
           justifyContent="center"
           flexDirection="column"
-          mb="12"
+          my="12"
         >
           <Image
             borderRadius="md"
