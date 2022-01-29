@@ -15,7 +15,6 @@ import {
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
-// import { ThemeSwitcher } from "components/ThemeSwitcher";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
 import { supabase } from "services/supabase";
@@ -37,7 +36,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
-  console.log({ programmingSkills, error });
+  // TODO: Add transitions and effects;
 
   return (
     <>
@@ -68,7 +67,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
             onClick={onOpen}
           />
         )}
-        <Flex mt="10" alignSelf="flex-start" flexDirection="column">
+        <Flex mt="50px" alignSelf="flex-start" flexDirection="column">
           <Heading
             fontSize={["3xl", "4xl", "5xl", "6xl"]}
             color="blue.600"
@@ -88,12 +87,13 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
         <Grid
           gap="10"
           my="8"
+          w="70%"
           templateColumns={[
             "repeat(1, 1fr)",
+            "repeat(1, 1fr)",
+            "repeat(1, 1fr)",
+            "repeat(1, 1fr)",
             "repeat(2, 1fr)",
-            "repeat(2, 1fr)",
-            "repeat(2, 1fr)",
-            "repeat(3, 1fr)",
           ]}
           alignItems="center"
           justifyContent="center"
@@ -101,11 +101,10 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
           {programmingSkills?.map((skill) => (
             <Flex
               key={skill?.id}
-              flexDirection="column"
               alignItems="center"
-              justifyContent="center"
-              gap="2"
-              p={["9", "8", "7", "6"]}
+              justifyContent="flex-start"
+              gap="6"
+              p="4"
               border="solid"
               borderWidth="2px"
               borderRadius="md"
@@ -115,43 +114,41 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
               <Image
                 alt={skill?.name}
                 src={skill?.icon}
-                height={["70px", "85px", "90px", "105px"]}
-                width={["70px", "85px", "90px", "105px"]}
+                title={skill?.name}
+                height={["65px", "70px", "75px", "85px"]}
+                width={["65px", "70px", "75px", "85px"]}
               />
-              <Text
-                fontSize={["md", "lg", "xl"]}
-                fontWeight="semibold"
-                color="gray.100"
-                textAlign="center"
-              >
-                {skill?.name}
-              </Text>
               <Flex
-                w="100%"
-                gap="2"
+                flexDirection="column"
                 alignItems="center"
                 justifyContent="center"
+                w="100%"
+                gap="8px"
               >
+                <Text
+                  fontSize={["md", "lg"]}
+                  fontWeight="semibold"
+                  color="gray.100"
+                  textAlign="start"
+                  alignSelf="start"
+                >
+                  {skill?.name}
+                </Text>
                 <Progress
                   value={skill?.proficiency}
+                  title="Proficiency"
                   max={100}
                   min={1}
                   size="sm"
                   width="100%"
                   bg="white"
                   borderRadius="lg"
-                  colorScheme="cyan"
+                  colorScheme="custom"
                 />
-                <Text
-                  fontWeight="bold"
-                  fontSize="smaller"
-                  color="gray.100"
-                >{`${skill?.proficiency}%`}</Text>
               </Flex>
             </Flex>
           ))}
         </Grid>
-        {/* <ThemeSwitcher position="absolute" top="1.5" right="6" /> */}
       </Flex>
     </>
   );
@@ -160,7 +157,10 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
 export default Skills;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data, error } = await supabase.from("programming_skills").select("*");
+  const { data, error } = await supabase
+    .from("programming_skills")
+    .select("*")
+    .order("id", { ascending: true });
 
   const programmingSkills = data?.map((skill) => {
     return {
