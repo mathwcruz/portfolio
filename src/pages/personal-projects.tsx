@@ -7,15 +7,12 @@ import {
   Flex,
   IconButton,
   Icon,
-  useMediaQuery,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
   Box,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { CgFormatSlash } from "react-icons/cg";
 
+import { Breadcrumb } from "components/Breadcrumb";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { supabase } from "services/supabase";
 
@@ -77,24 +74,7 @@ const PersonalProjects: NextPage = ({
           />
         )}
         <Box position="absolute" top="16" left="3">
-          {/* TODO: componentize <Breadcrumb /> */}
-          <Breadcrumb
-            fontSize={["md", "md", "lg"]}
-            fontWeight="medium"
-            color="gray.200"
-            spacing="2px"
-            separator={<CgFormatSlash size={24} />}
-          >
-            <BreadcrumbItem>
-              <BreadcrumbLink isCurrentPage>Projects</BreadcrumbLink>
-            </BreadcrumbItem>
-
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/personal-projects">
-                Personal
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
+          <Breadcrumb currentPage="Personal" />
         </Box>
         <Heading>Personal Projects</Heading>
       </Flex>
