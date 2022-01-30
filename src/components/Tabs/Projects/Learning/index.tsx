@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { ProjectsList } from "components/Tabs/Projects/ProjectsList";
+
 export type LearningProject = {
   id: string;
   name: string;
@@ -24,7 +26,6 @@ export const LearningProjects = ({ projects }: LearningProjectsProps) => {
         return {
           id: project?.id,
           name: project?.name,
-          type: project?.type,
           banner: project?.banner,
           technologies: project?.technologies,
           description: project?.description,
@@ -37,7 +38,5 @@ export const LearningProjects = ({ projects }: LearningProjectsProps) => {
     }
   }, [projects]);
 
-  useEffect(() => console.log({ learningProjects }), [learningProjects]);
-
-  return <h2>ola</h2>;
+  return <ProjectsList projects={learningProjects} />;
 };

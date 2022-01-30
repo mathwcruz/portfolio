@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import { ApiError } from "@supabase/supabase-js";
@@ -11,6 +11,7 @@ import {
   Icon,
   Box,
   useMediaQuery,
+  CircularProgress,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
@@ -25,13 +26,22 @@ const Portfolio: NextPage = () => {
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
   const [projects, setProjects] = useState([]);
+  const [isLoadingProjects, setIsLoadingProjects] = useState(false);
 
   useEffect(async () => {
-    const { data: projects, error: projectError } = await supabase
-      .from("projects")
-      .select("*");
+    setIsLoadingProjects(true);
 
-    setProjects(projects);
+    try {
+      const { data: projects, error: projectError } = await supabase
+        .from("projects")
+        .select("*")
+        .order("id", { ascending: true });
+
+      setIsLoadingProjects(false);
+      setProjects(projects);
+    } catch (error) {
+      console.log({ error });
+    }
   }, []);
 
   // Slider controll
@@ -40,6 +50,16 @@ const Portfolio: NextPage = () => {
   const handleTabsChange = (index: number) => {
     setTabIndex(index);
   };
+
+  const subtitle = useMemo(() => {
+    if (tabIndex === 0)
+      return "developed with the aim of improving technical skills";
+
+    if (tabIndex === 1) return "developed in courses and tutorials";
+
+    if (tabIndex === 2)
+      return "that I had a significant participation in their development";
+  }, [tabIndex]);
 
   // TODO: Add transitions and effects;
 
@@ -51,7 +71,7 @@ const Portfolio: NextPage = () => {
 
       <Flex
         w="100%"
-        h="100vh"
+        h={isLoadingProjects ? "100vh" : "100%"}
         p="5"
         alignItems="center"
         justifyContent="center"
@@ -98,15 +118,22 @@ const Portfolio: NextPage = () => {
             fontWeight="normal"
             color="gray.300"
           >
-            that I had a significant participation in their development
+            {subtitle}
           </Text>
         </Flex>
-        <ProjectsTabs
-          handleTabsChange={handleTabsChange}
-          tabIndex={tabIndex}
-          // projectTypeIndex={projectTypeIndex}
-          allProjects={projects}
-        />
+        {isLoadingProjects ? (
+          <CircularProgress
+            isIndeterminate={isLoadingProjects}
+            color="blue.600"
+            my="96"
+          />
+        ) : (
+          <ProjectsTabs
+            handleTabsChange={handleTabsChange}
+            tabIndex={tabIndex}
+            allProjects={projects}
+          />
+        )}
       </Flex>
     </>
   );

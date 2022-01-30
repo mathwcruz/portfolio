@@ -36,7 +36,6 @@ interface ProjectsTabsProps {
 export const ProjectsTabs = ({
   handleTabsChange,
   tabIndex,
-  // projectTypeIndex,
   allProjects,
 }: ProjectsTabsProps) => {
   const [personalProjects, setPersonalProjects] = useState<
@@ -67,53 +66,53 @@ export const ProjectsTabs = ({
     }
   }, [allProjects]);
 
+  // TODO: Add transitions and effects;
+
   return (
-    <>
-      <Box w="85%">
-        <Tabs
-          align="center"
-          variant="solid-rounded"
-          colorScheme="blue"
-          index={tabIndex}
-          onChange={handleTabsChange}
-        >
-          <TabList>
-            <Tab
-              fontSize={["sm", "md"]}
-              fontWeight="medium"
-              _focus={{ outline: "none" }}
-            >
-              Personal
-            </Tab>
-            <Tab
-              fontSize={["sm", "md"]}
-              fontWeight="medium"
-              _focus={{ outline: "none" }}
-            >
-              Learning
-            </Tab>
-            <Tab
-              fontSize={["sm", "md"]}
-              fontWeight="medium"
-              _focus={{ outline: "none" }}
-            >
-              {" "}
-              Professional
-            </Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel>
-              <PersonalProjects projects={personalProjects} />
-            </TabPanel>
-            <TabPanel>
-              <LearningProjects projects={learningProjects} />
-            </TabPanel>
-            <TabPanel>
-              <ProfessionalProjects projects={professionalProjects} />
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
-      </Box>
-    </>
+    <Box mt="56" w="95%">
+      <Tabs
+        align="center"
+        variant="solid-rounded"
+        colorScheme="blue"
+        index={tabIndex}
+        onChange={handleTabsChange}
+      >
+        <TabList>
+          <Tab
+            fontSize={["sm", "md"]}
+            fontWeight="medium"
+            _focus={{ outline: "none" }}
+          >
+            Personal
+          </Tab>
+          <Tab
+            fontSize={["sm", "md"]}
+            fontWeight="medium"
+            _focus={{ outline: "none" }}
+          >
+            Learning
+          </Tab>
+          <Tab
+            fontSize={["sm", "md"]}
+            fontWeight="medium"
+            _focus={{ outline: "none" }}
+          >
+            {" "}
+            Professional
+          </Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <PersonalProjects projects={personalProjects} />
+          </TabPanel>
+          <TabPanel>
+            <LearningProjects projects={learningProjects} />
+          </TabPanel>
+          <TabPanel>
+            <ProfessionalProjects projects={professionalProjects} />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Box>
   );
 };

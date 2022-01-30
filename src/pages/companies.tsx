@@ -99,7 +99,9 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
               borderWidth="2px"
               cursor="pointer"
               _hover={{ borderColor: "white" }}
+              _focus={{ outline: "none" }}
               href={company?.websiteUrl}
+              isExternal
             >
               <Image
                 alt={company?.name}
