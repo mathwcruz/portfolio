@@ -1,5 +1,7 @@
 import { Flex, Image, Text, Link as ChakraLink } from "@chakra-ui/react";
 
+import { CustomLink } from "components/CustomLink";
+
 interface SummaryAboutMeProps {
   personalPicture: string;
   currentCompany?: string;
@@ -63,14 +65,15 @@ export const SummaryAboutMe = ({
           major global problem through technology. I dedicate myself constantly
           to perfect myself as a developer and professional to be prepared for a
           challenge of this magnitude. Get to know a little more about me{" "}
-          <ChakraLink
-            textDecoration="underline"
-            color="blue.600"
-            _hover={{ opacity: "0.8" }}
-            href="/about"
-          >
-            clicking here
-          </ChakraLink>
+          <CustomLink href="/about">
+            <ChakraLink
+              textDecoration="underline"
+              color="blue.600"
+              _hover={{ opacity: "0.8" }}
+            >
+              clicking here
+            </ChakraLink>
+          </CustomLink>
         </Text>
       </Flex>
     </Flex>

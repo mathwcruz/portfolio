@@ -1,5 +1,7 @@
 import { Flex, Text, Link as ChakraLink } from "@chakra-ui/react";
 
+import { CustomLink } from "components/CustomLink";
+
 interface TextHighlightProps {
   text: string;
 }
@@ -47,14 +49,15 @@ export const AboutMe = ({ totalProjectsCount }) => {
         <TextHighlight text="Javascript" />. I fell in love face to face for the
         front end and I decided that I would study and develop myself to be an
         expert in this branch. Check out the{" "}
-        <ChakraLink
-          textDecoration="underline"
-          color="blue.600"
-          _hover={{ opacity: "0.8" }}
-          href="/skills"
-        >
-          technologies
-        </ChakraLink>{" "}
+        <CustomLink href="/skills">
+          <ChakraLink
+            textDecoration="underline"
+            color="blue.600"
+            _hover={{ opacity: "0.8" }}
+          >
+            technologies
+          </ChakraLink>
+        </CustomLink>{" "}
         that I&apos;ve perfected over time.
       </Text>
       <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
@@ -67,14 +70,15 @@ export const AboutMe = ({ totalProjectsCount }) => {
       <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
         In addition to the projects developed for companies, I have already
         developed {totalProjectsCount} personal projects, you can check they by{" "}
-        <ChakraLink
-          textDecoration="underline"
-          color="blue.600"
-          _hover={{ opacity: "0.8" }}
-          href="/personal-projects"
-        >
-          clicking here
-        </ChakraLink>
+        <CustomLink href="/portfolio">
+          <ChakraLink
+            textDecoration="underline"
+            color="blue.600"
+            _hover={{ opacity: "0.8" }}
+          >
+            clicking here
+          </ChakraLink>
+        </CustomLink>
         .
       </Text>
       <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">

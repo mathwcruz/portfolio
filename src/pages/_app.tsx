@@ -1,11 +1,11 @@
 import type { AppProps } from "next/app";
-import { Flex, Icon, ChakraProvider } from "@chakra-ui/react";
+import { Flex, Box, Icon, ChakraProvider } from "@chakra-ui/react";
 
 import { SidebarMenuDrawerProvider } from "contexts/SidebarMenuDrawerContext";
 import { SidebarMenu } from "components/SidebarMenu";
 
 import { theme } from "styles/theme";
-import "styles/main.css";
+import "styles/global.css";
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,9 +13,9 @@ function App({ Component, pageProps }: AppProps) {
       <SidebarMenuDrawerProvider>
         <Flex>
           <SidebarMenu />
-          <Flex as="main" alignItems="center" justifyContent="center" flex={1}>
+          <Box as="main" flex={1}>
             <Component {...pageProps} />
-          </Flex>
+          </Box>
         </Flex>
       </SidebarMenuDrawerProvider>
     </ChakraProvider>

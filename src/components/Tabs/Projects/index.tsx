@@ -11,61 +11,19 @@ import {
   TabPanels,
   Tab,
   TabPanel,
-  Link as ChakraLink,
 } from "@chakra-ui/react";
 
-import {
-  PersonalProject as PersonalProjectType,
-  PersonalProjects,
-} from "./Personal";
-import {
-  LearningProject as LearningProjectType,
-  LearningProjects,
-} from "./Learning";
-import {
-  ProfessionalProject as ProfessionalProjectType,
-  ProfessionalProjects,
-} from "./Professional";
+import { ProjectsList } from "components/Tabs/Projects/ProjectsList";
 
 interface ProjectsTabsProps {
   tabIndex: number;
   handleTabsChange: (index: number) => void;
-  allProjects: [];
 }
 
 export const ProjectsTabs = ({
   handleTabsChange,
   tabIndex,
-  allProjects,
 }: ProjectsTabsProps) => {
-  const [personalProjects, setPersonalProjects] = useState<
-    PersonalProjectType[]
-  >([]);
-  const [learningProjects, setLearningProjects] = useState<
-    LearningProjectType[]
-  >([]);
-  const [professionalProjects, setProfessionalProjects] = useState<
-    ProfessionalProjectType[]
-  >([]);
-
-  useEffect(() => {
-    if (allProjects?.length > 0) {
-      const personal = allProjects?.filter(
-        (project) => project?.type === "personal"
-      );
-      const learning = allProjects?.filter(
-        (project) => project?.type === "learning"
-      );
-      const professional = allProjects?.filter(
-        (project) => project?.type === "professional"
-      );
-
-      setPersonalProjects(personal);
-      setLearningProjects(learning);
-      setProfessionalProjects(professional);
-    }
-  }, [allProjects]);
-
   // TODO: Add transitions and effects;
 
   return (
@@ -103,13 +61,13 @@ export const ProjectsTabs = ({
         </TabList>
         <TabPanels>
           <TabPanel>
-            <PersonalProjects projects={personalProjects} />
+            <ProjectsList type="personal" />
           </TabPanel>
           <TabPanel>
-            <LearningProjects projects={learningProjects} />
+            <ProjectsList type="learning" />
           </TabPanel>
           <TabPanel>
-            <ProfessionalProjects projects={professionalProjects} />
+            <ProjectsList type="professional" />
           </TabPanel>
         </TabPanels>
       </Tabs>

@@ -17,7 +17,6 @@ import { BiMenuAltLeft } from "react-icons/bi";
 
 import { Breadcrumb } from "components/Breadcrumb";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
-import { supabase } from "services/supabase";
 import { ProjectsTabs } from "components/Tabs/Projects";
 
 const Portfolio: NextPage = () => {
@@ -26,23 +25,6 @@ const Portfolio: NextPage = () => {
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
   const [projects, setProjects] = useState([]);
-  const [isLoadingProjects, setIsLoadingProjects] = useState(false);
-
-  useEffect(async () => {
-    setIsLoadingProjects(true);
-
-    try {
-      const { data: projects, error: projectError } = await supabase
-        .from("projects")
-        .select("*")
-        .order("id", { ascending: true });
-
-      setIsLoadingProjects(false);
-      setProjects(projects);
-    } catch (error) {
-      console.log({ error });
-    }
-  }, []);
 
   // Slider controll
   const [tabIndex, setTabIndex] = useState<number>(0);
@@ -71,7 +53,7 @@ const Portfolio: NextPage = () => {
 
       <Flex
         w="100%"
-        h={isLoadingProjects ? "100vh" : "100%"}
+        h="100%"
         p="5"
         alignItems="center"
         justifyContent="center"
@@ -121,19 +103,7 @@ const Portfolio: NextPage = () => {
             {subtitle}
           </Text>
         </Flex>
-        {isLoadingProjects ? (
-          <CircularProgress
-            isIndeterminate={isLoadingProjects}
-            color="blue.600"
-            my="96"
-          />
-        ) : (
-          <ProjectsTabs
-            handleTabsChange={handleTabsChange}
-            tabIndex={tabIndex}
-            allProjects={projects}
-          />
-        )}
+        <ProjectsTabs handleTabsChange={handleTabsChange} tabIndex={tabIndex} />
       </Flex>
     </>
   );
