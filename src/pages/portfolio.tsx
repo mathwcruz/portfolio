@@ -18,6 +18,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { Breadcrumb } from "components/Breadcrumb";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { ProjectsTabs } from "components/Tabs/Projects";
+import { MotionFlex, animationFlex } from "styles/animation";
 
 const Portfolio: NextPage = () => {
   const { onOpen } = useSidebarMenuDrawer();
@@ -43,15 +44,13 @@ const Portfolio: NextPage = () => {
       return "that I had a significant participation in their development";
   }, [tabIndex]);
 
-  // TODO: Add transitions and effects;
-
   return (
     <>
       <Head>
         <title>Matheus da Cruz</title>
       </Head>
 
-      <Flex
+      <MotionFlex
         w="100%"
         h="100%"
         p="5"
@@ -59,6 +58,9 @@ const Portfolio: NextPage = () => {
         justifyContent="center"
         flexDirection="column"
         position="relative"
+        initial="hidden"
+        animate="visible"
+        variants={animationFlex}
       >
         {isToShowOpenMenuButton && (
           <IconButton
@@ -104,7 +106,7 @@ const Portfolio: NextPage = () => {
           </Text>
         </Flex>
         <ProjectsTabs handleTabsChange={handleTabsChange} tabIndex={tabIndex} />
-      </Flex>
+      </MotionFlex>
     </>
   );
 };

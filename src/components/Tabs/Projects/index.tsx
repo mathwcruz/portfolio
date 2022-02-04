@@ -24,8 +24,6 @@ export const ProjectsTabs = ({
   handleTabsChange,
   tabIndex,
 }: ProjectsTabsProps) => {
-  // TODO: Add transitions and effects;
-
   return (
     <Box mt="56" w="95%">
       <Tabs

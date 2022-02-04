@@ -34,8 +34,6 @@ export const SidebarMenuNav = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasCopied]);
 
-  //TODO: add animation and effects
-
   return (
     <Flex
       bg="#0D0D0D"

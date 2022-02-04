@@ -1,15 +1,9 @@
 import Head from "next/head";
-import {
-  Flex,
-  Box,
-  Image,
-  Icon,
-  IconButton,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Image, Icon, IconButton, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+import { MotionFlex, animationFlex, itemAnimation } from "styles/animation";
 
 export default function NotFound() {
   const { onOpen } = useSidebarMenuDrawer();
@@ -21,7 +15,7 @@ export default function NotFound() {
       <Head>
         <title>Matheus da Cruz</title>
       </Head>
-      <Flex
+      <MotionFlex
         alignItems="center"
         justifyContent="center"
         mx="auto"
@@ -30,6 +24,9 @@ export default function NotFound() {
         w="100%"
         h="100vh"
         maxW="980px"
+        initial="hidden"
+        animate="visible"
+        variants={animationFlex}
       >
         {isToShowOpenMenuButton && (
           <IconButton
@@ -45,14 +42,14 @@ export default function NotFound() {
             onClick={onOpen}
           />
         )}
-        <Box textAlign="center">
+        <MotionFlex textAlign="center" variants={itemAnimation}>
           <Image
             alt="Page not found"
             src="/images/page-not-found.svg"
             boxSize="450px"
           />
-        </Box>
-      </Flex>
+        </MotionFlex>
+      </MotionFlex>
     </>
   );
 }

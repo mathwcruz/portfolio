@@ -7,3 +7,7 @@
   background: linear-gradient(transparent, #2c4fdb) !important;
   border-radius: 3px;
 }
+
+html {
+  overflow-x: hidden;
+}

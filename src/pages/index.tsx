@@ -1,10 +1,11 @@
 import type { NextPage, getServerSideProps } from "next";
 import Head from "next/head";
-import { Flex, IconButton, Icon, Image, useMediaQuery } from "@chakra-ui/react";
+import { IconButton, Icon, Image, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 import { SummaryAboutMe } from "components/Texts/SummaryAboutMe";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+import { MotionFlex, animationFlex } from "styles/animation";
 import { api } from "services/api";
 
 interface HomeProps {
@@ -17,15 +18,13 @@ const Home: NextPage = ({ personalPicture, currentCompany }: HomeProps) => {
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
-  // TODO: Add transitions and effects;
-
   return (
     <>
       <Head>
         <title>Matheus da Cruz</title>
       </Head>
 
-      <Flex
+      <MotionFlex
         w="100%"
         h="100vh"
         p="5"
@@ -33,6 +32,9 @@ const Home: NextPage = ({ personalPicture, currentCompany }: HomeProps) => {
         justifyContent="center"
         flexDirection="column"
         position="relative"
+        initial="hidden"
+        animate="visible"
+        variants={animationFlex}
       >
         {isToShowOpenMenuButton && (
           <IconButton
@@ -52,7 +54,7 @@ const Home: NextPage = ({ personalPicture, currentCompany }: HomeProps) => {
           personalPicture={personalPicture}
           currentCompany={currentCompany}
         />
-      </Flex>
+      </MotionFlex>
     </>
   );
 };

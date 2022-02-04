@@ -15,6 +15,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { supabase } from "services/supabase";
+import { MotionFlex, animationFlex } from "styles/animation";
 
 type Company = {
   id: string;
@@ -33,15 +34,13 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
-  // TODO: Add transitions and effects;
-
   return (
     <>
       <Head>
         <title>Matheus da Cruz</title>
       </Head>
 
-      <Flex
+      <MotionFlex
         w="100%"
         h="100vh"
         p="5"
@@ -49,6 +48,9 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
         alignItems="center"
         justifyContent="center"
         position="relative"
+        initial="hidden"
+        animate="visible"
+        variants={animationFlex}
       >
         {isToShowOpenMenuButton && (
           <IconButton
@@ -113,7 +115,7 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
             </ChakraLink>
           ))}
         </Flex>
-      </Flex>
+      </MotionFlex>
     </>
   );
 };

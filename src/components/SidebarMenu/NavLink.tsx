@@ -35,7 +35,6 @@ export const NavLink = ({
       passHref
       shouldMatchExactHref={shouldMatchExactHref}
     >
-      {/* TODO: add animation when change just icon to icon and text */}
       <ChakraLink
         borderBottom="1px"
         borderColor="gray.300"

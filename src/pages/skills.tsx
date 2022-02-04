@@ -16,7 +16,7 @@ import {
 import { BiMenuAltLeft } from "react-icons/bi";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
-
+import { MotionFlex, animationFlex, itemAnimation } from "styles/animation";
 import { supabase } from "services/supabase";
 
 type ProgrammingSkill = {
@@ -36,15 +36,13 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
-  // TODO: Add transitions and effects;
-
   return (
     <>
       <Head>
         <title>Matheus da Cruz</title>
       </Head>
 
-      <Flex
+      <MotionFlex
         w="100%"
         h={["100%", "100%", "100%", "100%", "100vh"]}
         p="5"
@@ -52,6 +50,9 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
         justifyContent="center"
         flexDirection="column"
         position="relative"
+        initial="hidden"
+        animate="visible"
+        variants={animationFlex}
       >
         {isToShowOpenMenuButton && (
           <IconButton
@@ -67,7 +68,12 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
             onClick={onOpen}
           />
         )}
-        <Flex mt="50px" alignSelf="flex-start" flexDirection="column">
+        <MotionFlex
+          mt="50px"
+          alignSelf="flex-start"
+          flexDirection="column"
+          variants={itemAnimation}
+        >
           <Heading
             fontSize={["3xl", "4xl", "5xl", "6xl"]}
             color="blue.600"
@@ -83,7 +89,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
           >
             that I&apos;ve been developing and perfecting myself daily
           </Text>
-        </Flex>
+        </MotionFlex>
         <Grid
           gap="10"
           my="8"
@@ -99,7 +105,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
           justifyContent="center"
         >
           {programmingSkills?.map((skill) => (
-            <Flex
+            <MotionFlex
               key={skill?.id}
               alignItems="center"
               justifyContent="flex-start"
@@ -110,6 +116,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
               borderRadius="md"
               borderColor="gray.300"
               _hover={{ borderColor: "white" }}
+              whileHover={{ scale: 1.05 }}
             >
               <Image
                 alt={skill?.name}
@@ -146,10 +153,10 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
                   colorScheme="custom"
                 />
               </Flex>
-            </Flex>
+            </MotionFlex>
           ))}
         </Grid>
-      </Flex>
+      </MotionFlex>
     </>
   );
 };

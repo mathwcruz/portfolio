@@ -9,6 +9,7 @@ import { AboutMe as AboutMeTabs } from "components/Tabs/AboutMe";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { api } from "services/api";
 import { supabase } from "services/supabase";
+import { MotionFlex, animationFlex } from "styles/animation";
 
 export type Experience = {
   id: string;
@@ -63,15 +64,13 @@ const About: NextPage = ({
     setTabIndex(index);
   };
 
-  // TODO: Add transitions and effects;
-
   return (
     <>
       <Head>
         <title>Matheus da Cruz</title>
       </Head>
 
-      <Flex
+      <MotionFlex
         w="100%"
         h="100%"
         p="5"
@@ -79,6 +78,9 @@ const About: NextPage = ({
         justifyContent="center"
         flexDirection="column"
         position="relative"
+        initial="hidden"
+        animate="visible"
+        variants={animationFlex}
       >
         {isToShowOpenMenuButton && (
           <IconButton
@@ -113,7 +115,7 @@ const About: NextPage = ({
           handleTabsChange={handleTabsChange}
           data={{ experience, graduations, education }}
         />
-      </Flex>
+      </MotionFlex>
     </>
   );
 };
