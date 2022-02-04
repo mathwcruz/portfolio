@@ -8,13 +8,13 @@ export const animationFlex = {
     scale: 1,
     transition: {
       delayChildren: 1,
-      staggerChildren: 0.6,
+      staggerChildren: 0.7,
     },
   },
 };
 
 export const itemAnimation = {
-  hidden: { y: -40, opacity: 0 },
+  hidden: { y: -50, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,

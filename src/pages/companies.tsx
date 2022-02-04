@@ -15,7 +15,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { supabase } from "services/supabase";
-import { MotionFlex, animationFlex } from "styles/animation";
+import { MotionFlex, animationFlex, itemAnimation } from "styles/animation";
 
 type Company = {
   id: string;
@@ -66,11 +66,12 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
             onClick={onOpen}
           />
         )}
-        <Flex
+        <MotionFlex
           position="absolute"
           top={["70", "20"]}
           left={["5", "5", "10"]}
           flexDirection="column"
+          variants={itemAnimation}
         >
           <Heading
             fontSize={["2xl", "2xl", "4xl", "6xl"]}
@@ -89,7 +90,7 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
             in which I had an active participation in the development of their
             products and services
           </Text>
-        </Flex>
+        </MotionFlex>
         <Flex>
           {companies?.map((company) => (
             <ChakraLink

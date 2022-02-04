@@ -18,7 +18,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { Breadcrumb } from "components/Breadcrumb";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { ProjectsTabs } from "components/Tabs/Projects";
-import { MotionFlex, animationFlex } from "styles/animation";
+import { MotionFlex, animationFlex, itemAnimation } from "styles/animation";
 
 const Portfolio: NextPage = () => {
   const { onOpen } = useSidebarMenuDrawer();
@@ -76,7 +76,12 @@ const Portfolio: NextPage = () => {
             onClick={onOpen}
           />
         )}
-        <Box position="absolute" top="16" left="3">
+        <MotionFlex
+          position="absolute"
+          top="16"
+          left="3"
+          variants={itemAnimation}
+        >
           <Breadcrumb
             currentPage={
               tabIndex === 0
@@ -86,8 +91,14 @@ const Portfolio: NextPage = () => {
                 : "Professional"
             }
           />
-        </Box>
-        <Flex position="absolute" top="100" left="2" flexDirection="column">
+        </MotionFlex>
+        <MotionFlex
+          position="absolute"
+          top="100"
+          left="2"
+          flexDirection="column"
+          variants={itemAnimation}
+        >
           <Heading
             fontSize={["3xl", "4xl", "5xl", "6xl"]}
             color="blue.600"
@@ -104,7 +115,7 @@ const Portfolio: NextPage = () => {
           >
             {subtitle}
           </Text>
-        </Flex>
+        </MotionFlex>
         <ProjectsTabs handleTabsChange={handleTabsChange} tabIndex={tabIndex} />
       </MotionFlex>
     </>
