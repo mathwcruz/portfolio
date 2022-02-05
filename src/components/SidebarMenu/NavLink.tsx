@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 
 import { ActiveLink } from "components/ActiveLink";
+import { MotionChakraLink } from "styles/animation";
 import { verifyRouteHref } from "utils/verifyRouteHref";
 
 interface NavLinkProps extends ChakraLinkProps {
@@ -35,7 +36,7 @@ export const NavLink = ({
       passHref
       shouldMatchExactHref={shouldMatchExactHref}
     >
-      <ChakraLink
+      <MotionChakraLink
         borderBottom="1px"
         borderColor="gray.300"
         display="flex"
@@ -43,6 +44,8 @@ export const NavLink = ({
         pb="2"
         _hover={{ color: "blue.600" }}
         _focus={{ outline: "none" }}
+        whileTap={{ scale: 0.85 }}
+        whileHover={{ scale: 0.98 }}
         {...rest}
       >
         {isActive ? (
@@ -56,7 +59,7 @@ export const NavLink = ({
             </Text>
           </>
         )}
-      </ChakraLink>
+      </MotionChakraLink>
     </ActiveLink>
   );
 };

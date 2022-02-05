@@ -1,4 +1,15 @@
-import { Flex, FlexProps } from "@chakra-ui/react";
+import {
+  Flex,
+  Image,
+  Grid,
+  IconButton,
+  Link,
+  FlexProps,
+  ImageProps,
+  GridProps,
+  IconButtonProps,
+  LinkProps,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 export const animationFlex = {
@@ -22,3 +33,7 @@ export const itemAnimation = {
 };
 
 export const MotionFlex = motion<FlexProps>(Flex);
+export const MotionImage = motion<ImageProps>(Image);
+export const MotionGrid = motion<GridProps>(Grid);
+export const MotionIconButton = motion<IconButtonProps>(IconButton);
+export const MotionChakraLink = motion<LinkProps>(Link);

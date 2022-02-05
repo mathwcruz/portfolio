@@ -1,5 +1,7 @@
 import { ElementType } from "react";
-import { Icon, IconButton } from "@chakra-ui/react";
+import { Icon } from "@chakra-ui/react";
+
+import { MotionIconButton } from "styles/animation";
 
 interface SocialMediaButtonProps {
   icon: ElementType;
@@ -16,14 +18,15 @@ export const SocialMediaButton = ({
   link,
   onClick,
 }: SocialMediaButtonProps) => (
-  <IconButton
+  <MotionIconButton
     aria-label={text}
     icon={<Icon as={icon} />}
     fontSize={size}
     color="white"
+    whileTap={{ scale: 0.85 }}
+    variant="unstyled"
     _hover={{ color: "blue.600" }}
     _focus={{ outline: "none" }}
-    variant="unstyled"
     title={text}
     onClick={link ? () => window.open(link) : onClick}
   />

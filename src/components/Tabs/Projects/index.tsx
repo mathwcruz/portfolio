@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 
 import { ProjectsList } from "components/Tabs/Projects/ProjectsList";
+import { MotionTabs } from "styles/animation";
 
 interface ProjectsTabsProps {
   tabIndex: number;

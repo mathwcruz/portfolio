@@ -18,7 +18,14 @@ export const SidebarMenu = () => {
   }
 
   return (
-    <Box as="aside" w="64" mr="4" borderRight="1px" borderColor="gray.600">
+    <Box
+      as="aside"
+      w="64"
+      mr="4"
+      bg="#0D0D0D"
+      borderRight="1px"
+      borderColor="gray.600"
+    >
       <SidebarMenuNav />
     </Box>
   );

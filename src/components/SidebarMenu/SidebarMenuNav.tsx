@@ -11,6 +11,7 @@ import { IoMdHome, IoMdDesktop } from "react-icons/io";
 import { NavLink } from "components/SidebarMenu/NavLink";
 import { SocialMediaButton } from "components/SidebarMenu/SocialMediaButton";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+import { MotionFlex } from "styles/animation";
 
 export const SidebarMenuNav = () => {
   const { isOpen } = useSidebarMenuDrawer();
@@ -35,12 +36,15 @@ export const SidebarMenuNav = () => {
   }, [hasCopied]);
 
   return (
-    <Flex
+    <MotionFlex
+      h="100%"
       bg="#0D0D0D"
       flexDirection="column"
       alignItems="center"
       justifyContent="space-evenly"
-      h="100%"
+      initial={{ opacity: 0, x: -200 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1.8 }}
     >
       <Image
         alt="Matheus da Cruz avatar"
@@ -85,6 +89,6 @@ export const SidebarMenuNav = () => {
           onClick={onCopy}
         />
       </Flex>
-    </Flex>
+    </MotionFlex>
   );
 };

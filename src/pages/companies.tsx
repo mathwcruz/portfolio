@@ -15,7 +15,12 @@ import { BiMenuAltLeft } from "react-icons/bi";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { supabase } from "services/supabase";
-import { MotionFlex, animationFlex, itemAnimation } from "styles/animation";
+import {
+  MotionFlex,
+  MotionChakraLink,
+  animationFlex,
+  itemAnimation,
+} from "styles/animation";
 
 type Company = {
   id: string;
@@ -91,9 +96,13 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
             products and services
           </Text>
         </MotionFlex>
-        <Flex>
+        <MotionFlex
+          initial={{ opacity: 0, x: 500 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.65 }}
+        >
           {companies?.map((company) => (
-            <ChakraLink
+            <MotionChakraLink
               key={company.id}
               textDecoration="none"
               borderRadius="md"
@@ -101,10 +110,12 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
               borderColor="gray.300"
               borderWidth="2px"
               cursor="pointer"
-              _hover={{ borderColor: "white" }}
+              _hover={{ borderColor: "blue.600" }}
               _focus={{ outline: "none" }}
               href={company?.websiteUrl}
               isExternal
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.03 }}
             >
               <Image
                 alt={company?.name}
@@ -113,9 +124,9 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
                 width={["200px", "230px", "250px"]}
                 p="3"
               />
-            </ChakraLink>
+            </MotionChakraLink>
           ))}
-        </Flex>
+        </MotionFlex>
       </MotionFlex>
     </>
   );

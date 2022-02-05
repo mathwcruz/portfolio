@@ -16,7 +16,13 @@ import {
 import { BiMenuAltLeft } from "react-icons/bi";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
-import { MotionFlex, animationFlex, itemAnimation } from "styles/animation";
+import {
+  MotionFlex,
+  MotionGrid,
+  animationFlex,
+  itemAnimation,
+  MotionImage,
+} from "styles/animation";
 import { supabase } from "services/supabase";
 
 type ProgrammingSkill = {
@@ -35,6 +41,8 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
+
+  console.log({ programmingSkills });
 
   return (
     <>
@@ -90,7 +98,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
             that I&apos;ve been developing and perfecting myself daily
           </Text>
         </MotionFlex>
-        <Grid
+        <MotionGrid
           gap="10"
           my="8"
           w="70%"
@@ -104,7 +112,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
           alignItems="center"
           justifyContent="center"
         >
-          {programmingSkills?.map((skill) => (
+          {programmingSkills?.map((skill, index) => (
             <MotionFlex
               key={skill?.id}
               alignItems="center"
@@ -116,14 +124,36 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
               borderRadius="md"
               borderColor="gray.300"
               _hover={{ borderColor: "white" }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.03 }}
+              custom={index}
+              variants={{
+                visible: (index) => ({
+                  opacity: 1,
+                  transition: {
+                    delay: index * 0.15,
+                  },
+                  y: 0,
+                }),
+                hidden: { opacity: 0, y: -100 },
+              }}
             >
-              <Image
+              <MotionImage
                 alt={skill?.name}
                 src={skill?.icon}
                 title={skill?.name}
                 height={["65px", "70px", "75px", "85px"]}
                 width={["65px", "70px", "75px", "85px"]}
+                custom={index}
+                variants={{
+                  visible: (index) => ({
+                    opacity: 1,
+                    transition: {
+                      delay: index * 0.3,
+                    },
+                    x: 0,
+                  }),
+                  hidden: { opacity: 0, x: 200 },
+                }}
               />
               <Flex
                 flexDirection="column"
@@ -155,7 +185,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
               </Flex>
             </MotionFlex>
           ))}
-        </Grid>
+        </MotionGrid>
       </MotionFlex>
     </>
   );
