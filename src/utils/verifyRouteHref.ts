@@ -1,8 +1,8 @@
 export const verifyRouteHref = (
   asPath: string,
   shouldMatchExactHref: boolean,
-  href: string,
-  rest: {}
+  href: any,
+  rest: any
 ) => {
   let isActive = false;
 
