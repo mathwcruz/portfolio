@@ -13,7 +13,7 @@
 # :computer: Demonstration of the application Web Layout
 
 <p align="center">
-  <img src="./.github/desktop-demonstration.gif" width="1400px"/>
+  <img src="./.github/gifs-demonstrations/desktop-demonstration.gif" width="1400px"/>
 </p>
 
 <p>&nbsp;</p>
@@ -21,7 +21,7 @@
 # **Demonstration of the application Mobile Layout** 📱
 
 <p align="center">
-  <img src="./.github/mobile-demonstration.gif" width="350px"/>
+  <img src="./.github/gifs-demonstrations/mobile-demonstration.gif" width="350px"/>
 </p>
 
 <p>&nbsp;</p>
