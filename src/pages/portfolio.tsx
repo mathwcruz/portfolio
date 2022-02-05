@@ -46,7 +46,11 @@ const Portfolio: NextPage = () => {
 
   const [heightValue, setHeightValue] = useState("100vh");
 
-  useEffect(() => setTimeout(() => setHeightValue("100%"), 400), []);
+  useEffect(() => {
+    setTimeout(() => {
+      setHeightValue("100%");
+    }, 400);
+  }, []);
 
   return (
     <>
