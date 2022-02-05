@@ -20,8 +20,6 @@ export const Pagination = ({
     pageNumbers.push(i);
   }
 
-  console.log({ currentPage, pageNumbers });
-
   return (
     <Stack direction="row" justify="center" alignItems="center" spacing="6">
       <Stack direction="row" spacing="2">
