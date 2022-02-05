@@ -35,7 +35,8 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
         alignItems="center"
         justifyContent="center"
         variant="solid-rounded"
-        colorScheme="blue"
+        colorScheme="custom"
+        color="gray.100"
         index={tabIndex}
         onChange={handleTabsChange}
       >

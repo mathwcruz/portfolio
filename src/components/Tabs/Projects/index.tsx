@@ -31,9 +31,10 @@ export const ProjectsTabs = ({
         display="flex"
         flexDirection="column"
         variant="solid-rounded"
-        colorScheme="blue"
+        colorScheme="custom"
         index={tabIndex}
         onChange={handleTabsChange}
+        color="gray.100"
       >
         <TabList>
           <Tab

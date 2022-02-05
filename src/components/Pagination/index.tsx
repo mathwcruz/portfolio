@@ -20,6 +20,8 @@ export const Pagination = ({
     pageNumbers.push(i);
   }
 
+  console.log({ currentPage, pageNumbers });
+
   return (
     <Stack direction="row" justify="center" alignItems="center" spacing="6">
       <Stack direction="row" spacing="2">
@@ -39,8 +41,8 @@ export const Pagination = ({
             <Button
               size="sm"
               fontSize="md"
-              color={currentPage === pageNumber ? "gray.100" : "blue.600"}
               w="4"
+              color={currentPage === pageNumber ? "gray.100" : "blue.600"}
               bg={currentPage === pageNumber ? "blue.600" : "gray.100"}
               _hover={{ bg: "gray.300" }}
               _focus={{ outline: "none" }}

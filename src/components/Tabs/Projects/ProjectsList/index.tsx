@@ -47,12 +47,23 @@ export const ProjectsList = ({ type }: ProjectsListProps) => {
   useEffect(() => {
     const getAllProjectsType = async () => {
       try {
-        const { data: projects, error: projectError } = await supabase
+        const { data, error: projectError } = await supabase
           .from("projects")
           .select("*")
           .eq("type", type)
           .order("id", { ascending: true });
 
+        const projects = data?.map((project) => {
+          return {
+            id: project?.id,
+            name: project?.name,
+            banner: project?.banner,
+            technologies: project?.technologies,
+            description: project?.description,
+            websiteUrl: project?.website_url,
+            githubRepository: project?.github_repository,
+          };
+        });
         setProjects(projects);
       } catch (error) {
         console.log({ error });
