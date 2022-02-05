@@ -1,4 +1,4 @@
-import type { NextPage, getServerSideProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { IconButton, Icon, Image, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -13,7 +13,7 @@ interface HomeProps {
   currentCompany?: string;
 }
 
-const Home: NextPage = ({ personalPicture, currentCompany }: HomeProps) => {
+const Home = ({ personalPicture, currentCompany }: HomeProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
@@ -61,7 +61,7 @@ const Home: NextPage = ({ personalPicture, currentCompany }: HomeProps) => {
 
 export default Home;
 
-export const getServerSideProps: getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const { data } = await api.get(process.env.API_URL);
 
   return {

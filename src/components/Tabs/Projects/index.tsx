@@ -14,7 +14,6 @@ import {
 } from "@chakra-ui/react";
 
 import { ProjectsList } from "components/Tabs/Projects/ProjectsList";
-import { MotionTabs } from "styles/animation";
 
 interface ProjectsTabsProps {
   tabIndex: number;
@@ -26,9 +25,11 @@ export const ProjectsTabs = ({
   tabIndex,
 }: ProjectsTabsProps) => {
   return (
-    <Box mt="56" w="95%">
+    <Box mx="auto" mt="56" w="95%">
       <Tabs
-        align="center"
+        alignItems="center"
+        display="flex"
+        flexDirection="column"
         variant="solid-rounded"
         colorScheme="blue"
         index={tabIndex}

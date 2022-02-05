@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { ApiError } from "@supabase/supabase-js";
@@ -37,12 +37,10 @@ interface SkillsProps {
   error: ApiError;
 }
 
-const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
+const Skills = ({ programmingSkills, error }: SkillsProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
-
-  console.log({ programmingSkills });
 
   return (
     <>
@@ -102,13 +100,7 @@ const Skills: NextPage = ({ programmingSkills, error }: SkillsProps) => {
           gap="10"
           my="8"
           w="70%"
-          templateColumns={[
-            "repeat(1, 1fr)",
-            "repeat(1, 1fr)",
-            "repeat(1, 1fr)",
-            "repeat(1, 1fr)",
-            "repeat(2, 1fr)",
-          ]}
+          templateColumns={["1fr", "1fr", "1fr", "1fr", "1fr 1fr"]}
           alignItems="center"
           justifyContent="center"
         >

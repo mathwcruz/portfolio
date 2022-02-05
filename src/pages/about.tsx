@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { NextPage, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import { Flex, IconButton, Icon, Image, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -45,7 +45,7 @@ interface AboutProps {
   totalProjectsCount: number;
 }
 
-const About: NextPage = ({
+const About = ({
   avatarUrl,
   currentCompany,
   experience,

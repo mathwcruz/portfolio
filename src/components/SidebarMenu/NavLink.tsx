@@ -15,14 +15,14 @@ import { verifyRouteHref } from "utils/verifyRouteHref";
 interface NavLinkProps extends ChakraLinkProps {
   icon: ElementType;
   href: string;
-  shouldMatchExactHref?: boolean;
+  shouldMatchExactHref: boolean;
   children: string;
 }
 
 export const NavLink = ({
   icon,
   href,
-  shouldMatchExactHref,
+  shouldMatchExactHref = true,
   children,
   ...rest
 }: NavLinkProps) => {
@@ -40,13 +40,13 @@ export const NavLink = ({
         borderBottom="1px"
         borderColor="gray.300"
         display="flex"
-        align="center"
+        alignItems="center"
         pb="2"
         _hover={{ color: "blue.600" }}
         _focus={{ outline: "none" }}
         whileTap={{ scale: 0.85 }}
         whileHover={{ scale: 0.98 }}
-        {...rest}
+        // {...rest}
       >
         {isActive ? (
           <Icon as={icon} fontSize="26" title={children} />

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useMemo } from "react";
-import type { NextPage, GetStaticProps } from "next";
+import { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import { ApiError } from "@supabase/supabase-js";
 import {
@@ -44,6 +44,10 @@ const Portfolio: NextPage = () => {
       return "that I had a significant participation in their development";
   }, [tabIndex]);
 
+  const [heightValue, setHeightValue] = useState("100vh");
+
+  useEffect(() => setTimeout(() => setHeightValue("100%"), 100), []);
+
   return (
     <>
       <Head>
@@ -52,7 +56,7 @@ const Portfolio: NextPage = () => {
 
       <MotionFlex
         w="100%"
-        h="100%"
+        h={heightValue}
         p="5"
         alignItems="center"
         justifyContent="center"

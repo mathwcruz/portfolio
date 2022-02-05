@@ -1,7 +1,7 @@
 import { Box, Button, Stack } from "@chakra-ui/react";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
-interface Paginationprops {
+interface PaginationProps {
   projectsPerPage: number;
   currentPage: number;
   totalProjects: number;
@@ -13,7 +13,7 @@ export const Pagination = ({
   currentPage,
   totalProjects,
   paginate,
-}) => {
+}: PaginationProps) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalProjects / projectsPerPage); i++) {
@@ -21,7 +21,7 @@ export const Pagination = ({
   }
 
   return (
-    <Stack direction="row" justify="center" align="center" spacing="6">
+    <Stack direction="row" justify="center" alignItems="center" spacing="6">
       <Stack direction="row" spacing="2">
         <Button
           size="sm"
@@ -39,9 +39,9 @@ export const Pagination = ({
             <Button
               size="sm"
               fontSize="md"
-              color="blue.600"
+              color={currentPage === pageNumber ? "gray.100" : "blue.600"}
               w="4"
-              bg="gray.100"
+              bg={currentPage === pageNumber ? "blue.600" : "gray.100"}
               _hover={{ bg: "gray.300" }}
               _focus={{ outline: "none" }}
               onClick={() => paginate(pageNumber)}

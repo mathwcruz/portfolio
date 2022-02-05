@@ -19,7 +19,7 @@ interface AboutMeProps {
 export const AboutMe = ({ totalProjectsCount }) => {
   return (
     <Flex
-      alignItem="center"
+      alignItems="center"
       justifyContent="center"
       flexDirection="column"
       textAlign="center"

@@ -6,7 +6,7 @@ import { MotionIconButton } from "styles/animation";
 interface SocialMediaButtonProps {
   icon: ElementType;
   text: string;
-  size?: string;
+  size?: number;
   link?: string;
   onClick?: () => void;
 }
@@ -14,7 +14,7 @@ interface SocialMediaButtonProps {
 export const SocialMediaButton = ({
   icon,
   text,
-  size = "22",
+  size = 22,
   link,
   onClick,
 }: SocialMediaButtonProps) => (

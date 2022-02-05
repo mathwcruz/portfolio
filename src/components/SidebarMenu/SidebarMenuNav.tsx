@@ -44,7 +44,6 @@ export const SidebarMenuNav = () => {
       justifyContent="space-evenly"
       initial={{ opacity: 0, x: -200 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1.8 }}
     >
       <Image
         alt="Matheus da Cruz avatar"
@@ -52,23 +51,19 @@ export const SidebarMenuNav = () => {
         width={180}
         height={180}
       />
-      <NavLink href="/" icon={IoMdHome}>
+      <NavLink href="/" icon={IoMdHome} shouldMatchExactHref>
         Home
       </NavLink>
-      <NavLink href="/about" icon={BsPersonBoundingBox}>
+      <NavLink href="/about" icon={BsPersonBoundingBox} shouldMatchExactHref>
         About
       </NavLink>
-      <NavLink href="/skills" icon={GiHypersonicBolt}>
+      <NavLink href="/skills" icon={GiHypersonicBolt} shouldMatchExactHref>
         Skills
       </NavLink>
-      <NavLink
-        href="/portfolio"
-        shouldMatchExactHref={false}
-        icon={IoMdDesktop}
-      >
+      <NavLink href="/portfolio" icon={IoMdDesktop} shouldMatchExactHref>
         Portfolio
       </NavLink>
-      <NavLink href="/companies" icon={FaHandshake}>
+      <NavLink href="/companies" icon={FaHandshake} shouldMatchExactHref>
         Companies
       </NavLink>
       <Flex flexDirection="row" gap="4px">
@@ -85,7 +80,7 @@ export const SidebarMenuNav = () => {
         <SocialMediaButton
           icon={HiOutlineMail}
           text="E-mail"
-          size="30"
+          size={30}
           onClick={onCopy}
         />
       </Flex>

@@ -13,7 +13,11 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet"
           />
-          <link rel="favicon" href="/favicon.png" type="image/png" />
+          <link
+            rel="shortcut icon"
+            href="/images/favicon.png"
+            type="image/png"
+          />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />

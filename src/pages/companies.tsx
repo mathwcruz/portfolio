@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import { ApiError } from "@supabase/supabase-js";
 import {
@@ -34,7 +34,7 @@ interface CompaniesProps {
   error: ApiError;
 }
 
-const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
+const Companies = ({ companies, error }: CompaniesProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
@@ -99,7 +99,6 @@ const Companies: NextPage = ({ companies, error }: CompaniesProps) => {
         <MotionFlex
           initial={{ opacity: 0, x: 500 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.65 }}
         >
           {companies?.map((company) => (
             <MotionChakraLink

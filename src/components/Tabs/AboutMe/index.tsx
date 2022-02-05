@@ -12,7 +12,7 @@ import {
   TabPanel,
   Link as ChakraLink,
 } from "@chakra-ui/react";
-import { Experience, Graduation } from "pages/about";
+import { Experience, Graduation, Education } from "pages/about";
 
 interface AboutMeProps {
   tabIndex: number;
@@ -28,9 +28,12 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
   const { experience, graduations, education } = data;
 
   return (
-    <Box w="75%">
+    <Box mx="auto" my="0" w="75%">
       <Tabs
-        align="center"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
         variant="solid-rounded"
         colorScheme="blue"
         index={tabIndex}
@@ -63,7 +66,14 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
         <TabPanels>
           <TabPanel>
             {experience?.map((xp) => (
-              <Box p="6" key={xp?.id}>
+              <Flex
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="center"
+                textAlign="center"
+                p="6"
+                key={xp?.id}
+              >
                 <ChakraLink
                   color="white"
                   fontWeight="medium"
@@ -92,17 +102,24 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                     />
                   ))}
                 </Flex>
-              </Box>
+              </Flex>
             ))}
           </TabPanel>
           <TabPanel>
             <Grid
-              justifyContent="center"
               templateColumns={["1fr", "1fr", "1fr", "repeat(2, 1fr)"]}
               w={["85%", "80%", "80%", "80%", "65%"]}
+              mx="auto"
+              textAlign="center"
             >
               {education?.map((ed) => (
-                <Box p="4" key={ed?.id}>
+                <Flex
+                  flexDirection="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  p="4"
+                  key={ed?.id}
+                >
                   <ChakraLink
                     color="white"
                     fontWeight="medium"
@@ -125,13 +142,20 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                   >
                     {ed?.educationPeriod}
                   </Text>
-                </Box>
+                </Flex>
               ))}
             </Grid>
           </TabPanel>
           <TabPanel>
             {graduations?.map((graduation) => (
-              <Box p="6" key={graduation?.id}>
+              <Flex
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="center"
+                textAlign="center"
+                p="6"
+                key={graduation?.id}
+              >
                 <ChakraLink
                   color="white"
                   fontWeight="medium"
@@ -149,7 +173,7 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                 <Text mt="1.5" fontSize="sm" fontWeight="normal" color="white">
                   {graduation?.graduationPeriod}
                 </Text>
-              </Box>
+              </Flex>
             ))}
           </TabPanel>
         </TabPanels>

@@ -1,3 +1,4 @@
+import { NextPage } from "next";
 import Head from "next/head";
 import { Image, Icon, IconButton, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -5,7 +6,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { MotionFlex, animationFlex, itemAnimation } from "styles/animation";
 
-export default function NotFound() {
+const NotFound: NextPage = () => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
@@ -52,4 +53,6 @@ export default function NotFound() {
       </MotionFlex>
     </>
   );
-}
+};
+
+export default NotFound;

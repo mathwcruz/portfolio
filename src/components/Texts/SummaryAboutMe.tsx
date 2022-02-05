@@ -1,4 +1,4 @@
-import { Flex, Image, Text, Link as ChakraLink } from "@chakra-ui/react";
+import { Flex, Box, Image, Text, Link as ChakraLink } from "@chakra-ui/react";
 
 import { CustomLink } from "components/CustomLink";
 
@@ -15,11 +15,12 @@ export const SummaryAboutMe = ({
     <Flex
       alignItems="center"
       justifyContent="center"
-      gap="22px"
       flexDirection="column"
+      gap="22px"
       w="100%"
       h="100%"
       maxWidth={[280, 360, 520, 680, 1020]}
+      color="gray.100"
     >
       <Image
         alt="Matheus da Cruz picture"
@@ -27,19 +28,26 @@ export const SummaryAboutMe = ({
         borderRadius="full"
         boxSize={["135px", "160px", "180px"]}
       />
-      <Flex flexDirection="column" gap="16px">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          gap: "16px",
+        }}
+      >
         <Text
           color="gray.100"
           fontSize={["xl", "2xl", "3xl"]}
           fontWeight="extrabold"
           textAlign="center"
           px="3"
-          maxWidth={[260, 340, 500, 670]}
         >
           Hi, I&apos;m Matheus Wachholtz da Cruz
         </Text>
         <Text
-          maxWidth={[260, 340, 500, 670]}
           fontSize={["sm", "md", "lg"]}
           fontWeight="bold"
           textAlign="center"
@@ -51,8 +59,8 @@ export const SummaryAboutMe = ({
             {currentCompany}
           </Text>
         </Text>
-        <Text
-          color="gray.200"
+        <Box
+          color="gray.100"
           fontSize={["sm", "sm", "md"]}
           fontWeight="medium"
           textAlign="center"
@@ -74,8 +82,8 @@ export const SummaryAboutMe = ({
               clicking here
             </ChakraLink>
           </CustomLink>
-        </Text>
-      </Flex>
+        </Box>
+      </div>
     </Flex>
   );
 };
