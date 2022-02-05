@@ -2,7 +2,7 @@
   <img src="./public/images/favicon.png" alt="Matheus da Cruz avatar" width="250">
 </p>
 
-## <p><h2 align="center">My [personal portfolio](https://google.com) talking a little about myself and about my work in Software Development</h2> </p>
+## <p><h2 align="center">My [personal portfolio](https://portfolio-iota-two-71.vercel.app/) talking a little about myself and about my work in Software Development</h2> </p>
 
 
 <p align="center">
@@ -47,7 +47,6 @@
 <p>&nbsp;</p>
 
 ### Autor
-<p>&nbsp;</p>
 
 <a href="https://app.rocketseat.com.br/me/matheus-da-cruz-frontend">
  <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/68445791?v=4" width="100px;" alt=""/>
