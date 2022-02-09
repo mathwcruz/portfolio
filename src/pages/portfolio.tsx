@@ -1,23 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useMemo } from "react";
-import { NextPage, GetStaticProps } from "next";
+import { NextPage } from "next";
 import Head from "next/head";
-import { ApiError } from "@supabase/supabase-js";
 import {
   Text,
   Heading,
-  Flex,
   IconButton,
   Icon,
-  Box,
   useMediaQuery,
-  CircularProgress,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 import { Breadcrumb } from "components/Breadcrumb";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 import { ProjectsTabs } from "components/Tabs/Projects";
+
 import { MotionFlex, animationFlex, itemAnimation } from "styles/animation";
 
 const Portfolio: NextPage = () => {

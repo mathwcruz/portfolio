@@ -7,8 +7,10 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { AboutMe } from "components/Texts/AboutMe";
 import { AboutMe as AboutMeTabs } from "components/Tabs/AboutMe";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+
 import { api } from "services/api";
 import { supabase } from "services/supabase";
+
 import { MotionFlex, animationFlex } from "styles/animation";
 
 export type Experience = {

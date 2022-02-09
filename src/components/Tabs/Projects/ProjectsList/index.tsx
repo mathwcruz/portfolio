@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -7,7 +7,6 @@ import {
   Image,
   Link as ChakraLink,
   Text,
-  CircularProgress,
   useMediaQuery,
 } from "@chakra-ui/react";
 import { FiGithub } from "react-icons/fi";
@@ -15,7 +14,9 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 
 import { SocialMediaButton } from "components/SidebarMenu/SocialMediaButton";
 import { Pagination } from "components/Pagination";
+
 import { supabase } from "services/supabase";
+
 import {
   MotionImage,
   MotionFlex,

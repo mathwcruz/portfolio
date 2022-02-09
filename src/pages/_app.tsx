@@ -1,5 +1,5 @@
 import { AppProps } from "next/app";
-import { Flex, Box, Icon, ChakraProvider } from "@chakra-ui/react";
+import { Flex, Box, ChakraProvider } from "@chakra-ui/react";
 
 import { SidebarMenuDrawerProvider } from "contexts/SidebarMenuDrawerContext";
 import { SidebarMenu } from "components/SidebarMenu";

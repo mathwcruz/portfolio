@@ -1,12 +1,14 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import { IconButton, Icon, Image, useMediaQuery } from "@chakra-ui/react";
+import { IconButton, Icon, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 import { SummaryAboutMe } from "components/Texts/SummaryAboutMe";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
-import { MotionFlex, animationFlex } from "styles/animation";
+
 import { api } from "services/api";
+
+import { MotionFlex, animationFlex } from "styles/animation";
 
 interface HomeProps {
   personalPicture: string;

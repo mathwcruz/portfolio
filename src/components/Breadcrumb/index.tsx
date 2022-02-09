@@ -1,7 +1,6 @@
 import {
   Breadcrumb as BreadcrumbChakra,
   BreadcrumbItem,
-  BreadcrumbLink,
   Text,
 } from "@chakra-ui/react";
 import { CgFormatSlash } from "react-icons/cg";

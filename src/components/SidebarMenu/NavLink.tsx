@@ -2,15 +2,16 @@ import { ElementType } from "react";
 import { useRouter } from "next/dist/client/router";
 import {
   Text,
-  Link as ChakraLink,
   Icon,
   LinkProps as ChakraLinkProps,
   Flex,
 } from "@chakra-ui/react";
 
 import { ActiveLink } from "components/ActiveLink";
-import { MotionChakraLink } from "styles/animation";
+
 import { verifyRouteHref } from "utils/verifyRouteHref";
+
+import { MotionChakraLink } from "styles/animation";
 
 interface NavLinkProps extends ChakraLinkProps {
   icon: ElementType;

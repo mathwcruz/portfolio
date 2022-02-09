@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
-import { Flex, Box, useClipboard, useToast } from "@chakra-ui/react";
+import { Flex, useClipboard, useToast } from "@chakra-ui/react";
 import { BsLinkedin, BsPersonBoundingBox } from "react-icons/bs";
 import { FaHandshake } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
@@ -11,6 +11,7 @@ import { IoMdHome, IoMdDesktop } from "react-icons/io";
 import { NavLink } from "components/SidebarMenu/NavLink";
 import { SocialMediaButton } from "components/SidebarMenu/SocialMediaButton";
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+
 import { MotionFlex } from "styles/animation";
 
 export const SidebarMenuNav = () => {

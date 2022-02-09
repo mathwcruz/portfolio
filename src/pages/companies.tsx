@@ -1,20 +1,20 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { ApiError } from "@supabase/supabase-js";
 import {
   Text,
   Heading,
-  Flex,
   IconButton,
   Icon,
   Image,
-  Link as ChakraLink,
   useMediaQuery,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
+import { ApiError } from "@supabase/supabase-js";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+
 import { supabase } from "services/supabase";
+
 import {
   MotionFlex,
   MotionChakraLink,

@@ -4,6 +4,7 @@ import { Image, Icon, IconButton, useMediaQuery } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
+
 import { MotionFlex, animationFlex, itemAnimation } from "styles/animation";
 
 const NotFound: NextPage = () => {

@@ -1,11 +1,5 @@
-import { useEffect, useState } from "react";
 import {
   Box,
-  Flex,
-  Grid,
-  Heading,
-  Text,
-  Image,
   Tabs,
   TabList,
   TabPanels,

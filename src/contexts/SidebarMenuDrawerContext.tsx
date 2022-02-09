@@ -21,6 +21,7 @@ export function SidebarMenuDrawerProvider({
   // closing the SidebarMenu after the user navigates to another route
   useEffect(() => {
     disclosure.onClose();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [asPath]);
 
   return (
