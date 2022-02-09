@@ -2,7 +2,7 @@
   <img src="./public/images/favicon.png" alt="Matheus da Cruz avatar" width="250">
 </p>
 
-## <p><h2 align="center">My [personal portfolio](https://portfolio-iota-two-71.vercel.app/) talking a little about myself and about my work in Software Development</h2> </p>
+## <p><h2 align="center">My [personal portfolio](https://matheus-da-cruz-portfolio.vercel.app/) talking a little about myself and about my work in Software Development</h2> </p>
 
 
 <p align="center">
