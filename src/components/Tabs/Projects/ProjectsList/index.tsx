@@ -81,7 +81,7 @@ export const ProjectsList = ({ type }: ProjectsListProps) => {
     indexOfLastProject
   );
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -133,7 +133,7 @@ export const ProjectsList = ({ type }: ProjectsListProps) => {
                 _focus={{ outline: "none" }}
                 _hover={{ textDecoration: "none", color: "blue.600" }}
                 isExternal
-                href={project?.websiteUrl}
+                href={project?.websiteUrl || project.githubRepository}
               >
                 <Heading
                   maxW={isToChangeProjectItemUI ? "400px" : "380px"}

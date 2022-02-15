@@ -42,8 +42,8 @@ export const Pagination = ({
               w="4"
               color={currentPage === pageNumber ? "gray.100" : "blue.600"}
               bg={currentPage === pageNumber ? "blue.600" : "gray.100"}
-              _hover={{ bg: "gray.300" }}
-              _focus={{ outline: "none" }}
+              _hover={{ bg: currentPage === pageNumber ? "" : "gray.300", opacity: currentPage === pageNumber ? "0.8" : "" }}
+              _focus={{ bg: "blue.600", outline: "none" }}
               onClick={() => paginate(pageNumber)}
             >
               {pageNumber}
