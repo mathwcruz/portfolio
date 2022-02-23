@@ -99,10 +99,13 @@ const Companies = ({ companies, error }: CompaniesProps) => {
         <MotionFlex
           initial={{ opacity: 0, x: 500 }}
           animate={{ opacity: 1, x: 0 }}
+          flexDirection={["column", "column", "row"]}
+          gap="30px"
         >
           {companies?.map((company) => (
             <MotionChakraLink
               key={company.id}
+              alignSelf="center"
               textDecoration="none"
               borderRadius="md"
               border="solid"
@@ -120,8 +123,8 @@ const Companies = ({ companies, error }: CompaniesProps) => {
                 alt={company?.name}
                 src={company?.logo}
                 title={company?.name}
-                width={["200px", "230px", "250px"]}
-                p="3"
+                p="4"
+                w={["200px", "230px", "250px"]}
               />
             </MotionChakraLink>
           ))}
