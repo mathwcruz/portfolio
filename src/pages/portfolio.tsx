@@ -110,8 +110,7 @@ const Portfolio: NextPage = () => {
             Projects
           </Heading>
           <Text
-            pl={["0", "0", "2"]}
-            mt={["0", "0", "-10px"]}
+            mt="-10px"
             fontSize={["lg", "lg", "xl"]}
             fontWeight="normal"
             color="gray.300"
