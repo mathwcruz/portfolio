@@ -16,7 +16,7 @@ interface AboutMeProps {
   totalProjectsCount: number;
 }
 
-export const AboutMe = ({ totalProjectsCount }) => {
+export const AboutMe = ({ totalProjectsCount }: AboutMeProps) => {
   return (
     <Flex
       alignItems="center"

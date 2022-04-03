@@ -22,9 +22,7 @@ const Portfolio: NextPage = () => {
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
-  const [projects, setProjects] = useState([]);
-
-  // Slider controll
+  // Slider control
   const [tabIndex, setTabIndex] = useState<number>(0);
 
   const handleTabsChange = (index: number) => {
@@ -46,7 +44,7 @@ const Portfolio: NextPage = () => {
   useEffect(() => {
     setTimeout(() => {
       setHeightValue("100%");
-    }, 400);
+    }, 550);
   }, []);
 
   return (

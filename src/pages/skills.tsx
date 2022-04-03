@@ -10,7 +10,6 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { ApiError } from "@supabase/supabase-js";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
@@ -33,10 +32,9 @@ type ProgrammingSkill = {
 
 interface SkillsProps {
   programmingSkills: ProgrammingSkill[];
-  error: ApiError;
 }
 
-const Skills = ({ programmingSkills, error }: SkillsProps) => {
+const Skills = ({ programmingSkills }: SkillsProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
@@ -202,7 +200,6 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       programmingSkills,
-      error,
     },
     revalidate: 60 * 60 * 3, // = 3 horas
   };

@@ -9,7 +9,6 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { ApiError } from "@supabase/supabase-js";
 
 import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
@@ -31,10 +30,9 @@ type Company = {
 
 interface CompaniesProps {
   companies: Company[];
-  error: ApiError;
 }
 
-const Companies = ({ companies, error }: CompaniesProps) => {
+const Companies = ({ companies }: CompaniesProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
@@ -153,7 +151,6 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       companies,
-      error: companiesError,
     },
     revalidate: 60 * 60 * 3, // = 3 horas
   };

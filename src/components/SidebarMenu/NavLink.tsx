@@ -47,7 +47,6 @@ export const NavLink = ({
         _focus={{ outline: "none" }}
         whileTap={{ scale: 0.85 }}
         whileHover={{ scale: 0.98 }}
-        // {...rest}
       >
         {isActive ? (
           <Icon as={icon} fontSize="26" title={children} />

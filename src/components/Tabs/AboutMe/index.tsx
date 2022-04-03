@@ -79,7 +79,11 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                   color="white"
                   fontWeight="medium"
                   fontSize="md"
-                  _hover={{ opacity: "0.9", textDecoration: "underline" }}
+                  _hover={{
+                    opacity: "0.9",
+                    textDecoration: "underline",
+                    color: "blue.600",
+                  }}
                   _focus={{ outline: "none" }}
                   isExternal
                   href={xp?.companyWebsiteUrl}
@@ -125,7 +129,11 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                     color="white"
                     fontWeight="medium"
                     fontSize="md"
-                    _hover={{ opacity: "0.9", textDecoration: "underline" }}
+                    _hover={{
+                      opacity: "0.9",
+                      textDecoration: "underline",
+                      color: "blue.600",
+                    }}
                     _focus={{ outline: "none" }}
                     isExternal
                     href={ed?.institutionWebsiteUrl}
@@ -161,7 +169,11 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                   color="white"
                   fontWeight="medium"
                   fontSize="md"
-                  _hover={{ opacity: "0.9", textDecoration: "underline" }}
+                  _hover={{
+                    opacity: "0.9",
+                    textDecoration: "underline",
+                    color: "blue.600",
+                  }}
                   _focus={{ outline: "none" }}
                   isExternal
                   href={graduation?.institutionWebsiteUrl}

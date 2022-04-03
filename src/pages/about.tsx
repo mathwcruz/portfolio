@@ -49,7 +49,6 @@ interface AboutProps {
 
 const About = ({
   avatarUrl,
-  currentCompany,
   experience,
   graduations,
   education,
@@ -59,7 +58,7 @@ const About = ({
 
   const [isToShowOpenMenuButton] = useMediaQuery("(max-width: 800px)");
 
-  // Slider controll
+  // Slider control
   const [tabIndex, setTabIndex] = useState<number>(0);
 
   const handleTabsChange = (index: number) => {

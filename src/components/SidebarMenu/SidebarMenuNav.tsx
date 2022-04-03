@@ -10,13 +10,10 @@ import { IoMdHome, IoMdDesktop } from "react-icons/io";
 
 import { NavLink } from "components/SidebarMenu/NavLink";
 import { SocialMediaButton } from "components/SidebarMenu/SocialMediaButton";
-import { useSidebarMenuDrawer } from "contexts/SidebarMenuDrawerContext";
 
 import { MotionFlex } from "styles/animation";
 
 export const SidebarMenuNav = () => {
-  const { isOpen } = useSidebarMenuDrawer();
-
   const { hasCopied, onCopy } = useClipboard(
     process.env.NEXT_PUBLIC_PERSONAL_EMAIL
   );
