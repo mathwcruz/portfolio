@@ -3,10 +3,8 @@ import Head from "next/head";
 import {
   Text,
   Heading,
-  Flex,
   IconButton,
   Icon,
-  Progress,
   useMediaQuery,
 } from "@chakra-ui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -26,7 +24,6 @@ import {
 type ProgrammingSkill = {
   id: number;
   name: string;
-  proficiency: number;
   icon: string;
 };
 
@@ -47,11 +44,9 @@ const Skills = ({ programmingSkills }: SkillsProps) => {
 
       <MotionFlex
         w="100%"
-        h={["100%", "100%", "100%", "100%", "100vh"]}
+        h={["100%", "100%", "100%", "100vh", "100vh"]}
         p="5"
-        alignItems="center"
-        justifyContent="center"
-        flexDirection="column"
+        display="block"
         position="relative"
         initial="hidden"
         animate="visible"
@@ -72,9 +67,9 @@ const Skills = ({ programmingSkills }: SkillsProps) => {
           />
         )}
         <MotionFlex
-          mt="50px"
-          alignSelf="flex-start"
+          mt={["40px", "40px", "35px", "35px"]}
           flexDirection="column"
+          alignSelf="flex-start"
           variants={itemAnimation}
         >
           <Heading
@@ -85,7 +80,7 @@ const Skills = ({ programmingSkills }: SkillsProps) => {
             Skills
           </Heading>
           <Text
-            mt="-10px"
+            mt="-15px"
             fontSize={["lg", "lg", "xl"]}
             fontWeight="normal"
             color="gray.300"
@@ -94,10 +89,17 @@ const Skills = ({ programmingSkills }: SkillsProps) => {
           </Text>
         </MotionFlex>
         <MotionGrid
-          gap="10"
-          my="8"
-          w="70%"
-          templateColumns={["1fr", "1fr", "1fr", "1fr", "1fr 1fr"]}
+          gap="8"
+          my="24"
+          mx="auto"
+          px="4"
+          templateColumns={[
+            "1fr",
+            "repeat(2, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+            "repeat(4, 1fr)",
+          ]}
           alignItems="center"
           justifyContent="center"
         >
@@ -105,14 +107,15 @@ const Skills = ({ programmingSkills }: SkillsProps) => {
             <MotionFlex
               key={skill?.id}
               alignItems="center"
-              justifyContent="flex-start"
-              gap="6"
-              p="4"
-              border="solid"
-              borderWidth="2px"
-              borderRadius="md"
-              borderColor="gray.300"
-              _hover={{ borderColor: "white" }}
+              justifyContent="center"
+              gap="2"
+              px="2"
+              py="6"
+              w="full"
+              borderRadius="lg"
+              backgroundColor="whiteAlpha.50"
+              flexDirection="column"
+              _hover={{ backgroundColor: "whiteAlpha.200" }}
               whileHover={{ scale: 1.03 }}
               custom={index}
               variants={{
@@ -130,8 +133,8 @@ const Skills = ({ programmingSkills }: SkillsProps) => {
                 alt={skill?.name}
                 src={skill?.icon}
                 title={skill?.name}
-                height={["65px", "70px", "75px", "85px"]}
-                width={["65px", "70px", "75px", "85px"]}
+                height={["60px", "65px", "70px", "80px"]}
+                width={["60px", "65px", "70px", "80px"]}
                 custom={index}
                 variants={{
                   visible: (index) => ({
@@ -144,34 +147,15 @@ const Skills = ({ programmingSkills }: SkillsProps) => {
                   hidden: { opacity: 0, x: 200 },
                 }}
               />
-              <Flex
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="center"
-                w="100%"
-                gap="8px"
+              <Text
+                fontSize={["md", "lg"]}
+                fontWeight="semibold"
+                color="gray.100"
+                textAlign="center"
+                w="full"
               >
-                <Text
-                  fontSize={["md", "lg"]}
-                  fontWeight="semibold"
-                  color="gray.100"
-                  textAlign="start"
-                  alignSelf="start"
-                >
-                  {skill?.name}
-                </Text>
-                <Progress
-                  value={skill?.proficiency}
-                  title="Proficiency"
-                  max={100}
-                  min={1}
-                  size="sm"
-                  width="100%"
-                  bg="white"
-                  borderRadius="lg"
-                  colorScheme="custom"
-                />
-              </Flex>
+                {skill?.name}
+              </Text>
             </MotionFlex>
           ))}
         </MotionGrid>
@@ -192,7 +176,6 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       id: skill?.id,
       name: skill?.name,
-      proficiency: skill?.proficiency,
       icon: skill?.icon,
     };
   });
