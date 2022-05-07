@@ -4,7 +4,6 @@
 
 ## <h2 align="center">My [personal portfolio](https://matheus-da-cruz-portfolio.vercel.app/) talking a little about myself and about my work in Software Development</h2>
 
-
 <p align="center">
   <a href="#computer-demonstration-of-the-application-web-layout">Demonstration of the application</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-technologies-used">Technologies used</a>&nbsp;&nbsp;&nbsp;
@@ -16,21 +15,16 @@
   <img src="./.github/gifs-demonstrations/desktop-demonstration.gif" width="1400px"/>
 </p>
 
-<p>&nbsp;</p>
 
 # **Demonstration of the application Mobile Layout** 📱
-
 <p align="center">
   <img src="./.github/gifs-demonstrations/mobile-demonstration.gif" width="350px"/>
 </p>
 
-<p>&nbsp;</p>
 
 <h3 align="center"> 
 	 Application status: Finalized ✔️
 </h3>
-
-<p>&nbsp;</p>
 
 ## :rocket: Technologies used:
 
@@ -43,8 +37,6 @@
 <img src="https://xnrzwkuslogyvxcfkyyh.supabase.in/storage/v1/object/sign/projects-technologies-icons/next_js_icon.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0cy10ZWNobm9sb2dpZXMtaWNvbnMvbmV4dF9qc19pY29uLnN2ZyIsImlhdCI6MTY0NDA3OTcxMCwiZXhwIjoxOTU5NDM5NzEwfQ.EmFGzviOwB1WFveZa-PPhUXUMK47xKbmWi3zSIdFc3U" alt="next" width="70" height="70"/>
 <img src="https://xnrzwkuslogyvxcfkyyh.supabase.in/storage/v1/object/sign/projects-technologies-icons/typescript_icon.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9qZWN0cy10ZWNobm9sb2dpZXMtaWNvbnMvdHlwZXNjcmlwdF9pY29uLnN2ZyIsImlhdCI6MTY0NDA3OTY5NywiZXhwIjoxOTU5NDM5Njk3fQ.NNWCnZOYFg2z2jnNTCtN8m5kOeNz7VtgC0MhATqK49o" alt="typescript" width="70" height="70"/>
 </p>
-
-<p>&nbsp;</p>
 
 ### Autor
 
