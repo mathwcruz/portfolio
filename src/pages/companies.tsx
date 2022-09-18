@@ -120,7 +120,7 @@ const Companies = ({ companies }: CompaniesProps) => {
                 alt={company?.name}
                 src={company?.logo}
                 title={company?.name}
-                h={["130px", "150px", "180px"]}
+                w={["140px", "140px", "170px"]}
                 p="5"
               />
             </MotionChakraLink>
