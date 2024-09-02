@@ -4,28 +4,6 @@
 
 ## <h2 align="center">My [personal portfolio](https://matheus-da-cruz-portfolio.vercel.app/) talking a little about myself and about my work in Software Development</h2>
 
-<p align="center">
-  <a href="#computer-demonstration-of-the-application-web-layout">Demonstration of the application</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#rocket-technologies-used">Technologies used</a>&nbsp;&nbsp;&nbsp;
-</p>
-
-# :computer: Demonstration of the application Web Layout
-
-<p align="center">
-  <img src="./.github/gifs-demonstrations/desktop-demonstration.gif" width="100%"/>
-</p>
-
-
-# **Demonstration of the application Mobile Layout** 📱
-<p align="center">
-  <img src="./.github/gifs-demonstrations/mobile-demonstration.gif" width="30%"/>
-</p>
-
-
-<h3 align="center"> 
-	 Application status: Finalized ✔️
-</h3>
-
 ## :rocket: Technologies used:
 
 <p align="center">
