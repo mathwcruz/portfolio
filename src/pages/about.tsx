@@ -13,13 +13,13 @@ import { supabase } from "services/supabase";
 
 import { MotionFlex, animationFlex } from "styles/animation";
 
-export type Experience = {
+export type ProfessionalExperience = {
   id: string;
   companyName: string;
   companyWebsiteUrl: string;
   position: string;
   technologies: string[];
-  experiencePeriod: string;
+  professionalExperiencePeriod: string;
 };
 
 export type Graduation = {
@@ -41,18 +41,16 @@ export type Education = {
 interface AboutProps {
   avatarUrl: string;
   currentCompany: string;
-  experience: Experience[];
+  professionalExperience: ProfessionalExperience[];
   graduations: Graduation[];
   education: Education[];
-  totalProjectsCount: number;
 }
 
 const About = ({
   avatarUrl,
-  experience,
+  professionalExperience,
   graduations,
   education,
-  totalProjectsCount,
 }: AboutProps) => {
   const { onOpen } = useSidebarMenuDrawer();
 
@@ -111,12 +109,12 @@ const About = ({
             src={avatarUrl}
             alt="Matheus da Cruz"
           />
-          <AboutMe totalProjectsCount={totalProjectsCount} />
+          <AboutMe />
         </Flex>
         <AboutMeTabs
           tabIndex={tabIndex}
           handleTabsChange={handleTabsChange}
-          data={{ experience, graduations, education }}
+          data={{ professionalExperience, graduations, education }}
         />
       </MotionFlex>
     </>
@@ -129,20 +127,20 @@ export const getStaticProps: GetStaticProps = async () => {
   // profile data
   const { data: profile } = await api.get(process.env.API_URL);
 
-  // experience data
-  const { data: experience_data, error: experienceError } = await supabase
+  // professional experience data
+  const { data: professional_experience_data, error: experienceError } = await supabase
     .from("experience")
     .select("*")
     .order("id", { ascending: true });
 
-  const experience = experience_data?.map((ex) => {
+  const professionalExperience = professional_experience_data?.map((ex) => {
     return {
       id: ex?.id,
       companyName: ex?.company_name,
       companyWebsiteUrl: ex?.company_website_url,
       position: ex?.position,
       technologies: ex?.technologies,
-      experiencePeriod: ex?.experience_period,
+      professionalExperiencePeriod: ex?.experience_period,
     };
   });
 
@@ -177,19 +175,13 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   });
 
-  // total projects developed
-  const { data: allProjects, error: totalProjectsCountError } = await supabase
-    .from("projects")
-    .select("*");
-
   return {
     props: {
       avatarUrl: profile?.avatar_url,
       currentCompany: profile?.company,
-      experience,
+      professionalExperience,
       graduations,
       education,
-      totalProjectsCount: allProjects?.length,
     },
     revalidate: 60 * 60 * 3, // = 3 hour
   };

@@ -88,13 +88,13 @@ const Skills = ({ programmingSkills }: SkillsProps) => {
             fontWeight="normal"
             color="gray.300"
           >
-            that I&apos;ve been developing and perfecting myself daily
+            that I&apos;ve been using and constantly improving myself in
           </Text>
         </MotionFlex>
         <MotionGrid
           gap="8"
           mt={!isToShowOpenMenuButton ? "36" : "44"}
-          mb="10"
+          pb="8"
           mx="auto"
           px="4"
           templateColumns={[

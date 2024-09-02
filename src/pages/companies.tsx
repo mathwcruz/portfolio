@@ -92,8 +92,7 @@ const Companies = ({ companies }: CompaniesProps) => {
             fontWeight="normal"
             color="gray.300"
           >
-            in which I had an active participation in the development of their
-            products and services
+            where I had an active role in the development of their apps and products
           </Text>
         </MotionFlex>
         <MotionFlex

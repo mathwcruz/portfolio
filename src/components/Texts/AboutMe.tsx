@@ -12,11 +12,7 @@ const TextHighlight = ({ text }: TextHighlightProps) => (
   </Text>
 );
 
-interface AboutMeProps {
-  totalProjectsCount: number;
-}
-
-export const AboutMe = ({ totalProjectsCount }: AboutMeProps) => {
+export const AboutMe = () => {
   return (
     <Flex
       alignItems="center"
@@ -29,27 +25,40 @@ export const AboutMe = ({ totalProjectsCount }: AboutMeProps) => {
       mt="10"
       color="gray.100"
     >
-      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
-        Nice to meet you, I&apos;m Matheus da Cruz, a brazilian born in Rio
-        Grande do Sul, <TextHighlight text="Software Developer" /> specialized
-        in <TextHighlight text="Front End" />.
+      <Text
+        fontSize={["md", "md"]}
+        lineHeight="tall"
+        fontWeight="medium"
+        color="gray.100"
+      >
+        Nice to meet you, I&apos;m Matheus da Cruz, a developer born in Brazil
+        who is a specialist in{" "}
+        <TextHighlight text="Front End web development" />.
       </Text>
-      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
+      <Text
+        fontSize={["md", "md"]}
+        lineHeight="tall"
+        fontWeight="medium"
+        color="gray.100"
+      >
         Passionate about <TextHighlight text="technology" />,{" "}
         <TextHighlight text="blockchain" />, <TextHighlight text="astronomy" />{" "}
-        and <TextHighlight text="economics" />, I also love to travel, meeting
-        new cultures and I&apos;m a crypto enthusiast. I&apos;m quite
-        extroverted, a very ambitious, self-taught and self-critical person, I
-        like to talk a lot, but I&apos;m also very anxious and sometimes I talk
-        even more.
+        and <TextHighlight text="economics" />, I also love to travel,
+        experience new cultures, hang out with my friends, read, work out and
+        study economics.
       </Text>
-      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
-        I started in the world of programming in the second half of 2020, where
-        I began to learn and develop my first projects using{" "}
-        <TextHighlight text="HTML" />, <TextHighlight text="CSS" /> and{" "}
-        <TextHighlight text="Javascript" />. I fell in love face to face for the
-        Front End and I decided that I would study and develop myself to be an
-        expert in this branch. Check out the{" "}
+      <Text
+        fontSize={["md", "md"]}
+        lineHeight="tall"
+        fontWeight="medium"
+        color="gray.100"
+      >
+        I began my programming journey in August 2020 when I decided to study
+        programming logic and later <TextHighlight text="HTML" />,{" "}
+        <TextHighlight text="CSS" /> and <TextHighlight text="JavaScript" />.
+        Right away, I fell in love with{" "}
+        <TextHighlight text="Front End web development" /> and decided to
+        dedicate myself to becoming a specialist. You can check out the{" "}
         <CustomLink href="/skills">
           <ChakraLink
             textDecoration="underline"
@@ -59,17 +68,25 @@ export const AboutMe = ({ totalProjectsCount }: AboutMeProps) => {
             technologies
           </ChakraLink>
         </CustomLink>{" "}
-        that I&apos;ve perfected over time.
+        that I&apos;ve perfected throughout my career.
       </Text>
-      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
-        After much study, dedication and headache, my first career opportunity
-        knocked into my door in a startup called CAF which its main goal is to
-        make the web a safer and more ethical place.
+      <Text
+        fontSize={["md", "md"]}
+        lineHeight="tall"
+        fontWeight="medium"
+        color="gray.100"
+      >
+        My professional journey began in April 2021 at a newly founded startup
+        in Brazil aimed at combating digital fraud through technology.
       </Text>
-      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
-        In addition to the projects developed for companies, I have already
-        developed <TextHighlight text={String(totalProjectsCount)} /> personal
-        projects, you can check all of them by{" "}
+      <Text
+        fontSize={["md", "md"]}
+        lineHeight="tall"
+        fontWeight="medium"
+        color="gray.100"
+      >
+        In addition to my involvement in corporate projects, I have developed{" "}
+        more than 30 personal projects. You can check them all out by{" "}
         <CustomLink href="/portfolio">
           <ChakraLink
             textDecoration="underline"
@@ -80,10 +97,6 @@ export const AboutMe = ({ totalProjectsCount }: AboutMeProps) => {
           </ChakraLink>
         </CustomLink>
         .
-      </Text>
-      <Text fontSize={["md", "md"]} fontWeight="medium" color="gray.100">
-        My main goal in the area of technology is to solve a major global
-        problem through technology.
       </Text>
     </Flex>
   );

@@ -12,20 +12,20 @@ import {
   TabPanel,
   Link as ChakraLink,
 } from "@chakra-ui/react";
-import { Experience, Graduation, Education } from "pages/about";
+import { ProfessionalExperience, Graduation, Education } from "pages/about";
 
 interface AboutMeProps {
   tabIndex: number;
   handleTabsChange: (index: number) => void;
   data: {
-    experience: Experience[];
+    professionalExperience: ProfessionalExperience[];
     graduations: Graduation[];
     education: Education[];
   };
 }
 
 export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
-  const { experience, graduations, education } = data;
+  const { professionalExperience, graduations, education } = data;
 
   return (
     <Box mx="auto" my="0" w="65%">
@@ -46,7 +46,7 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
             fontWeight="medium"
             _focus={{ outline: "none" }}
           >
-            Experience
+            Professional experience
           </Tab>
           <Tab
             fontSize={["sm", "md"]}
@@ -72,7 +72,7 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
               mx="auto"
               textAlign="center"
             >
-              {experience?.map((xp) => (
+              {professionalExperience?.map((xp) => (
                 <Flex
                   flexDirection="column"
                   alignItems="center"
@@ -109,7 +109,7 @@ export const AboutMe = ({ tabIndex, handleTabsChange, data }: AboutMeProps) => {
                     fontWeight="normal"
                     color="white"
                   >
-                    {xp?.experiencePeriod}
+                    {xp?.professionalExperiencePeriod}
                   </Text>
                   <Flex gap="5px" alignItems="center" justifyContent="center">
                     {xp?.technologies?.map((technology) => (

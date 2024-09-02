@@ -25,7 +25,7 @@ export const SidebarMenuNav = () => {
   useEffect(() => {
     hasCopied &&
       toast({
-        title: "E-mail copied to clipboard successfully!",
+        title: "Email copied to clipboard successfully!",
         description: "Now you can send me a message",
         status: "success",
         duration: 2000,
@@ -79,7 +79,7 @@ export const SidebarMenuNav = () => {
         />
         <SocialMediaButton
           icon={HiOutlineMail}
-          text="E-mail"
+          text="Email"
           size={28}
           onClick={onCopy}
         />

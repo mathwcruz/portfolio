@@ -45,34 +45,32 @@ export const SummaryAboutMe = ({
           textAlign="center"
           px="3"
         >
-          Hi, I&apos;m Matheus Wachholtz da Cruz
+          Hi, I&apos;m Matheus da Cruz
         </Text>
         <Text
           fontSize={["sm", "md", "lg"]}
           fontWeight="bold"
           textAlign="center"
-          color="gray.100"
+          color="blue.600"
           px="3"
         >
-          Front End Developer at{" "}
-          <Text display="inline-block" color="blue.600">
-            {currentCompany}
-          </Text>
+          Front End Developer
         </Text>
         <Box
           color="gray.100"
           fontSize={["sm", "sm", "md"]}
+          lineHeight="tall"
           fontWeight="medium"
           textAlign="center"
           px="3"
           mt="3"
           maxWidth={[260, 340, 500, 670]}
         >
-          Residing in Brazil, passionate about layout, UI/UX and user
-          satisfaction. My main goal in the area of technology is to solve a
-          major global problem through technology. I dedicate myself constantly
-          to perfect myself as a developer and professional to be prepared for a
-          challenge of this magnitude. Get to know a little more about me{" "}
+          Currently residing in Brazil, I&apos;m a developer passionate about layout
+          and UI/UX. I currently work at ADP Brazil Labs. My main goal in the
+          technology field is to be part of a team that will solve a major
+          global problem through technology. I&apos;m constantly dedicated to
+          improving myself and being ready to embark on this adventure. You can learn more about me by{" "}
           <CustomLink href="/about">
             <ChakraLink
               textDecoration="underline"

@@ -32,12 +32,12 @@ const Portfolio: NextPage = () => {
 
   const subtitle = useMemo(() => {
     if (tabIndex === 0)
-      return "developed with the aim of improving technical skills";
+      return "developed with the aim of practicing and refining technical skills";
 
-    if (tabIndex === 1) return "developed in courses and tutorials";
+    if (tabIndex === 1) return "developed with the aim of study and learning";
 
     if (tabIndex === 2)
-      return "that I had a significant participation in their development";
+      return "developed for companies where I had an active role";
   }, [tabIndex]);
 
   return (
