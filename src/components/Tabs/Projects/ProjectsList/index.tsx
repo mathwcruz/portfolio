@@ -161,7 +161,9 @@ export const ProjectsList = ({ type }: ProjectsListProps) => {
                   </ChakraLink>
                   <Box w="100%" borderRadius="md">
                     <Text
-                      maxW={isToChangeProjectItemUI ? "400px" : "350px"}
+                      // minW={isToChangeProjectItemUI ? "400px" : "350px"}
+                      // maxW={isToChangeProjectItemUI ? "400px" : "350px"}
+                      w={isToChangeProjectItemUI ? "400px" : "350px"}
                       textAlign={isToChangeProjectItemUI ? "start" : "end"}
                       color="white"
                       fontWeight="semibold"
