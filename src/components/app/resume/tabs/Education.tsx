@@ -30,9 +30,9 @@ const education = {
 
 const EducationTab = () => {
   return (
-    <div className="flex flex-col gap-[30px] text-center xl:text-left">
-      <h3 className="text-4xl font-bold">{education.title}</h3>
-      <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+    <div className="flex flex-col gap-[16px] lg:gap-[30px] text-center xl:text-left">
+      <h3 className="text-2xl md:text-4xl font-bold">{education.title}</h3>
+      <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 text-sm lg:text-base">
         {education.description}
       </p>
 
@@ -45,7 +45,7 @@ const EducationTab = () => {
             >
               <span className="text-accent">{item.duration}</span>
 
-              <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+              <h3 className="text-lg lg:text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                 {item.degree}
               </h3>
 

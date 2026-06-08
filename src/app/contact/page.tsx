@@ -76,7 +76,7 @@ const Contact = () => {
         opacity: 1,
         transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
       }}
-      className="py-6"
+      className="py-4 md:py-6 lg:py-0"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
@@ -85,8 +85,8 @@ const Contact = () => {
               action={sendMessage}
               className="flex flex-col gap-6 p-10 bg-background-700 rounded-xl"
             >
-              <h3 className="text-4xl text-white">Let&apos;s work together</h3>
-              <p className="text-white/60">
+              <h3 className="text-2xl lg:text-4xl text-white">Let&apos;s work together</h3>
+              <p className="text-sm lg:text-base text-white/60">
                 Are you interested in getting to know more about me and my work?
                 Send me a message and I will reply as soon as possible.
               </p>
@@ -113,13 +113,13 @@ const Contact = () => {
             <ul className="flex flex-col gap-10">
               {info.map((item) => (
                 <li key={item.title} className="flex items-center gap-6">
-                  <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-background-700 text-accent rounded-md flex items-center justify-center">
-                    <div className="text-[28px]">{item.icon}</div>
+                  <div className="w-[38px] h-[38px] md:w-[52px] md:h-[52px] xl:w-[72px] xl:h-[72px] bg-background-700 text-accent rounded-md flex items-center justify-center">
+                    <div className="text-xl md:text-[28px]">{item.icon}</div>
                   </div>
 
                   <div className="flex-1">
-                    <p className="text-white/60">{item.title}</p>
-                    <h3 className="text-xl">{item.description}</h3>
+                    <p className="text-white/60 text-sm md:text-base">{item.title}</p>
+                    <h3 className="text-base md:text-xl">{item.description}</h3>
                   </div>
                 </li>
               ))}

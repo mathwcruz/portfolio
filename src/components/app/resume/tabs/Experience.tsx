@@ -25,9 +25,9 @@ const experience = {
 
 const ExperienceTab = () => {
   return (
-    <div className="flex flex-col gap-[30px] text-center xl:text-left">
-      <h3 className="text-4xl font-bold">{experience.title}</h3>
-      <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+    <div className="flex flex-col gap-[16px] lg:gap-[30px] text-center xl:text-left">
+      <h3 className="text-2xl md:text-4xl font-bold">{experience.title}</h3>
+      <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 text-sm lg:text-base">
         {experience.description}
       </p>
 
@@ -40,7 +40,7 @@ const ExperienceTab = () => {
             >
               <span className="text-accent">{experience.duration}</span>
 
-              <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+              <h3 className="text-lg lg:text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                 {experience.position}
               </h3>
 

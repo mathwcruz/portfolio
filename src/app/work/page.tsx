@@ -349,11 +349,11 @@ const Work = () => {
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
             <div className="flex flex-col gap-[30px] h-[50%]">
-              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
+              <div className="text-6xl lg:text-8xl leading-none font-extrabold text-transparent text-outline">
                 {project.num}
               </div>
 
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
+              <h2 className="text-4xl lg:text-[44px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
                 {project.title}
               </h2>
 
@@ -386,8 +386,8 @@ const Work = () => {
                   <Link href={project.live}>
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
-                        <TooltipTrigger className="w-12 h-12 rounded-full bg-white/5 flex justify-center items-center group">
-                          <BsArrowUpRight className="text-white text-2xl group-hover:text-accent" />
+                        <TooltipTrigger className="w-10 h-9 md:w-12 md:h-12 rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-xl md:text-2xl group-hover:text-accent" />
                         </TooltipTrigger>
 
                         <TooltipContent>
@@ -401,8 +401,8 @@ const Work = () => {
                 <Link href={project.github}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-12 h-12 rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-2xl group-hover:text-accent" />
+                      <TooltipTrigger className="w-10 h-9 md:w-12 md:h-12 rounded-full bg-white/5 flex justify-center items-center group">
+                        <BsGithub className="text-white text-xl md:text-2xl group-hover:text-accent" />
                       </TooltipTrigger>
 
                       <TooltipContent>

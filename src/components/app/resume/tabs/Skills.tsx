@@ -85,14 +85,14 @@ const skills = {
 const SkillsTab = () => {
   return (
     <div className="flex flex-col gap-[30px]">
-      <div className="flex flex-col gap-[30px] text-center xl:text-left">
-        <h3 className="text-4xl font-bold">{skills.title}</h3>
-        <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+      <div className="flex flex-col gap-[16px] lg:gap-[30px] text-center xl:text-left">
+        <h3 className="text-2xl md:text-4xl font-bold">{skills.title}</h3>
+        <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 text-sm lg:text-base">
           {skills.description}
         </p>
       </div>
 
-      <ScrollArea className="h-[330px]">
+      <ScrollArea className="h-[480px] md:h-[330px]">
         <ul className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px] pr-4">
           {skills.skillList.map((skill) => (
             <li key={skill.name}>
