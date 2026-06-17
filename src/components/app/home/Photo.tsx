@@ -22,7 +22,7 @@ const Photo = () => {
           className="w-72 h-72 xl:w-[360px] xl:h-[360px]"
         >
           <Image
-            src="/assets/photo.jpg"
+            src="/assets/photo.jpeg"
             priority
             quality={100}
             fill
