@@ -8,17 +8,17 @@ const experience = {
     {
       company: "ADP Brazil Labs",
       position: "Front End Developer",
-      duration: "2022 - Present",
+      duration: "Aug 2022 - Jun 2026",
     },
     {
       company: "DigiSinan",
       position: "Co-Founder & Front End Developer",
-      duration: "2021 - 2022",
+      duration: "Apr 2021 - Jul 2022",
     },
     {
       company: "caf.",
       position: "Junior Front End Developer",
-      duration: "2021 - 2022",
+      duration: "Apr 2021 - Jul 2022",
     },
   ],
 };
