@@ -28,8 +28,8 @@ const Home = () => {
             </span>
 
             <h1 className="h1 mb-6">
-              Hello I&apos;m <br />{" "}
-              <span className="text-accent">Matheus da Cruz</span>
+              Hi,<br />
+             <span className="text-xl md:text-2xl xl:text-5xl">I&apos;m <span className="text-accent">Matheus Cruz</span></span>
             </h1>
 
             <p className="max-w-[500px] mb-9 text-white/80 text-sm md:text-base">
