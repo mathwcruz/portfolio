@@ -1,13 +1,13 @@
 import { calculateProgrammingExperience } from "@/utils/date";
 
 const about = {
-  title: "About me",
+  title: "About Me",
   description:
-    "Passionate about technology, blockchain, astronomy and economics. I also love to travel, experience new cultures, hang out with my friends, read, work out and study economics.",
+    "Passionate about technology, blockchain, astronomy, and economics, I also love traveling, experiencing new cultures, spending time with friends, reading, working out, and studying economics.",
   info: [
     {
       fieldName: "Name",
-      fieldValue: "Matheus da Cruz",
+      fieldValue: "Matheus Cruz",
     },
     {
       fieldName: "Phone",

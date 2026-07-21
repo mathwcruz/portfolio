@@ -40,7 +40,7 @@ const projects = [
     num: "01",
     title: "Gelify",
     description:
-      "An app responsible for managing your users, clients, suppliers, products, purchases and sales.",
+      "An app for managing your users, clients, suppliers, products, purchases, and sales.",
     stack: [
       {
         name: "TailwindCSS",
@@ -68,7 +68,7 @@ const projects = [
     num: "02",
     title: "letmeask",
     description:
-      "An app that brings together people who have questions about a specific topic and those who have the answers.",
+      "An app that connects people with questions about a specific topic to those who can answer them.",
     stack: [
       {
         name: "HTML",
@@ -93,7 +93,7 @@ const projects = [
     num: "03",
     title: "move.it",
     description:
-      "An application that reminds you to exercise every 25 minutes, following the Pomodoro technique theory.",
+      "An application that reminds you to take a break and exercise every 25 minutes using the Pomodoro technique.",
     stack: [
       {
         name: "HTML",
@@ -143,7 +143,7 @@ const projects = [
     num: "05",
     title: "Proffy",
     description:
-      "An application that connects private tutors with students who are looking for this service.",
+      "An application that connects private tutors with students looking for that service.",
     stack: [
       {
         name: "HTML",
@@ -172,7 +172,7 @@ const projects = [
     num: "06",
     title: "ig.news",
     description:
-      "A blog post application where you can log in with your Github credentials and subscribe for more content.",
+      "A blog application where you can log in with your GitHub credentials and subscribe for more content.",
     stack: [
       {
         name: "HTML",
@@ -205,7 +205,7 @@ const projects = [
     num: "07",
     title: "Podcastr",
     description:
-      "A podcast app where you can play, pause, select a specific episode.",
+      "A podcast app where you can play, pause, and choose a specific episode.",
     stack: [
       {
         name: "HTML",
@@ -234,7 +234,7 @@ const projects = [
     num: "08",
     title: "Alurakut",
     description:
-      "An application that replicates some functionalities of the now-defunct Orkut.",
+      "An application that recreates some of the features of the now-defunct Orkut.",
     stack: [
       {
         name: "Styled Components",
@@ -262,7 +262,7 @@ const projects = [
     num: "09",
     title: "dashgo.",
     description:
-      "A dashboard application for managing users. It contains graphics regarding app data.",
+      "A dashboard application for managing users, with charts and other data visualizations.",
     stack: [
       {
         name: "HTML",
@@ -294,7 +294,7 @@ const projects = [
     num: "10",
     title: "Coffee Delivery",
     description:
-      "An app that simulates a café delivery service where you can purchase your favorite coffees.",
+      "An app that simulates a café delivery service where you can order your favorite coffees.",
     stack: [
       {
         name: "Styled Components",
@@ -383,7 +383,11 @@ const Work = () => {
 
               <div className="flex items-center gap-4">
                 {project.live && (
-                  <Link href={project.live}>
+                  <Link
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-10 h-9 md:w-12 md:h-12 rounded-full bg-white/5 flex justify-center items-center group">
@@ -391,14 +395,18 @@ const Work = () => {
                         </TooltipTrigger>
 
                         <TooltipContent>
-                          <p>Live project</p>
+                          <p>Live Project</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
                   </Link>
                 )}
 
-                <Link href={project.github}>
+                <Link
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-10 h-9 md:w-12 md:h-12 rounded-full bg-white/5 flex justify-center items-center group">
@@ -406,7 +414,7 @@ const Work = () => {
                       </TooltipTrigger>
 
                       <TooltipContent>
-                        <p>Github repository</p>
+                        <p>GitHub Repository</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>

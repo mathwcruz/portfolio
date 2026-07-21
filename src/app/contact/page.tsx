@@ -44,7 +44,7 @@ const Contact = () => {
 
     if (!allFieldsAreFilled) {
       toast({
-        description: "Please fill out all fields",
+        description: "Please fill out all fields.",
         variant: "destructive",
       });
 
@@ -63,7 +63,7 @@ const Contact = () => {
       });
     } catch {
       toast({
-        description: "Failed to send email, try again",
+        description: "Failed to send the email. Please try again.",
         variant: "destructive",
       });
     }
@@ -85,10 +85,12 @@ const Contact = () => {
               action={sendMessage}
               className="flex flex-col gap-6 p-10 bg-background-700 rounded-xl"
             >
-              <h3 className="text-2xl lg:text-4xl text-white">Let&apos;s work together</h3>
+              <h3 className="text-2xl lg:text-4xl text-white">
+                Let&apos;s work together
+              </h3>
               <p className="text-sm lg:text-base text-white/60">
-                Are you interested in getting to know more about me and my work?
-                Send me a message and I will reply as soon as possible.
+                Would you like to learn more about me and my work? Send me a
+                message, and I&apos;ll get back to you as soon as possible.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -100,11 +102,11 @@ const Contact = () => {
               <Textarea
                 name="message"
                 className="h-[200px]"
-                placeholder="Type your message here."
+                placeholder="Write your message here."
               />
 
               <Button type="submit" size="md" className="max-w-40">
-                Send message
+                Send Message
               </Button>
             </form>
           </div>

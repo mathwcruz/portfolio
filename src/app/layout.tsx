@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 
+// @ts-expect-error - CSS side-effect imports are not typed in this project
 import "./globals.css";
 
 import PageTransition from "@/components/utils/PageTransition";
@@ -14,8 +15,8 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Matheus da Cruz",
-  description: "Professional portfolio of Matheus da Cruz",
+  title: "Matheus Cruz",
+  description: "Professional portfolio by Matheus da Cruz",
 };
 
 export default function RootLayout({

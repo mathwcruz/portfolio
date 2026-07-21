@@ -7,15 +7,15 @@ import { calculateProgrammingExperience } from "@/utils/date";
 const stats = [
   {
     num: calculateProgrammingExperience(),
-    text: "Years of experience",
+    text: "Years of Experience",
   },
   {
     num: 25,
-    text: "Projects completed",
+    text: "Projects Completed",
   },
   {
     num: 8,
-    text: "Technologies mastered",
+    text: "Technologies Mastered",
   },
 ];
 

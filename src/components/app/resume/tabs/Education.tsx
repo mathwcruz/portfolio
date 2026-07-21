@@ -1,9 +1,9 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const education = {
-  title: "My education",
+  title: "My Education",
   description:
-    "These are the lessons I consider to be the most relevant and that helped me become the professional I am.",
+    "These are the lessons I consider the most relevant and that helped shape the professional I am today.",
   items: [
     {
       institution: "Univates",

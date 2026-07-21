@@ -23,9 +23,9 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const skills = {
-  title: "My skills",
+  title: "My Skills",
   description:
-    "These are the hard skills I've been working on and improving day by day.",
+    "These are the hard skills I’ve been working on and improving every day.",
   skillList: [
     {
       icon: <SiHtml5 />,

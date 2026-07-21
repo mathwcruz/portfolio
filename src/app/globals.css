@@ -8,11 +8,11 @@
   }
 
   .h1 {
-    @apply text-3xl md:text-5xl xl:text-7xl leading-[1.1] font-semibold;
+    @apply text-3xl md:text-4xl xl:text-6xl leading-[1.1] font-semibold;
   }
 
   .h2 {
-    @apply text-4xl xl:text-5xl leading-[1.1] font-semibold;
+    @apply text-2xl xl:text-4xl leading-[1.1] font-semibold;
   }
 
   .h3 {

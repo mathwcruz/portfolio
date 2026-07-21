@@ -24,16 +24,18 @@ const Home = () => {
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-lg md:text-xl block mb-3 lg:mb-0">
-              Front End Developer
+              Front-end Developer
             </span>
 
             <h1 className="h1 mb-6">
               Hi,<br />
-             <span className="text-xl md:text-2xl xl:text-5xl">I&apos;m <span className="text-accent">Matheus Cruz</span></span>
+              <span className="text-xl md:text-2xl xl:text-5xl">
+                I&apos;m <span className="text-accent">Matheus Cruz</span>
+              </span>
             </h1>
 
             <p className="max-w-[500px] mb-9 text-white/80 text-sm md:text-base">
-              I&apos;m a Front-End specialist and proficient in various
+              I&apos;m a front-end specialist with experience across multiple
               technologies in the field
             </p>
 

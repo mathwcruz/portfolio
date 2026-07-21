@@ -1,9 +1,9 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const experience = {
-  title: "My experience",
+  title: "My Experience",
   description:
-    "These are the professional experiences I had the pleasure of being a part of.",
+    "These are the professional experiences I had the pleasure of being part of.",
   items: [
     {
       company: "ADP Brazil Labs",
