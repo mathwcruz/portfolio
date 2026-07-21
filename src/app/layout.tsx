@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 
-// @ts-expect-error - CSS side-effect imports are not typed in this project
 import "./globals.css";
 
 import PageTransition from "@/components/utils/PageTransition";
