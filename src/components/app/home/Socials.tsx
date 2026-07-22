@@ -5,7 +5,7 @@ const socials = [
   { icon: <FaGithub />, path: "https://github.com/mathwcruz" },
   {
     icon: <FaLinkedinIn />,
-    path: "https://www.linkedin.com/in/matheus-cruz-frontend",
+    path: "https://www.linkedin.com/in/matheus-wach-cruz",
   },
 ];
 
