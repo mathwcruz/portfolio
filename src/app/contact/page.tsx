@@ -89,8 +89,7 @@ const Contact = () => {
                 Let&apos;s work together
               </h3>
               <p className="text-sm lg:text-base text-white/60">
-                Would you like to learn more about me and my work? Send me a
-                message, and I&apos;ll get back to you as soon as possible.
+                Got a project in mind? Let&apos;s talk — I&apos;ll get back to you as soon as possible.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -102,7 +101,7 @@ const Contact = () => {
               <Textarea
                 name="message"
                 className="h-[200px]"
-                placeholder="Write your message here."
+                placeholder="Tell me about your project or opportunity..."
               />
 
               <Button type="submit" size="md" className="max-w-40">

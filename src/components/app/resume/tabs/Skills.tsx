@@ -12,6 +12,11 @@ import {
   SiTestinglibrary,
   SiGraphql,
   SiStorybook,
+  SiNodedotjs,
+  SiExpress,
+  SiPrisma,
+  SiPostgresql,
+  SiSqlite
 } from "react-icons/si";
 
 import {
@@ -79,6 +84,26 @@ const skills = {
       icon: <SiStorybook />,
       name: "Storybook",
     },
+    {
+      icon: <SiNodedotjs />,
+      name: "Node.js",
+    },
+    {
+      icon: <SiExpress />,
+      name: "Express",
+    },
+    {
+      icon: <SiPrisma />,
+      name: "Prisma",
+    },
+    {
+      icon: <SiPostgresql />,
+      name: "PostgreSQL",
+    },
+    {
+      icon: <SiSqlite />,
+      name: "SQLite",
+    }
   ],
 };
 

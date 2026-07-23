@@ -24,7 +24,7 @@ const Home = () => {
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-lg md:text-xl block mb-3 lg:mb-0">
-              Front-end Developer
+              Full Stack Developer
             </span>
 
             <h1 className="h1 mb-6">
@@ -35,8 +35,7 @@ const Home = () => {
             </h1>
 
             <p className="max-w-[500px] mb-9 text-white/80 text-sm md:text-base">
-              I&apos;m a front-end specialist with experience across multiple
-              technologies in the field
+              Front-End specialist (React, Next.js, TypeScript) with working proficiency in Back-End development
             </p>
 
             <div className="flex flex-col xl:flex-row items-center gap-8">
