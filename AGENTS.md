@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Personal portfolio site (Matheus Cruz). Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v3.
+Personal portfolio site (Matheus Cruz). Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4.
 
 ## Commands
 
@@ -18,8 +18,8 @@ Personal portfolio site (Matheus Cruz). Next.js 16 App Router, React 19, TypeScr
 
 ## Conventions
 
-- Tailwind v3 (not v4) with config in `tailwind.config.ts`. Custom colors `primary` (#1C1C22), `accent` (blue), `background` shades are defined there — extend the config, don't hardcode hex.
-- Font is JetBrains Mono loaded via `next/font` as `--font-jetbrainsMono`; primary font-family is `var(--font-jetbrainsMono)`.
+- Tailwind v4, CSS-first. There is no `tailwind.config.ts`; theme tokens (`--color-primary`, `--color-accent`, `--color-background-*`, `--font-primary`, custom `--breakpoint-lg/xl`, accordion keyframes) live in `@theme` in `src/app/globals.css`. PostCSS plugin is `@tailwindcss/postcss` (`postcss.config.mjs`); `tailwindcss-animate` loads via `@plugin 'tailwindcss-animate'`. Extend `@theme`, don't hardcode hex.
+- Font is JetBrains Mono loaded via `next/font` as `--font-jetbrainsMono`, applied on `<html>` (not `<body>`) so the `@theme` `--font-primary: var(--font-jetbrainsMono)` resolves at `:root`. Don't move it back to `<body>` — v4 computes `@theme` vars on `:root`, so the source var must be defined there or the font silently falls back.
 - ESLint disables quote rules and `react/no-unescaped-entities`; don't add quote-style rules.
 - React components and server actions use the current Next 16/React 19 conventions; code is otherwise vanilla (no heavy state libs besides motion, swiper, react-countup).
 - Always use Context7 when the user needs library/API documentation, code generation, setup, or configuration steps without them explicitly asking.
@@ -28,3 +28,13 @@ Personal portfolio site (Matheus Cruz). Next.js 16 App Router, React 19, TypeScr
 
 - Contact form sends email through Resend via server action `src/actions/sendEmail.ts`, using `RESEND_API_KEY` from `.env.local` (gitignored; committed secrets will be blocked).
 - Note: `.gitignore` ignores `cspell.json`, so it won't be tracked even though it exists.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

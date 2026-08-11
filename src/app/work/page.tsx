@@ -347,7 +347,7 @@ const Work = () => {
     >
       <div className="container mx-auto xl:-mb-12 xl:-mt-4">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-0">
             <div className="flex flex-col gap-[30px] h-[50%]">
               <div className="text-6xl lg:text-8xl leading-none font-extrabold text-transparent text-outline">
                 {project.num}
@@ -448,7 +448,7 @@ const Work = () => {
               ))}
 
               <ProjectSliderButtons
-                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
+                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%-22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
                 btnStyles="peer first:rounded-r-sm last:rounded-l-sm xl:last:rounded-full xl:first:rounded-full bg-background-700 xl:bg-white xl:text-primary hover:bg-background-600 xl:hover:bg-white/70 text-white text-[22px] w-12 h-12 flex justify-center items-center transition-all disabled:opacity-40 disabled:cursor-default disabled:pointer-events-none"
               />
             </Swiper>

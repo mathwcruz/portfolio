@@ -80,7 +80,7 @@ const Contact = () => {
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
-          <div className="xl:w-[54%] order-2 xl:order-none">
+          <div className="xl:w-[54%] order-2 xl:order-0">
             <form
               action={sendMessage}
               className="flex flex-col gap-6 p-10 bg-background-700 rounded-xl"
@@ -110,7 +110,7 @@ const Contact = () => {
             </form>
           </div>
 
-          <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
+          <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-0 mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
               {info.map((item) => (
                 <li key={item.title} className="flex items-center gap-6">
