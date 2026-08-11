@@ -1,7 +1,7 @@
 "use client";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { useToast } from "@/hooks/use-toast";
 import { sendEmail } from "@/actions/sendEmail";

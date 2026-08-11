@@ -1,26 +1,15 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+import next from "eslint-config-next";
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...next,
   {
     rules: {
-      "react-no-unescaped-entities": "off",
+      "react/no-unescaped-entities": "off",
       "@typescript-eslint/quotes": "off",
-      "quotes": [0],
-      "avoidEscape": 0,
-      "allowTemplateLiterals": 0,
-      "no-useless-escape": 0,
-    }
-  }
+      "quotes": "off",
+      "no-useless-escape": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

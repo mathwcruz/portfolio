@@ -1,6 +1,6 @@
 import {
   SiHtml5,
-  SiCss3,
+  SiCss,
   SiSass,
   SiJavascript,
   SiTypescript,
@@ -37,7 +37,7 @@ const skills = {
       name: "HTML",
     },
     {
-      icon: <SiCss3 />,
+      icon: <SiCss />,
       name: "CSS",
     },
     {

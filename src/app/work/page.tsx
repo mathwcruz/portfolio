@@ -6,7 +6,7 @@ import { ReactNode, useState } from "react";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import {
   SiHtml5,
-  SiCss3,
+  SiCss,
   SiSass,
   SiTailwindcss,
   SiStyledcomponents,
@@ -24,7 +24,7 @@ import {
 } from "react-icons/si";
 import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import "swiper/css";
 
 import {
@@ -99,7 +99,7 @@ const projects = [
         name: "HTML",
         icon: <SiHtml5 className="text-[#E34F26]" />,
       },
-      { name: "CSS", icon: <SiCss3 className="text-[#1572B6]" /> },
+      { name: "CSS", icon: <SiCss className="text-[#1572B6]" /> },
       { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
       {
         name: "Next.js",
@@ -124,7 +124,7 @@ const projects = [
         name: "HTML",
         icon: <SiHtml5 className="text-[#E34F26]" />,
       },
-      { name: "CSS", icon: <SiCss3 className="text-[#1572B6]" /> },
+      { name: "CSS", icon: <SiCss className="text-[#1572B6]" /> },
       {
         name: "Styled Components",
         icon: <SiStyledcomponents className="text-[#DB7093]" />,
@@ -149,7 +149,7 @@ const projects = [
         name: "HTML",
         icon: <SiHtml5 className="text-[#E34F26]" />,
       },
-      { name: "CSS", icon: <SiCss3 className="text-[#1572B6]" /> },
+      { name: "CSS", icon: <SiCss className="text-[#1572B6]" /> },
       {
         name: "SQLite",
         icon: <SiSqlite className="text-[#003B57]" />,
@@ -178,7 +178,7 @@ const projects = [
         name: "HTML",
         icon: <SiHtml5 className="text-[#E34F26]" />,
       },
-      { name: "CSS", icon: <SiCss3 className="text-[#1572B6]" /> },
+      { name: "CSS", icon: <SiCss className="text-[#1572B6]" /> },
       {
         name: "Sass",
         icon: <SiSass className="text-[#CC6699]" />,
@@ -211,7 +211,7 @@ const projects = [
         name: "HTML",
         icon: <SiHtml5 className="text-[#E34F26]" />,
       },
-      { name: "CSS", icon: <SiCss3 className="text-[#1572B6]" /> },
+      { name: "CSS", icon: <SiCss className="text-[#1572B6]" /> },
       {
         name: "Sass",
         icon: <SiSass className="text-[#CC6699]" />,

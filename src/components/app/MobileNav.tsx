@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 
 import { links } from "@/utils/data/routes";
@@ -14,10 +14,6 @@ const MobileNav = () => {
 
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  useEffect(() => {
-    setIsNavOpen(false);
-  }, [pathname]);
-
   return (
     <Sheet open={isNavOpen} onOpenChange={setIsNavOpen}>
       <SheetTrigger className="flex justify-center items-center">
@@ -26,7 +22,7 @@ const MobileNav = () => {
 
       <SheetContent className="flex flex-col">
         <div className="mt-32 mb-40 text-center text-2xl">
-          <Link href="/">
+          <Link href="/" onClick={() => setIsNavOpen(false)}>
             <h1 className="text-4xl font-semibold">
               Cruz<span className="text-accent">.</span>
             </h1>
@@ -39,6 +35,7 @@ const MobileNav = () => {
               <Link
                 key={`mobile-nav-path-${link.path}`}
                 href={link.path}
+                onClick={() => setIsNavOpen(false)}
                 className={`${
                   link.path === pathname
                     ? "text-accent border-b-2 border-accent"
