@@ -2,24 +2,9 @@
 
 import CountUp from "react-countup";
 
-import { calculateProgrammingExperience } from "@/utils/date";
+import type { Stat } from "@/lib/data/profile";
 
-const stats = [
-  {
-    num: calculateProgrammingExperience(),
-    text: "Years of Experience",
-  },
-  {
-    num: 25,
-    text: "Projects Completed",
-  },
-  {
-    num: 8,
-    text: "Technologies Mastered",
-  },
-];
-
-const Stats = () => {
+const Stats = ({ stats }: { stats: Stat[] }) => {
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
       <div className="container mx-auto">

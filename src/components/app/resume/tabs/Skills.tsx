@@ -1,113 +1,14 @@
 import {
-  SiHtml5,
-  SiCss,
-  SiSass,
-  SiJavascript,
-  SiTypescript,
-  SiTailwindcss,
-  SiReact,
-  SiNextdotjs,
-  SiRedux,
-  SiJest,
-  SiTestinglibrary,
-  SiGraphql,
-  SiStorybook,
-  SiNodedotjs,
-  SiExpress,
-  SiPrisma,
-  SiPostgresql,
-  SiSqlite
-} from "react-icons/si";
-
-import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { TechIcon } from "@/lib/tech-icons";
+import type { ResumeSkills } from "@/lib/data/resume";
 
-const skills = {
-  title: "My Skills",
-  description:
-    "These are the hard skills I’ve been working on and improving every day.",
-  skillList: [
-    {
-      icon: <SiHtml5 />,
-      name: "HTML",
-    },
-    {
-      icon: <SiCss />,
-      name: "CSS",
-    },
-    {
-      icon: <SiSass />,
-      name: "Sass",
-    },
-    {
-      icon: <SiTailwindcss />,
-      name: "TailwindCSS",
-    },
-    {
-      icon: <SiJavascript />,
-      name: "Javascript",
-    },
-    {
-      icon: <SiTypescript />,
-      name: "Typescript",
-    },
-    {
-      icon: <SiReact />,
-      name: "React",
-    },
-    {
-      icon: <SiNextdotjs />,
-      name: "Next.js",
-    },
-    {
-      icon: <SiRedux />,
-      name: "Redux",
-    },
-    {
-      icon: <SiJest />,
-      name: "Jest",
-    },
-    {
-      icon: <SiTestinglibrary />,
-      name: "Testing Library",
-    },
-    {
-      icon: <SiGraphql />,
-      name: "GraphQL",
-    },
-    {
-      icon: <SiStorybook />,
-      name: "Storybook",
-    },
-    {
-      icon: <SiNodedotjs />,
-      name: "Node.js",
-    },
-    {
-      icon: <SiExpress />,
-      name: "Express",
-    },
-    {
-      icon: <SiPrisma />,
-      name: "Prisma",
-    },
-    {
-      icon: <SiPostgresql />,
-      name: "PostgreSQL",
-    },
-    {
-      icon: <SiSqlite />,
-      name: "SQLite",
-    }
-  ],
-};
-
-const SkillsTab = () => {
+const SkillsTab = ({ skills }: { skills: ResumeSkills }) => {
   return (
     <div className="flex flex-col gap-[30px]">
       <div className="flex flex-col gap-[16px] lg:gap-[30px] text-center xl:text-left">
@@ -125,7 +26,7 @@ const SkillsTab = () => {
                 <Tooltip>
                   <TooltipTrigger className="w-full h-[150px] bg-background-600 rounded-xl flex justify-center items-center group">
                     <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                      {skill.icon}
+                      <TechIcon name={skill.tech} />
                     </div>
                   </TooltipTrigger>
 

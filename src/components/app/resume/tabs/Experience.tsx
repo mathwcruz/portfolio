@@ -1,29 +1,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
+import type { ResumeExperience } from "@/lib/data/resume";
 
-const experience = {
-  title: "My Experience",
-  description:
-    "These are the professional experiences I had the pleasure of being part of.",
-  items: [
-    {
-      company: "ADP Brazil Labs",
-      position: "Front End Developer",
-      duration: "Aug. 2022 - Jun. 2026",
-    },
-    {
-      company: "DigiSinan",
-      position: "Co-Founder & Front End Developer",
-      duration: "Jul. 2021 - May 2022",
-    },
-    {
-      company: "caf.",
-      position: "Junior Front End Developer",
-      duration: "May 2021 - Jul. 2022",
-    },
-  ],
-};
-
-const ExperienceTab = () => {
+const ExperienceTab = ({ experience }: { experience: ResumeExperience }) => {
   return (
     <div className="flex flex-col gap-[16px] lg:gap-[30px] text-center xl:text-left">
       <h3 className="text-2xl md:text-4xl font-bold">{experience.title}</h3>
@@ -33,21 +11,21 @@ const ExperienceTab = () => {
 
       <ScrollArea className="h-[400px]">
         <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] pr-4 xl:pr-0">
-          {experience.items.map((experience) => (
+          {experience.items.map((item) => (
             <li
-              key={experience.company}
+              key={item.company}
               className="bg-background-600 h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
             >
-              <span className="text-accent">{experience.duration}</span>
+              <span className="text-accent">{item.duration}</span>
 
               <h3 className="text-lg lg:text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                {experience.position}
+                {item.position}
               </h3>
 
               <div className="flex items-center gap-3 justify-center lg:justify-start">
                 <span className="w-[6px] h-[6px] rounded-full bg-accent" />
 
-                <p className="text-white/60">{experience.company}</p>
+                <p className="text-white/60">{item.company}</p>
               </div>
             </li>
           ))}

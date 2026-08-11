@@ -1,23 +1,13 @@
-"use client";
-
+import Link from "next/link";
 import { FiDownload } from "react-icons/fi";
 
 import { Button } from "@/components/ui/button";
 import Socials from "@/components/app/home/Socials";
 import Photo from "@/components/app/home/Photo";
 import Stats from "@/components/app/home/Stats";
+import { stats } from "@/lib/data/profile";
 
 const Home = () => {
-  const handleDownloadCV = () => {
-    const pdfPath = "/assets/files/cv.pdf";
-
-    const link = document.createElement("a");
-
-    link.href = pdfPath;
-    link.download = "resume-matheus-wachholtz-da-cruz.pdf";
-    link.click();
-  };
-
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
@@ -40,13 +30,18 @@ const Home = () => {
 
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button
+                asChild
                 variant="outline"
                 size="lg"
                 className="uppercase flex items-center gap-2 text-sm md:text-base"
-                onClick={handleDownloadCV}
               >
-                <span>Download CV</span>
-                <FiDownload className="text-lg md:text-xl" />
+                <Link
+                  href="/assets/files/cv.pdf"
+                  download="resume-matheus-wachholtz-da-cruz.pdf"
+                >
+                  <span>Download CV</span>
+                  <FiDownload className="text-lg md:text-xl" />
+                </Link>
               </Button>
 
               <div className="mb-8 xl:mb-0">
@@ -64,7 +59,7 @@ const Home = () => {
         </div>
       </div>
 
-      <Stats />
+      <Stats stats={stats} />
     </section>
   );
 };

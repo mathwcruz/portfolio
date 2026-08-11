@@ -1,38 +1,6 @@
-import { calculateProgrammingExperience } from "@/utils/date";
+import type { ResumeAbout } from "@/lib/data/resume";
 
-const about = {
-  title: "About Me",
-  description:
-    "Passionate about technology, blockchain, astronomy, and economics, I also love traveling, experiencing new cultures, spending time with friends, reading, working out, and studying economics.",
-  info: [
-    {
-      fieldName: "Name",
-      fieldValue: "Matheus Cruz",
-    },
-    {
-      fieldName: "Phone",
-      fieldValue: "+55 51986106570",
-    },
-    {
-      fieldName: "Experience",
-      fieldValue: `${calculateProgrammingExperience()} Years`,
-    },
-    {
-      fieldName: "Nationality",
-      fieldValue: "Brazilian",
-    },
-    {
-      fieldName: "Languages",
-      fieldValue: "Portuguese, English",
-    },
-    {
-      fieldName: "Email",
-      fieldValue: "matheuswachcruz@gmail.com",
-    },
-  ],
-};
-
-const AboutTab = () => {
+const AboutTab = ({ about }: { about: ResumeAbout }) => {
   return (
     <div className="flex flex-col gap-[30px]">
       <h3 className="text-2xl md:text-4xl font-bold">{about.title}</h3>

@@ -1,34 +1,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
+import type { ResumeEducation } from "@/lib/data/resume";
 
-const education = {
-  title: "My Education",
-  description:
-    "These are the lessons I consider the most relevant and that helped shape the professional I am today.",
-  items: [
-    {
-      institution: "Univates",
-      degree: "Associate degree",
-      duration: "2020 - 2023",
-    },
-    {
-      institution: "Rocketseat",
-      degree: "Web Development Bootcamp",
-      duration: "2021",
-    },
-    {
-      institution: "University of Michigan",
-      degree: "Michigan Language Assessment",
-      duration: "2019",
-    },
-    {
-      institution: "Fisk",
-      degree: "English course",
-      duration: "2017 - 2019",
-    },
-  ],
-};
-
-const EducationTab = () => {
+const EducationTab = ({ education }: { education: ResumeEducation }) => {
   return (
     <div className="flex flex-col gap-[16px] lg:gap-[30px] text-center xl:text-left">
       <h3 className="text-2xl md:text-4xl font-bold">{education.title}</h3>

@@ -1,13 +1,13 @@
+import type { ComponentType } from "react";
 import Link from "next/link";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
-const socials = [
-  { icon: <FaGithub />, path: "https://github.com/mathwcruz" },
-  {
-    icon: <FaLinkedinIn />,
-    path: "https://www.linkedin.com/in/matheus-wach-cruz",
-  },
-];
+import { socials, type Social } from "@/lib/data/profile";
+
+const socialIcons: Record<Social["icon"], ComponentType> = {
+  github: FaGithub,
+  linkedin: FaLinkedinIn,
+};
 
 interface SocialsProps {
   containerStyles: string;
@@ -17,17 +17,21 @@ interface SocialsProps {
 const Socials = ({ containerStyles, iconStyles }: SocialsProps) => {
   return (
     <div className={containerStyles}>
-      {socials.map((social) => (
-        <Link
-          key={social.path}
-          href={social.path}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={iconStyles}
-        >
-          {social.icon}
-        </Link>
-      ))}
+      {socials.map((social) => {
+        const Icon = socialIcons[social.icon];
+
+        return (
+          <Link
+            key={social.path}
+            href={social.path}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={iconStyles}
+          >
+            <Icon />
+          </Link>
+        );
+      })}
     </div>
   );
 };

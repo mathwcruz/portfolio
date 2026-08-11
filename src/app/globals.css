@@ -64,6 +64,11 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+
+  a[href],
+  button:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
 @layer base {
