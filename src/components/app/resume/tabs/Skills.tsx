@@ -19,10 +19,10 @@ const SkillsTab = ({ skills }: { skills: ResumeSkills }) => {
       </div>
 
       <ScrollArea className="h-[480px] md:h-[330px]">
-        <ul className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px] pr-4">
-          {skills.skillList.map((skill) => (
-            <li key={skill.name}>
-              <TooltipProvider delayDuration={100}>
+        <TooltipProvider delayDuration={100}>
+          <ul className="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px] pr-4">
+            {skills.skillList.map((skill) => (
+              <li key={skill.name}>
                 <Tooltip>
                   <TooltipTrigger className="w-full h-[150px] bg-background-600 rounded-xl flex justify-center items-center group">
                     <div className="text-6xl group-hover:text-accent transition-all duration-300">
@@ -34,10 +34,10 @@ const SkillsTab = ({ skills }: { skills: ResumeSkills }) => {
                     <p>{skill.name}</p>
                   </TooltipContent>
                 </Tooltip>
-              </TooltipProvider>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </TooltipProvider>
       </ScrollArea>
     </div>
   );

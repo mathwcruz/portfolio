@@ -93,7 +93,7 @@
   }
 
   .text-outline-hover {
-    -webkit-text-stroke: 1px #2563eb;
+    -webkit-text-stroke: 1px var(--color-accent);
   }
 
   ::-webkit-scrollbar {
