@@ -14,8 +14,8 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Matheus Cruz",
-  description: "Professional portfolio by Matheus da Cruz",
+  title: { default: "Matheus Cruz", template: "%s — Matheus Cruz" },
+  description: "Professional portfolio by Matheus Cruz",
 };
 
 export default function RootLayout({

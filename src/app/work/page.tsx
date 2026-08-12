@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { MotionFade } from "@/components/utils/MotionFade";
 import WorkSlider from "@/components/app/work/WorkSlider";
 import { projects } from "@/lib/data/projects";
+
+export const metadata: Metadata = {
+  title: "Work",
+  description:
+    "Selected projects by Matheus Cruz — React, Next.js, and TypeScript applications.",
+};
 
 const Work = () => {
   return (

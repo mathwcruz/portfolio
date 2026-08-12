@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { MotionFade } from "@/components/utils/MotionFade";
 import ResumeTabs from "@/components/app/resume/ResumeTabs";
 import ExperienceTab from "@/components/app/resume/tabs/Experience";
@@ -5,6 +6,12 @@ import EducationTab from "@/components/app/resume/tabs/Education";
 import SkillsTab from "@/components/app/resume/tabs/Skills";
 import AboutTab from "@/components/app/resume/tabs/About";
 import { experience, education, skills, about } from "@/lib/data/resume";
+
+export const metadata: Metadata = {
+  title: "Resume",
+  description:
+    "Experience, education, skills, and background of Matheus Cruz, Front End Developer.",
+};
 
 const Resume = () => {
   return (

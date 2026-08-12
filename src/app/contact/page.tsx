@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import type { ComponentType } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 import { MotionFade } from "@/components/utils/MotionFade";
 import ContactForm from "@/components/app/contact/ContactForm";
 import { contactInfo, type ContactInfo } from "@/lib/data/profile";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Matheus Cruz about projects and opportunities.",
+};
 
 const contactIcons: Record<ContactInfo["icon"], ComponentType> = {
   phone: FaPhoneAlt,
