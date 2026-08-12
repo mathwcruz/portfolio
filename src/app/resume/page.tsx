@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 const Resume = () => {
   return (
     <MotionFade className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0">
+      <h1 className="sr-only">Resume</h1>
       <div className="container mx-auto">
         <ResumeTabs
           experience={<ExperienceTab experience={experience} />}

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 const Work = () => {
   return (
     <MotionFade className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0">
+      <h1 className="sr-only">Work</h1>
       <WorkSlider projects={projects} />
     </MotionFade>
   );

@@ -20,6 +20,7 @@ const contactIcons: Record<ContactInfo["icon"], ComponentType> = {
 const Contact = () => {
   return (
     <MotionFade className="py-4 md:py-6 lg:py-0">
+      <h1 className="sr-only">Contact</h1>
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:w-[54%] order-2 xl:order-0">
