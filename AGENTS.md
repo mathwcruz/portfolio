@@ -14,7 +14,7 @@ Personal portfolio site (Matheus Cruz). Next.js 16 App Router, React 19, TypeScr
 
 - i18n via next-intl: locales `en-us` (default), `pt-br`, `es-es` with sub-path routing. Config in `src/i18n/` (`routing.ts`, `request.ts`, `navigation.ts`); locale detection in `src/proxy.ts`; UI strings in `messages/<locale>.json`.
 - App routes live in `src/app/[locale]/` (`/`, `/resume`, `/work`, `/contact`), each page is wrapped in `PageTransition` (motion/react) by the locale layout.
-- Content data (`src/lib/data/`) is locale-aware via `LocalizedText` maps resolved with `tr(map, locale)` (`src/lib/localize.ts`); missing locales fall back to `en-us`. Server components resolve to plain strings before passing to client islands. es-es content still falls back to English.
+- Content data (`src/lib/data/`) is locale-aware via `LocalizedText` maps resolved with `tr(map, locale)` (`src/lib/localize.ts`); missing locales fall back to `en-us`. Server components resolve to plain strings before passing to client islands.
 - Components: `src/components/ui/` is shadcn/ui (install via `npx shadcn@latest add <name>`, alias `@/components/ui`); `src/components/app/` is site-specific.
 - Import path alias: `@/*` → `./src/*`.
 

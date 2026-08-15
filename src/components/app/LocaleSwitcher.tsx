@@ -28,7 +28,7 @@ const LocaleSwitcher = () => {
         aria-hidden
         className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl leading-none pointer-events-none"
       >
-        {flags[locale]}
+        {flags[locale as AppLocale]}
       </span>
       <select
         value={locale}

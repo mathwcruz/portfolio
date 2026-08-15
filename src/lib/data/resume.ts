@@ -19,6 +19,8 @@ export const experience: ResumeExperience = {
       "These are the professional experiences I had the pleasure of being part of.",
     "pt-br":
       "Estas são as experiências profissionais das quais tive o prazer de fazer parte.",
+    "es-es":
+      "Estas son las experiencias profesionales de las que tuve el placer de formar parte.",
   },
   items: [
     {
@@ -26,6 +28,7 @@ export const experience: ResumeExperience = {
       position: {
         "en-us": "Front End Developer",
         "pt-br": "Desenvolvedor Front End",
+        "es-es": "Desarrollador Front End",
       },
       duration: {
         "en-us": "Aug. 2022 - Jun. 2026",
@@ -38,6 +41,7 @@ export const experience: ResumeExperience = {
       position: {
         "en-us": "Co-Founder & Front End Developer",
         "pt-br": "Cofundador & Desenvolvedor Front End",
+        "es-es": "Cofundador & Desarrollador Front End",
       },
       duration: {
         "en-us": "Jul. 2021 - May 2022",
@@ -50,6 +54,7 @@ export const experience: ResumeExperience = {
       position: {
         "en-us": "Junior Front End Developer",
         "pt-br": "Desenvolvedor Front End Júnior",
+        "es-es": "Desarrollador Front End Júnior",
       },
       duration: {
         "en-us": "May 2021 - Jul. 2022",
@@ -77,6 +82,8 @@ export const education: ResumeEducation = {
       "These are the lessons I consider the most relevant and that helped shape the professional I am today.",
     "pt-br":
       "Estas são as formações que considero mais relevantes e que ajudaram a moldar o profissional que sou hoje.",
+    "es-es":
+      "Estas son las formaciones que considero más relevantes y que ayudaron a formar al profesional que soy hoy.",
   },
   items: [
     {
@@ -84,6 +91,7 @@ export const education: ResumeEducation = {
       degree: {
         "en-us": "Associate degree",
         "pt-br": "Tecnólogo",
+        "es-es": "Tecnólogo",
       },
       duration: "2020 - 2023",
     },
@@ -92,6 +100,7 @@ export const education: ResumeEducation = {
       degree: {
         "en-us": "Web Development Bootcamp",
         "pt-br": "Bootcamp de Desenvolvimento Web",
+        "es-es": "Bootcamp de Desarrollo Web",
       },
       duration: "2021",
     },
@@ -105,6 +114,7 @@ export const education: ResumeEducation = {
       degree: {
         "en-us": "English course",
         "pt-br": "Curso de Inglês",
+        "es-es": "Curso de Inglés",
       },
       duration: "2017 - 2019",
     },
@@ -123,6 +133,8 @@ export const skills: ResumeSkills = {
     "en-us": "These are the hard skills I’ve been working on and improving every day.",
     "pt-br":
       "Estas são as habilidades técnicas que venho aprimorando todos os dias.",
+    "es-es":
+      "Estas son las habilidades técnicas en las que he estado trabajando y mejorando cada día.",
   },
   skillList: [
     { name: "HTML", tech: "html" },
@@ -159,30 +171,53 @@ export const about: ResumeAbout = {
       "Passionate about technology, blockchain, astronomy, and economics, I also love traveling, experiencing new cultures, spending time with friends, reading, working out, and studying economics.",
     "pt-br":
       "Apaixonado por tecnologia, blockchain, astronomia e economia, também gosto de viajar, conhecer novas culturas, passar tempo com amigos, ler, malhar e estudar economia.",
+    "es-es":
+      "Apasionado de la tecnología, blockchain, astronomía y economía, también me encanta viajar, conocer nuevas culturas, pasar tiempo con amigos, leer, hacer ejercicio y estudiar economía.",
   },
   info: [
     {
-      fieldName: { "en-us": "Name", "pt-br": "Nome" },
+      fieldName: { "en-us": "Name", "pt-br": "Nome", "es-es": "Nombre" },
       fieldValue: { "en-us": "Matheus Cruz" },
     },
     {
-      fieldName: { "en-us": "Phone", "pt-br": "Telefone" },
+      fieldName: { "en-us": "Phone", "pt-br": "Telefone", "es-es": "Teléfono" },
       fieldValue: { "en-us": "+55 51986106570" },
     },
     {
-      fieldName: { "en-us": "Experience", "pt-br": "Experiência" },
+      fieldName: {
+        "en-us": "Experience",
+        "pt-br": "Experiência",
+        "es-es": "Experiencia",
+      },
       fieldValue: {
         "en-us": `${calculateProgrammingExperience()} Years`,
         "pt-br": `${calculateProgrammingExperience()} Anos`,
+        "es-es": `${calculateProgrammingExperience()} Años`,
       },
     },
     {
-      fieldName: { "en-us": "Nationality", "pt-br": "Nacionalidade" },
-      fieldValue: { "en-us": "Brazilian", "pt-br": "Brasileiro" },
+      fieldName: {
+        "en-us": "Nationality",
+        "pt-br": "Nacionalidade",
+        "es-es": "Nacionalidad",
+      },
+      fieldValue: {
+        "en-us": "Brazilian",
+        "pt-br": "Brasileiro",
+        "es-es": "Brasileño",
+      },
     },
     {
-      fieldName: { "en-us": "Languages", "pt-br": "Idiomas" },
-      fieldValue: { "en-us": "Portuguese, English", "pt-br": "Português, Inglês" },
+      fieldName: {
+        "en-us": "Languages",
+        "pt-br": "Idiomas",
+        "es-es": "Idiomas",
+      },
+      fieldValue: {
+        "en-us": "Portuguese, English",
+        "pt-br": "Português, Inglês",
+        "es-es": "Portugués, Inglés",
+      },
     },
     {
       fieldName: { "en-us": "Email", "pt-br": "Email" },
