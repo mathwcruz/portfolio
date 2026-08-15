@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "description": "Professional portfolio by Matheus Cruz"
+  },
+  "pages": {
+    "work": {
+      "title": "Projects",
+      "description": "Selected projects by Matheus Cruz — React, Next.js, and TypeScript applications."
+    },
+    "resume": {
+      "title": "Resume",
+      "description": "Experience, education, skills, and background of Matheus Cruz, Front End Developer."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Get in touch with Matheus Cruz about projects and opportunities."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "resume": "Resume",
+    "work": "Projects",
+    "contact": "Contact"
+  },
+  "header": {
+    "hireMe": "Hire Me"
+  },
+  "home": {
+    "role": "Full Stack Developer",
+    "greeting": "Hi,",
+    "im": "I'm",
+    "subtitle": "Front-End specialist (React, Next.js, TypeScript) with working proficiency in Back-End development",
+    "downloadCv": "Download CV"
+  },
+  "stats": {
+    "experience": "Years of Experience",
+    "projects": "Projects Completed",
+    "technologies": "Technologies Mastered"
+  },
+  "resume": {
+    "tab": {
+      "experience": "Experience",
+      "education": "Education",
+      "skills": "Skills",
+      "about": "About Me"
+    },
+    "section": {
+      "experience": "My Experience",
+      "education": "My Education",
+      "skills": "My Skills",
+      "about": "About Me"
+    }
+  },
+  "contact": {
+    "title": "Let's work together",
+    "subtitle": "Got a project in mind? Let's talk — I'll get back to you as soon as possible.",
+    "form": {
+      "firstName": "First name*",
+      "lastName": "Last name*",
+      "email": "Email address*",
+      "message": "Tell me about your project or opportunity...",
+      "send": "Send Message"
+    },
+    "info": {
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address"
+    }
+  },
+  "work": {
+    "liveProject": "Live Project",
+    "github": "GitHub Repository"
+  },
+  "toasts": {
+    "fillAll": "Please fill out all fields.",
+    "sent": "Your message has been sent :)",
+    "failed": "Failed to send the email. Please try again."
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "retry": "Try again"
+  },
+  "locales": {
+    "en-us": "English",
+    "pt-br": "Português",
+    "es-es": "Español"
+  }
+}

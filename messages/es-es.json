@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "description": "Portafolio profesional de Matheus Cruz"
+  },
+  "pages": {
+    "work": {
+      "title": "Proyectos",
+      "description": "Proyectos seleccionados de Matheus Cruz — aplicaciones en React, Next.js y TypeScript."
+    },
+    "resume": {
+      "title": "Currículum",
+      "description": "Experiencia, formación, habilidades y trayectoria de Matheus Cruz, Desarrollador Front End."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Ponte en contacto con Matheus Cruz para proyectos y oportunidades."
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "resume": "Currículum",
+    "work": "Proyectos",
+    "contact": "Contacto"
+  },
+  "header": {
+    "hireMe": "Contrátame"
+  },
+  "home": {
+    "role": "Desarrollador Full Stack",
+    "greeting": "Hola,",
+    "im": "soy",
+    "subtitle": "Especialista Front-End (React, Next.js, TypeScript) con conocimientos de desarrollo Back-End",
+    "downloadCv": "Descargar CV"
+  },
+  "stats": {
+    "experience": "Años de Experiencia",
+    "projects": "Proyectos Completados",
+    "technologies": "Tecnologías Dominadas"
+  },
+  "resume": {
+    "tab": {
+      "experience": "Experiencia",
+      "education": "Formación",
+      "skills": "Habilidades",
+      "about": "Sobre Mí"
+    },
+    "section": {
+      "experience": "Mi Experiencia",
+      "education": "Mi Formación",
+      "skills": "Mis Habilidades",
+      "about": "Sobre Mí"
+    }
+  },
+  "contact": {
+    "title": "Trabajemos juntos",
+    "subtitle": "¿Tienes un proyecto en mente? Hablemos — te responderé lo antes posible.",
+    "form": {
+      "firstName": "Nombre*",
+      "lastName": "Apellido*",
+      "email": "Correo electrónico*",
+      "message": "Cuéntame sobre tu proyecto u oportunidad...",
+      "send": "Enviar Mensaje"
+    },
+    "info": {
+      "phone": "Teléfono",
+      "email": "Correo",
+      "address": "Dirección"
+    }
+  },
+  "work": {
+    "liveProject": "Proyecto en Vivo",
+    "github": "Repositorio de GitHub"
+  },
+  "toasts": {
+    "fillAll": "Por favor, completa todos los campos.",
+    "sent": "Tu mensaje ha sido enviado :)",
+    "failed": "Error al enviar el correo. Inténtalo de nuevo."
+  },
+  "error": {
+    "title": "Algo salió mal",
+    "description": "Ocurrió un error inesperado. Inténtalo de nuevo.",
+    "retry": "Intentar de nuevo"
+  },
+  "locales": {
+    "en-us": "Inglés",
+    "pt-br": "Portugués",
+    "es-es": "Español"
+  }
+}

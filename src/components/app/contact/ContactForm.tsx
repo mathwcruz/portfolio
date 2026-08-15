@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { useToast } from "@/hooks/use-toast";
 import { sendEmail } from "@/actions/sendEmail";
 import { Button } from "@/components/ui/button";
@@ -7,6 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const ContactForm = () => {
+  const t = useTranslations("contact");
+  const tToast = useTranslations("toasts");
   const { toast } = useToast();
 
   const sendMessage = async (formData: FormData) => {
@@ -23,7 +27,7 @@ const ContactForm = () => {
 
     if (!allFieldsAreFilled) {
       toast({
-        description: "Please fill out all fields.",
+        description: tToast("fillAll"),
         variant: "destructive",
       });
 
@@ -38,11 +42,11 @@ const ContactForm = () => {
       );
 
       toast({
-        description: "Your message has been sent :)",
+        description: tToast("sent"),
       });
     } catch {
       toast({
-        description: "Failed to send the email. Please try again.",
+        description: tToast("failed"),
         variant: "destructive",
       });
     }
@@ -53,25 +57,23 @@ const ContactForm = () => {
       action={sendMessage}
       className="flex flex-col gap-6 p-10 bg-background-700 rounded-xl"
     >
-      <h3 className="text-2xl lg:text-4xl text-white">Let&apos;s work together</h3>
-      <p className="text-sm lg:text-base text-white/60">
-        Got a project in mind? Let&apos;s talk — I&apos;ll get back to you as soon as possible.
-      </p>
+      <h3 className="text-2xl lg:text-4xl text-white">{t("title")}</h3>
+      <p className="text-sm lg:text-base text-white/60">{t("subtitle")}</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Input name="firstName" placeholder="First name*" />
-        <Input name="lastName" placeholder="Last name*" />
-        <Input type="email" name="email" placeholder="Email address*" />
+        <Input name="firstName" placeholder={t("form.firstName")} />
+        <Input name="lastName" placeholder={t("form.lastName")} />
+        <Input type="email" name="email" placeholder={t("form.email")} />
       </div>
 
       <Textarea
         name="message"
         className="h-[200px]"
-        placeholder="Tell me about your project or opportunity..."
+        placeholder={t("form.message")}
       />
 
       <Button type="submit" size="md" className="max-w-40">
-        Send Message
+        {t("form.send")}
       </Button>
     </form>
   );

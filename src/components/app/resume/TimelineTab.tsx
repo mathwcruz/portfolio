@@ -29,7 +29,7 @@ const TimelineTab = ({ title, description, items }: TimelineTabProps) => {
             >
               <span className="text-accent">{item.duration}</span>
 
-              <h3 className="text-lg lg:text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+              <h3 className="text-lg max-w-[260px] min-h-[60px] text-center lg:text-left">
                 {item.primary}
               </h3>
 

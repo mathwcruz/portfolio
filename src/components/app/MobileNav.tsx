@@ -1,17 +1,16 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { CiMenuFries } from "react-icons/ci";
 
+import { Link, usePathname } from "@/i18n/navigation";
 import { links } from "@/utils/data/routes";
-
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const MobileNav = () => {
   const pathname = usePathname();
-
+  const t = useTranslations("nav");
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
@@ -23,9 +22,9 @@ const MobileNav = () => {
       <SheetContent className="flex flex-col">
         <div className="mt-32 mb-40 text-center text-2xl">
           <Link href="/" onClick={() => setIsNavOpen(false)}>
-            <h1 className="text-4xl font-semibold">
+            <span className="text-4xl font-semibold">
               Cruz<span className="text-accent">.</span>
-            </h1>
+            </span>
           </Link>
         </div>
 
@@ -42,7 +41,7 @@ const MobileNav = () => {
                     : ""
                 } text-xl capitalize hover:text-accent transition-all`}
               >
-                {link.name}
+                {t(link.key)}
               </Link>
             );
           })}

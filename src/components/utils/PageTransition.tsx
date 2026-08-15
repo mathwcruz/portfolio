@@ -1,9 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
 
-import { ReactNode } from "react";
+import { usePathname } from "@/i18n/navigation";
 
 interface PageTransitionProps {
   children: ReactNode;

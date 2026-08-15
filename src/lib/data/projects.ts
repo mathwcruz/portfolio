@@ -1,21 +1,28 @@
 import type { TechName } from "@/lib/tech-icons";
+import type { LocalizedText } from "@/lib/localize";
 
-export type Project = {
+export type RawProject = {
   num: string;
   title: string;
-  description: string;
+  description: LocalizedText;
   stack: { name: string; tech: TechName }[];
   image: string;
   live?: string;
   github: string;
 };
 
-export const projects: Project[] = [
+export type Project = Omit<RawProject, "description"> & { description: string };
+
+export const projects: RawProject[] = [
   {
     num: "01",
     title: "Gelify",
-    description:
-      "An app for managing your users, clients, suppliers, products, purchases, and sales.",
+    description: {
+      "en-us":
+        "An app for managing your users, clients, suppliers, products, purchases, and sales.",
+      "pt-br":
+        "Um aplicativo para gerenciar seus usuários, clientes, fornecedores, produtos, compras e vendas.",
+    },
     stack: [
       { name: "TailwindCSS", tech: "tailwind" },
       { name: "Supabase", tech: "supabase" },
@@ -30,8 +37,12 @@ export const projects: Project[] = [
   {
     num: "02",
     title: "letmeask",
-    description:
-      "An app that connects people with questions about a specific topic to those who can answer them.",
+    description: {
+      "en-us":
+        "An app that connects people with questions about a specific topic to those who can answer them.",
+      "pt-br":
+        "Um aplicativo que conecta pessoas com perguntas sobre um tema específico a quem pode respondê-las.",
+    },
     stack: [
       { name: "HTML", tech: "html" },
       { name: "Sass", tech: "sass" },
@@ -46,8 +57,12 @@ export const projects: Project[] = [
   {
     num: "03",
     title: "move.it",
-    description:
-      "An application that reminds you to take a break and exercise every 25 minutes using the Pomodoro technique.",
+    description: {
+      "en-us":
+        "An application that reminds you to take a break and exercise every 25 minutes using the Pomodoro technique.",
+      "pt-br":
+        "Um aplicativo que lembra você de fazer uma pausa e se exercitar a cada 25 minutos usando a técnica Pomodoro.",
+    },
     stack: [
       { name: "HTML", tech: "html" },
       { name: "CSS", tech: "css" },
@@ -62,8 +77,12 @@ export const projects: Project[] = [
   {
     num: "04",
     title: "dt money",
-    description:
-      "A personal finance management app where you can track your income and expenses.",
+    description: {
+      "en-us":
+        "A personal finance management app where you can track your income and expenses.",
+      "pt-br":
+        "Um aplicativo de gestão financeira pessoal onde você pode acompanhar suas receitas e despesas.",
+    },
     stack: [
       { name: "HTML", tech: "html" },
       { name: "CSS", tech: "css" },
@@ -77,8 +96,12 @@ export const projects: Project[] = [
   {
     num: "05",
     title: "Proffy",
-    description:
-      "An application that connects private tutors with students looking for that service.",
+    description: {
+      "en-us":
+        "An application that connects private tutors with students looking for that service.",
+      "pt-br":
+        "Um aplicativo que conecta professores particulares a estudantes que procuram esse serviço.",
+    },
     stack: [
       { name: "HTML", tech: "html" },
       { name: "CSS", tech: "css" },
@@ -93,8 +116,12 @@ export const projects: Project[] = [
   {
     num: "06",
     title: "ig.news",
-    description:
-      "A blog application where you can log in with your GitHub credentials and subscribe for more content.",
+    description: {
+      "en-us":
+        "A blog application where you can log in with your GitHub credentials and subscribe for more content.",
+      "pt-br":
+        "Um aplicativo de blog onde você pode entrar com suas credenciais do GitHub e assinar para mais conteúdos.",
+    },
     stack: [
       { name: "HTML", tech: "html" },
       { name: "CSS", tech: "css" },
@@ -111,8 +138,12 @@ export const projects: Project[] = [
   {
     num: "07",
     title: "Podcastr",
-    description:
-      "A podcast app where you can play, pause, and choose a specific episode.",
+    description: {
+      "en-us":
+        "A podcast app where you can play, pause, and choose a specific episode.",
+      "pt-br":
+        "Um aplicativo de podcast onde você pode reproduzir, pausar e escolher um episódio específico.",
+    },
     stack: [
       { name: "HTML", tech: "html" },
       { name: "CSS", tech: "css" },
@@ -128,8 +159,12 @@ export const projects: Project[] = [
   {
     num: "08",
     title: "Alurakut",
-    description:
-      "An application that recreates some of the features of the now-defunct Orkut.",
+    description: {
+      "en-us":
+        "An application that recreates some of the features of the now-defunct Orkut.",
+      "pt-br":
+        "Um aplicativo que recria alguns dos recursos do extinto Orkut.",
+    },
     stack: [
       { name: "Styled Components", tech: "styledcomponents" },
       { name: "DatoCMS", tech: "datocms" },
@@ -144,8 +179,12 @@ export const projects: Project[] = [
   {
     num: "09",
     title: "dashgo.",
-    description:
-      "A dashboard application for managing users, with charts and other data visualizations.",
+    description: {
+      "en-us":
+        "A dashboard application for managing users, with charts and other data visualizations.",
+      "pt-br":
+        "Um aplicativo de dashboard para gerenciamento de usuários, com gráficos e outras visualizações de dados.",
+    },
     stack: [
       { name: "HTML", tech: "html" },
       { name: "Chakra UI", tech: "chakra" },
@@ -160,8 +199,12 @@ export const projects: Project[] = [
   {
     num: "10",
     title: "Coffee Delivery",
-    description:
-      "An app that simulates a café delivery service where you can order your favorite coffees.",
+    description: {
+      "en-us":
+        "An app that simulates a café delivery service where you can order your favorite coffees.",
+      "pt-br":
+        "Um aplicativo que simula um serviço de entrega de café onde você pode pedir seus cafés favoritos.",
+    },
     stack: [
       { name: "Styled Components", tech: "styledcomponents" },
       { name: "React", tech: "react" },

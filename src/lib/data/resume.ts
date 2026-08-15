@@ -1,76 +1,111 @@
 import type { TechName } from "@/lib/tech-icons";
+import type { LocalizedText } from "@/lib/localize";
 import { calculateProgrammingExperience } from "@/utils/date";
 
 export type ExperienceItem = {
   company: string;
-  position: string;
-  duration: string;
+  position: LocalizedText;
+  duration: LocalizedText;
 };
 
 export type ResumeExperience = {
-  title: string;
-  description: string;
+  description: LocalizedText;
   items: ExperienceItem[];
 };
 
 export const experience: ResumeExperience = {
-  title: "My Experience",
-  description:
-    "These are the professional experiences I had the pleasure of being part of.",
+  description: {
+    "en-us":
+      "These are the professional experiences I had the pleasure of being part of.",
+    "pt-br":
+      "Estas são as experiências profissionais das quais tive o prazer de fazer parte.",
+  },
   items: [
     {
       company: "ADP Brazil Labs",
-      position: "Front End Developer",
-      duration: "Aug. 2022 - Jun. 2026",
+      position: {
+        "en-us": "Front End Developer",
+        "pt-br": "Desenvolvedor Front End",
+      },
+      duration: {
+        "en-us": "Aug. 2022 - Jun. 2026",
+        "pt-br": "Ago. 2022 - Jun. 2026",
+        "es-es": "ago. 2022 - jun. 2026",
+      },
     },
     {
       company: "DigiSinan",
-      position: "Co-Founder & Front End Developer",
-      duration: "Jul. 2021 - May 2022",
+      position: {
+        "en-us": "Co-Founder & Front End Developer",
+        "pt-br": "Cofundador & Desenvolvedor Front End",
+      },
+      duration: {
+        "en-us": "Jul. 2021 - May 2022",
+        "pt-br": "Jul. 2021 - Mai. 2022",
+        "es-es": "jul. 2021 - may. 2022",
+      },
     },
     {
       company: "caf.",
-      position: "Junior Front End Developer",
-      duration: "May 2021 - Jul. 2022",
+      position: {
+        "en-us": "Junior Front End Developer",
+        "pt-br": "Desenvolvedor Front End Júnior",
+      },
+      duration: {
+        "en-us": "May 2021 - Jul. 2022",
+        "pt-br": "Mai. 2021 - Jul. 2022",
+        "es-es": "may. 2021 - jul. 2022",
+      },
     },
   ],
 };
 
 export type EducationItem = {
   institution: string;
-  degree: string;
+  degree: LocalizedText;
   duration: string;
 };
 
 export type ResumeEducation = {
-  title: string;
-  description: string;
+  description: LocalizedText;
   items: EducationItem[];
 };
 
 export const education: ResumeEducation = {
-  title: "My Education",
-  description:
-    "These are the lessons I consider the most relevant and that helped shape the professional I am today.",
+  description: {
+    "en-us":
+      "These are the lessons I consider the most relevant and that helped shape the professional I am today.",
+    "pt-br":
+      "Estas são as formações que considero mais relevantes e que ajudaram a moldar o profissional que sou hoje.",
+  },
   items: [
     {
       institution: "Univates",
-      degree: "Associate degree",
+      degree: {
+        "en-us": "Associate degree",
+        "pt-br": "Tecnólogo",
+      },
       duration: "2020 - 2023",
     },
     {
       institution: "Rocketseat",
-      degree: "Web Development Bootcamp",
+      degree: {
+        "en-us": "Web Development Bootcamp",
+        "pt-br": "Bootcamp de Desenvolvimento Web",
+      },
       duration: "2021",
     },
     {
       institution: "University of Michigan",
-      degree: "Michigan Language Assessment",
+      degree: { "en-us": "Michigan Language Assessment" },
       duration: "2019",
     },
     {
       institution: "Fisk",
-      degree: "English course",
+      degree: {
+        "en-us": "English course",
+        "pt-br": "Curso de Inglês",
+      },
       duration: "2017 - 2019",
     },
   ],
@@ -79,15 +114,16 @@ export const education: ResumeEducation = {
 export type Skill = { name: string; tech: TechName };
 
 export type ResumeSkills = {
-  title: string;
-  description: string;
+  description: LocalizedText;
   skillList: Skill[];
 };
 
 export const skills: ResumeSkills = {
-  title: "My Skills",
-  description:
-    "These are the hard skills I’ve been working on and improving every day.",
+  description: {
+    "en-us": "These are the hard skills I’ve been working on and improving every day.",
+    "pt-br":
+      "Estas são as habilidades técnicas que venho aprimorando todos os dias.",
+  },
   skillList: [
     { name: "HTML", tech: "html" },
     { name: "CSS", tech: "css" },
@@ -110,27 +146,47 @@ export const skills: ResumeSkills = {
   ],
 };
 
-export type AboutInfo = { fieldName: string; fieldValue: string };
+export type AboutInfo = { fieldName: LocalizedText; fieldValue: LocalizedText };
 
 export type ResumeAbout = {
-  title: string;
-  description: string;
+  description: LocalizedText;
   info: AboutInfo[];
 };
 
 export const about: ResumeAbout = {
-  title: "About Me",
-  description:
-    "Passionate about technology, blockchain, astronomy, and economics, I also love traveling, experiencing new cultures, spending time with friends, reading, working out, and studying economics.",
+  description: {
+    "en-us":
+      "Passionate about technology, blockchain, astronomy, and economics, I also love traveling, experiencing new cultures, spending time with friends, reading, working out, and studying economics.",
+    "pt-br":
+      "Apaixonado por tecnologia, blockchain, astronomia e economia, também gosto de viajar, conhecer novas culturas, passar tempo com amigos, ler, malhar e estudar economia.",
+  },
   info: [
-    { fieldName: "Name", fieldValue: "Matheus Cruz" },
-    { fieldName: "Phone", fieldValue: "+55 51986106570" },
     {
-      fieldName: "Experience",
-      fieldValue: `${calculateProgrammingExperience()} Years`,
+      fieldName: { "en-us": "Name", "pt-br": "Nome" },
+      fieldValue: { "en-us": "Matheus Cruz" },
     },
-    { fieldName: "Nationality", fieldValue: "Brazilian" },
-    { fieldName: "Languages", fieldValue: "Portuguese, English" },
-    { fieldName: "Email", fieldValue: "matheuswachcruz@gmail.com" },
+    {
+      fieldName: { "en-us": "Phone", "pt-br": "Telefone" },
+      fieldValue: { "en-us": "+55 51986106570" },
+    },
+    {
+      fieldName: { "en-us": "Experience", "pt-br": "Experiência" },
+      fieldValue: {
+        "en-us": `${calculateProgrammingExperience()} Years`,
+        "pt-br": `${calculateProgrammingExperience()} Anos`,
+      },
+    },
+    {
+      fieldName: { "en-us": "Nationality", "pt-br": "Nacionalidade" },
+      fieldValue: { "en-us": "Brazilian", "pt-br": "Brasileiro" },
+    },
+    {
+      fieldName: { "en-us": "Languages", "pt-br": "Idiomas" },
+      fieldValue: { "en-us": "Portuguese, English", "pt-br": "Português, Inglês" },
+    },
+    {
+      fieldName: { "en-us": "Email", "pt-br": "Email" },
+      fieldValue: { "en-us": "matheuswachcruz@gmail.com" },
+    },
   ],
 };

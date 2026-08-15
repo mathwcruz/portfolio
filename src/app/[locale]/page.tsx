@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { FiDownload } from "react-icons/fi";
 
 import { Button } from "@/components/ui/button";
@@ -7,25 +7,28 @@ import Photo from "@/components/app/home/Photo";
 import Stats from "@/components/app/home/Stats";
 import { stats } from "@/lib/data/profile";
 
-const Home = () => {
+const Home = async () => {
+  const t = await getTranslations("home");
+
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-0">
             <span className="text-lg md:text-xl block mb-3 lg:mb-0">
-              Full Stack Developer
+              {t("role")}
             </span>
 
             <h1 className="h1 mb-6">
-              Hi,<br />
+              {t("greeting")}
+              <br />
               <span className="text-xl md:text-2xl xl:text-5xl">
-                I&apos;m <span className="text-accent">Matheus Cruz</span>
+                {t("im")} <span className="text-accent">Matheus Cruz</span>
               </span>
             </h1>
 
             <p className="max-w-[500px] mb-9 text-white/80 text-sm md:text-base">
-              Front-End specialist (React, Next.js, TypeScript) with working proficiency in Back-End development
+              {t("subtitle")}
             </p>
 
             <div className="flex flex-col xl:flex-row items-center gap-8">
@@ -35,13 +38,13 @@ const Home = () => {
                 size="lg"
                 className="uppercase flex items-center gap-2 text-sm md:text-base"
               >
-                <Link
+                <a
                   href="/assets/files/cv.pdf"
                   download="resume-matheus-wachholtz-da-cruz.pdf"
                 >
-                  <span>Download CV</span>
+                  <span>{t("downloadCv")}</span>
                   <FiDownload className="text-lg md:text-xl" />
-                </Link>
+                </a>
               </Button>
 
               <div className="mb-8 xl:mb-0">

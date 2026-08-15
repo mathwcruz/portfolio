@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,6 +20,7 @@ import { TechIcon } from "@/lib/tech-icons";
 import type { Project } from "@/lib/data/projects";
 
 const WorkSlider = ({ projects }: { projects: Project[] }) => {
+  const t = useTranslations("work");
   const [project, setProject] = useState<Project>(projects[0]);
 
   const handleSlideChange = (swiper: SwiperType) => {
@@ -74,7 +76,7 @@ const WorkSlider = ({ projects }: { projects: Project[] }) => {
                       </TooltipTrigger>
 
                       <TooltipContent>
-                        <p>Live Project</p>
+                        <p>{t("liveProject")}</p>
                       </TooltipContent>
                     </Tooltip>
                   </Link>
@@ -91,7 +93,7 @@ const WorkSlider = ({ projects }: { projects: Project[] }) => {
                     </TooltipTrigger>
 
                     <TooltipContent>
-                      <p>GitHub Repository</p>
+                      <p>{t("github")}</p>
                     </TooltipContent>
                   </Tooltip>
                 </Link>

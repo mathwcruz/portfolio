@@ -13,34 +13,24 @@ export const socials: Social[] = [
   },
 ];
 
-export type Stat = { num: number; text: string };
+export type Stat = { num: number; key: "experience" | "projects" | "technologies" };
 
 export const stats: Stat[] = [
-  { num: calculateProgrammingExperience(), text: "Years of Experience" },
-  { num: 25, text: "Projects Completed" },
-  { num: 8, text: "Technologies Mastered" },
+  { num: calculateProgrammingExperience(), key: "experience" },
+  { num: 25, key: "projects" },
+  { num: 8, key: "technologies" },
 ];
 
 export type ContactInfo = {
-  icon: "phone" | "email" | "address";
-  title: string;
+  key: "phone" | "email" | "address";
   description: string;
 };
 
 export const contactInfo: ContactInfo[] = [
+  { key: "phone", description: "+55 51986106570" },
+  { key: "email", description: "matheuswachcruz@gmail.com" },
   {
-    icon: "phone",
-    title: "Phone",
-    description: "+55 51986106570",
-  },
-  {
-    icon: "email",
-    title: "Email",
-    description: "matheuswachcruz@gmail.com",
-  },
-  {
-    icon: "address",
-    title: "Address",
+    key: "address",
     description: "Venâncio Aires, Rio Grande do Sul, BRAZIL",
   },
 ];

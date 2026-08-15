@@ -1,3 +1,5 @@
+import { getLocale, getTranslations } from "next-intl/server";
+
 import {
   Tooltip,
   TooltipContent,
@@ -6,15 +8,20 @@ import {
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TechIcon } from "@/lib/tech-icons";
+import { tr } from "@/lib/localize";
+import type { AppLocale } from "@/i18n/routing";
 import type { ResumeSkills } from "@/lib/data/resume";
 
-const SkillsTab = ({ skills }: { skills: ResumeSkills }) => {
+const SkillsTab = async ({ skills }: { skills: ResumeSkills }) => {
+  const t = await getTranslations("resume");
+  const locale = (await getLocale()) as AppLocale;
+
   return (
     <div className="flex flex-col gap-[30px]">
       <div className="flex flex-col gap-[16px] lg:gap-[30px] text-center xl:text-left">
-        <h3 className="text-2xl md:text-4xl font-bold">{skills.title}</h3>
+        <h3 className="text-2xl md:text-4xl font-bold">{t("section.skills")}</h3>
         <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 text-sm lg:text-base">
-          {skills.description}
+          {tr(skills.description, locale)}
         </p>
       </div>
 
