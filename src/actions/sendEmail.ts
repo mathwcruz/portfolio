@@ -8,6 +8,22 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const HONEYPOT_FIELD = "website";
 const MIN_FILL_TIME_MS = 3000;
 
+const verifyTurnstile = async (token: string) => {
+  const res = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        secret: process.env.TURNSTILE_SECRET_KEY!,
+        response: token,
+      }),
+    }
+  );
+
+  return ((await res.json()) as { success: boolean }).success;
+};
+
 export const sendEmail = async (formData: FormData) => {
   const get = (key: string) =>
     (formData.get(key) as string | null)?.trim() ?? "";
@@ -31,6 +47,11 @@ export const sendEmail = async (formData: FormData) => {
   }
   if (name.length > 100 || message.length > 5000) {
     throw new Error("Input too long.");
+  }
+
+  const token = get("cf-turnstile-response");
+  if (!token || !(await verifyTurnstile(token))) {
+    throw new Error("Captcha verification failed.");
   }
 
   try {

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useTranslations } from "next-intl";
+import Script from "next/script";
+import { useLocale, useTranslations } from "next-intl";
 
 import { useToast } from "@/hooks/use-toast";
 import { sendEmail } from "@/actions/sendEmail";
@@ -11,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 const ContactForm = () => {
   const t = useTranslations("contact");
+  const locale = useLocale();
   const tToast = useTranslations("toasts");
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
@@ -79,6 +81,15 @@ const ContactForm = () => {
         name="message"
         className="h-[200px]"
         placeholder={t("form.message")}
+      />
+
+      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" />
+      {/* ponytail: es-es falls back to English if Cloudflare lacks that variant */}
+      <div
+        className="cf-turnstile"
+        data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+        data-theme="dark"
+        data-language={locale}
       />
 
       <Button type="submit" size="md" className="max-w-40">
