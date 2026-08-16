@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 
 import { useToast } from "@/hooks/use-toast";
@@ -12,17 +13,18 @@ const ContactForm = () => {
   const t = useTranslations("contact");
   const tToast = useTranslations("toasts");
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    const field = formRef.current?.elements.namedItem("formRenderedAt");
+    if (field instanceof HTMLInputElement) {
+      field.value = String(Date.now());
+    }
+  }, []);
 
   const sendMessage = async (formData: FormData) => {
-    const mailInfo = {
-      firstName: formData.get("firstName") as string,
-      lastName: formData.get("lastName") as string,
-      email: formData.get("email") as string,
-      message: formData.get("message") as string,
-    };
-
-    const allFieldsAreFilled = Object.values(mailInfo).every(
-      (value) => !!value
+    const allFieldsAreFilled = ["firstName", "lastName", "email", "message"].every(
+      (key) => !!formData.get(key)
     );
 
     if (!allFieldsAreFilled) {
@@ -35,11 +37,7 @@ const ContactForm = () => {
     }
 
     try {
-      await sendEmail(
-        `${mailInfo.firstName} ${mailInfo.lastName}`,
-        mailInfo.email,
-        mailInfo.message
-      );
+      await sendEmail(formData);
 
       toast({
         description: tToast("sent"),
@@ -54,9 +52,20 @@ const ContactForm = () => {
 
   return (
     <form
+      ref={formRef}
       action={sendMessage}
       className="flex flex-col gap-6 p-10 bg-background-700 rounded-xl"
     >
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden
+        className="absolute left-[-9999px] top-0"
+      />
+      <input type="hidden" name="formRenderedAt" />
+
       <h3 className="text-2xl lg:text-4xl text-white">{t("title")}</h3>
       <p className="text-sm lg:text-base text-white/60">{t("subtitle")}</p>
 
