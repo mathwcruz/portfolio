@@ -72,7 +72,6 @@
     "github": "Repositorio de GitHub"
   },
   "toasts": {
-    "fillAll": "Por favor, completa todos los campos.",
     "sent": "Tu mensaje ha sido enviado :)",
     "failed": "Error al enviar el correo. Inténtalo de nuevo."
   },

@@ -5,8 +5,6 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const HONEYPOT_FIELD = "website";
-const MIN_FILL_TIME_MS = 3000;
 
 const verifyTurnstile = async (token: string) => {
   const res = await fetch(
@@ -27,13 +25,6 @@ const verifyTurnstile = async (token: string) => {
 export const sendEmail = async (formData: FormData) => {
   const get = (key: string) =>
     (formData.get(key) as string | null)?.trim() ?? "";
-
-  const honeypot = get(HONEYPOT_FIELD);
-  const renderedAt = Number(formData.get("formRenderedAt"));
-
-  if (honeypot || !renderedAt || Date.now() - renderedAt < MIN_FILL_TIME_MS) {
-    return;
-  }
 
   const name = `${get("firstName")} ${get("lastName")}`.trim();
   const email = get("email");

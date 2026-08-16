@@ -12,24 +12,16 @@ const Photo = () => {
           opacity: 1,
           transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
         }}
+        className="relative w-72 h-72 xl:w-[360px] xl:h-[360px]"
       >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 0.9, duration: 0.4, ease: "easeInOut" },
-          }}
-          className="relative w-72 h-72 xl:w-[360px] xl:h-[360px]"
-        >
-          <Image
-            src="/assets/photo.jpeg"
-            priority
-            fill
-            sizes="(min-width: 1200px) 360px, 288px"
-            alt=""
-            className="object-cover rounded-full"
-          />
-        </motion.div>
+        <Image
+          src="/assets/photo.jpeg"
+          priority
+          fill
+          sizes="(min-width: 1200px) 360px, 288px"
+          alt=""
+          className="object-cover rounded-full"
+        />
       </motion.div>
     </div>
   );

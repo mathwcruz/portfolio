@@ -72,7 +72,6 @@
     "github": "GitHub Repository"
   },
   "toasts": {
-    "fillAll": "Please fill out all fields.",
     "sent": "Your message has been sent :)",
     "failed": "Failed to send the email. Please try again."
   },
@@ -83,7 +82,7 @@
   },
   "locales": {
     "en-us": "English",
-    "pt-br": "Português",
-    "es-es": "Español"
+    "pt-br": "Portuguese",
+    "es-es": "Spanish"
   }
 }
