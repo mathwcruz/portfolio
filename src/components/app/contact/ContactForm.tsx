@@ -10,6 +10,12 @@ import { Textarea } from "@/components/ui/textarea";
 import Script from "next/script";
 import { useLocale } from "next-intl";
 
+declare global {
+  interface Window {
+    turnstile?: { reset: () => void };
+  }
+}
+
 const ContactForm = () => {
   const t = useTranslations("contact");
   const tToast = useTranslations("toasts");
@@ -28,6 +34,9 @@ const ContactForm = () => {
         description: tToast("failed"),
         variant: "destructive",
       });
+    } finally {
+      // tokens are single-use; without reset every retry fails
+      window.turnstile?.reset();
     }
   };
 

@@ -45,16 +45,15 @@ export const sendEmail = async (formData: FormData) => {
     throw new Error("Captcha verification failed.");
   }
 
-  try {
-    await resend.emails.send({
-      to: "matheuswachcruz@gmail.com",
-      from: "onboarding@resend.dev",
-      subject: `Message from ${name} <${email}>`,
-      html: `<span>${message}</span>`,
-    });
-  } catch (error) {
-    console.error(`Failed to send email: ${error}`);
-
+  // resend returns { error } instead of throwing on API rejection
+  const { error } = await resend.emails.send({
+    to: "matheuswachcruz@gmail.com",
+    from: "onboarding@resend.dev",
+    subject: `Message from ${name} <${email}>`,
+    html: `<span>${message}</span>`,
+  });
+  if (error) {
+    console.error(`Failed to send email: ${error.message}`);
     throw new Error("Email sending failed");
   }
 };
