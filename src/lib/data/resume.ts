@@ -130,11 +130,11 @@ export type ResumeSkills = {
 
 export const skills: ResumeSkills = {
   description: {
-    "en-us": "These are the hard skills I’ve been working on and improving every day.",
+    "en-us": "These are the technical skills I have been gradually refining.",
     "pt-br":
-      "Estas são as habilidades técnicas que venho aprimorando todos os dias.",
+      "Estas são as habilidades técnicas que venho aprimorando gradualmente.",
     "es-es":
-      "Estas son las habilidades técnicas en las que he estado trabajando y mejorando cada día.",
+      "Estas son las habilidades técnicas que he ido perfeccionando gradualmente.",
   },
   skillList: [
     { name: "HTML", tech: "html" },
@@ -168,11 +168,11 @@ export type ResumeAbout = {
 export const about: ResumeAbout = {
   description: {
     "en-us":
-      "Passionate about technology, blockchain, astronomy, and economics, I also love traveling, experiencing new cultures, spending time with friends, reading, working out, and studying economics.",
+      "Passionate about technology, blockchain, astronomy, and economics, I also love traveling, experiencing new cultures, spending time with friends, reading and working out.",
     "pt-br":
-      "Apaixonado por tecnologia, blockchain, astronomia e economia, também gosto de viajar, conhecer novas culturas, passar tempo com amigos, ler, malhar e estudar economia.",
+      "Apaixonado por tecnologia, blockchain, astronomia e economia, também gosto de viajar, conhecer novas culturas, passar tempo com amigos, ler e treinar.",
     "es-es":
-      "Apasionado de la tecnología, blockchain, astronomía y economía, también me encanta viajar, conocer nuevas culturas, pasar tiempo con amigos, leer, hacer ejercicio y estudiar economía.",
+      "Apasionado de la tecnología, blockchain, astronomía y economía, también me encanta viajar, conocer nuevas culturas, pasar tiempo con amigos, leer y hacer ejercicio.",
   },
   info: [
     {
