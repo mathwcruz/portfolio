@@ -9,10 +9,24 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Script from "next/script";
 import { useLocale } from "next-intl";
+import { useCallback, useEffect, useRef } from "react";
 
 declare global {
   interface Window {
-    turnstile?: { reset: () => void };
+    turnstile?: {
+      render: (
+        el: HTMLElement,
+        opts: {
+          sitekey: string;
+          theme: string;
+          language: string;
+          "error-callback": (code: string) => boolean;
+          "expired-callback": () => void;
+        }
+      ) => string;
+      reset: (id?: string) => void;
+      remove: (id?: string) => void;
+    };
   }
 }
 
@@ -21,6 +35,32 @@ const ContactForm = () => {
   const tToast = useTranslations("toasts");
   const locale = useLocale();
   const { toast } = useToast();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<string | undefined>(undefined);
+
+  const renderWidget = useCallback(() => {
+    if (!containerRef.current || widgetId.current !== undefined) return;
+    widgetId.current = window.turnstile?.render(containerRef.current, {
+      sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "",
+      theme: "dark",
+      language: locale,
+      "error-callback": (code: string) => {
+        console.error(`turnstile error ${code}`);
+        return true;
+      },
+      "expired-callback": () => {
+        console.warn("turnstile token expired");
+      },
+    });
+  }, [locale]);
+
+  useEffect(() => {
+    renderWidget();
+    return () => {
+      window.turnstile?.remove(widgetId.current);
+      widgetId.current = undefined;
+    };
+  }, [renderWidget]);
 
   const sendMessage = async (formData: FormData) => {
     try {
@@ -35,8 +75,8 @@ const ContactForm = () => {
         variant: "destructive",
       });
     } finally {
-      // tokens are single-use; without reset every retry fails
-      window.turnstile?.reset();
+      // tokens are single-use; reset by id — no-arg reset() throws on explicit widgets
+      window.turnstile?.reset(widgetId.current);
     }
   };
 
@@ -61,13 +101,11 @@ const ContactForm = () => {
         placeholder={t("form.message")}
       />
 
-      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" />
-      <div
-        className="cf-turnstile"
-        data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-        data-theme="dark"
-        data-language={locale}
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        onLoad={renderWidget}
       />
+      <div ref={containerRef} />
 
       <Button type="submit" size="md" className="max-w-40">
         {t("form.send")}
